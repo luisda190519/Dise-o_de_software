@@ -1,2 +1,2 @@
-# Dise-o_de_software
+# Software design I
 Programa de diseño de software I
