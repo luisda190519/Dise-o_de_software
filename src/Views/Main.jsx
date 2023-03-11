@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
 
 let card_test1 = {
+    id: 1,
     title: "Guarda de Seguridad",
     location: "Bogota",
     company: "MANPOWER PROFESSIONAL LTDA",
@@ -26,6 +27,7 @@ let card_test1 = {
 };
 
 let card_test2 = {
+    id: 2,
     title: "Desarollador/a Full Stack",
     location: "Bogotá, D.C.",
     company: "Agencia de empleo de Colsubsidio",
@@ -56,6 +58,7 @@ let card_test2 = {
 };
 
 let card_test3 = {
+    id: 3,
     title: "Asesor/a comercial con moto",
     location: "Medellín, Antioquia",
     company: "COMFAMA",
@@ -131,6 +134,7 @@ function Main() {
                                 >
                                     <Jobannouncement
                                         job={anuncio}
+                                        jobFocus={jobFocus}
                                         setJobfocus={setJobfocus}
                                     />
                                 </div>

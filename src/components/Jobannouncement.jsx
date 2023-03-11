@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 
-function Jobannouncement({
-    job,
-    active = false,
-    setJobfocus
-}) {
+function Jobannouncement({ job, setJobfocus, jobFocus }) {
+    const [active, setActive] = useState(false);
 
-    const seeJobAnnouncement = function(e){
+    const seeJobAnnouncement = function (e) {
         e.preventDefault();
-        setJobfocus(job)
-    }
+        setJobfocus(job);
+    };
+
+    useEffect(() => {
+        if(job.id == jobFocus.id){
+            return setActive(true)
+        }
+        return setActive(false)
+    }, [job, jobFocus]);
 
     return (
         <div
@@ -28,7 +32,10 @@ function Jobannouncement({
                             <h5>{job.location}</h5>
                         </div>
                         <div className="col-md-4 d-flex flex-row-reverse">
-                            <img src={job.image} class="img-fluid rounded-start" />
+                            <img
+                                src={job.image}
+                                class="img-fluid rounded-start"
+                            />
                         </div>
                     </div>
 
