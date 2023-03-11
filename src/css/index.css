@@ -9,7 +9,7 @@ body {
 }
 
 #scrolleable {
-    max-height: 600px;
+    max-height: 440px;
     overflow-y: scroll;
 }
 
@@ -21,15 +21,25 @@ body {
     cursor: pointer;
 }
 
-#navbar-buttons{
-  display: inline-block;
-  color: #005DA9;
+#navbar-buttons {
+    display: inline-block;
+    color: #005da9;
 }
 
-#hdv{
-  color: #005DA9;
-  border-color: #005DA9;
-  font-weight: bold;
-  background-color: white;
+#hdv {
+    color: #005da9;
+    border-color: #005da9;
+    font-weight: bold;
+    background-color: white;
 }
 
+#btn-filter {
+    background-color: white;
+    color: #4b5968;
+    border: 1px solid #e1e5ea;
+    font-weight: bold;
+}
+
+#filter-value {
+    background-color: #f6fbff;
+}
