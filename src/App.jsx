@@ -5,9 +5,6 @@ import Main from "./Views/Main";
 function App() {
     return (
         <div>
-            <div className="sidebar">
-                <Sidebar />
-            </div>
             <div className="navbar">
                 <Navbar />
             </div>

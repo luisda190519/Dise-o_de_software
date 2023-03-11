@@ -43,3 +43,10 @@ body {
 #filter-value {
     background-color: #f6fbff;
 }
+
+#sidebar{
+    margin-left: -0%;
+    margin-top: -160%;
+    height: 135%;
+    background-color: #005da9;
+}

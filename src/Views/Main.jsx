@@ -1,6 +1,7 @@
 import Jobcard from "../components/Jobcard";
 import Jobannouncement from "../components/Jobannouncement";
 import DropdownButtons from "../components/DropdownButtons";
+import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
 
 let card_test1 = {
@@ -263,6 +264,9 @@ function Main() {
             </div>
 
             <div class="row gx-0 justify-content-end">
+                <div className="col-1">
+                    <Sidebar/>
+                </div>
                 <div class="col-5">
                     <div className="card" id="scrolleable">
                         {anuncios.map((anuncio, key) => {
