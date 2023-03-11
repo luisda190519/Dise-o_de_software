@@ -25,7 +25,7 @@ function Jobcard({ job }) {
                         {job.rating}
                     </p>
                     <p>
-                        <button className="btn btn-primary btn-lg rounded-pill me-2" style={{backgroundColor:"#005da9"}}>
+                        <button className="btn btn-light btn-lg rounded-pill me-2 text-white" style={{backgroundColor:"#0D3878"}}>
                             Postularme
                         </button>
                         <button className="btn btn-light btn-lg rounded-circle mx-2">

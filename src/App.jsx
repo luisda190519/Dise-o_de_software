@@ -5,11 +5,8 @@ import Main from "./Views/Main";
 function App() {
     return (
         <div>
-            <div className="navbar">
-                <Navbar />
-            </div>
             <div className="main">
-                <div className=""  >
+                <div className="">
                     <Main />
                 </div>
             </div>

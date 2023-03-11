@@ -21,14 +21,22 @@ body {
     cursor: pointer;
 }
 
+#clickeable{
+    cursor: pointer;
+}
+
 #navbar-buttons {
     display: inline-block;
-    color: #005da9;
+    color: #0D3878;
+}
+
+#sidebar-buttons{
+    color: white;
 }
 
 #hdv {
-    color: #005da9;
-    border-color: #005da9;
+    color: #0D3878;
+    border-color: #0D3878;
     font-weight: bold;
     background-color: white;
 }
@@ -45,8 +53,7 @@ body {
 }
 
 #sidebar{
-    margin-left: -0%;
-    margin-top: -160%;
-    height: 135%;
-    background-color: #005da9;
+    background-color: #0D3878 ;
+    position: absolute;
+    top:0%;
 }

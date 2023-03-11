@@ -1,8 +1,16 @@
 function Sidebar() {
+    const handleHover = function (e) {
+        e.target.classList.add("border");
+    };
+
+    const handleMouseLeave = function (e) {
+        e.target.classList.remove("border");
+    };
+
     return (
         <div
             class="d-flex flex-column flex-shrink-0"
-            style={{width: "4.5rem"}}
+            style={{ width: "4.5rem", height: "40em" }}
             id="sidebar"
         >
             <a
@@ -13,66 +21,73 @@ function Sidebar() {
                 data-bs-placement="right"
                 data-bs-original-title="Icon-only"
             >
-                <svg class="bi" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="visually-hidden">Icon-only</span>
+                <h1>
+                    <i class="bi bi-bootstrap text-white"></i>
+                </h1>
             </a>
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
                 <li class="nav-item">
                     <a
                         href="#"
-                        class="nav-link active py-3 border-bottom"
                         aria-current="page"
+                        className="nav-link active py-3"
                         title=""
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
                         data-bs-original-title="Home"
+                        onMouseEnter={(e) => handleHover(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
                     >
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-search" id="sidebar-buttons"></i>
                     </a>
                 </li>
                 <li>
                     <a
                         href="#"
-                        class="nav-link py-3 border-bottom"
+                        class="nav-link py-3 "
                         title=""
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
                         data-bs-original-title="Dashboard"
+                        onMouseEnter={(e) => handleHover(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
                     >
-                        <i class="bi bi-send"></i>
+                        <i class="bi bi-send" id="sidebar-buttons"></i>
                     </a>
                 </li>
                 <li>
                     <a
                         href="#"
-                        class="nav-link py-3 border-bottom"
+                        class="nav-link py-3"
                         title=""
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
                         data-bs-original-title="Orders"
+                        onMouseEnter={(e) => handleHover(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
                     >
-                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart" id="sidebar-buttons"></i>
                     </a>
                 </li>
                 <li>
                     <a
                         href="#"
-                        class="nav-link py-3 border-bottom"
+                        class="nav-link py-3"
                         title=""
                         data-bs-toggle="tooltip"
                         data-bs-placement="right"
                         data-bs-original-title="Products"
+                        onMouseEnter={(e) => handleHover(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
                     >
-                        <i class="bi bi-bell"></i>
+                        <i class="bi bi-bell" id="sidebar-buttons"></i>
                     </a>
                 </li>
             </ul>
             <div class="dropdown border-top">
                 <a
                     href="#"
-                    class="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle"
+                    class="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle mb-1"
                     id="dropdownUser3"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
