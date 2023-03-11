@@ -10,7 +10,7 @@ function Sidebar() {
     return (
         <div
             class="d-flex flex-column flex-shrink-0"
-            style={{ width: "4.5rem", height: "40em" }}
+            style={{ width: "4.5rem", height: "100%" }}
             id="sidebar"
         >
             <a

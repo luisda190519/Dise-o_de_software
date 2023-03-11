@@ -52,7 +52,7 @@ function Navbar() {
                                 className="text-dark "
                                 href="https://www.youtube.com/shorts/2AKxs2n3CUk"
                             >
-                                ¡Publica ofertas gratis!
+                                <b>¡Publica ofertas gratis!</b>
                             </a>
                             <button className="btn btn-white" id="hdv">
                                 Crear HdV

@@ -9,7 +9,7 @@ body {
 }
 
 #scrolleable {
-    max-height: 440px;
+    max-height: 70vh;
     overflow-y: scroll;
 }
 
