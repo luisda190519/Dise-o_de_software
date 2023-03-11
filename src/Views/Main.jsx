@@ -21,14 +21,40 @@ let card_test = {
     image: "https://ii.ct-stc.com/1/logos/empresas/2020/03/26//manpower141207thumbnail.png",
 };
 
+let anuncios = [
+    card_test,
+    card_test,
+    card_test,
+    card_test,
+    card_test,
+    card_test,
+    card_test,
+];
+
 function Main() {
     return (
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-6 col-md-4">.cfdsfsdol-6 .col-md-4</div>
-                <div class="col-md-8">
-                    {" "}
-                    <Jobcard job={card_test} />{" "}
+        <div class="text-center h-100">
+            <div class="row gx-0 justify-content-end">
+                <div class="col-5">
+                    <div className="card" id="announcements" style={{maxHeight: "600px", overflowY: "scroll"}}>
+                        {anuncios.map((anuncio, key) => {
+                            return (
+                                <Jobannouncement
+                                    title={anuncio.title}
+                                    company={anuncio.company}
+                                    location={anuncio.location}
+                                    publishTime={anuncio.publishTime}
+                                    image={anuncio.image}
+                                    rating={anuncio.rating}
+                                />
+                            );
+                        })}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div className="">
+                        <Jobcard job={card_test} />{" "}
+                    </div>{" "}
                 </div>
             </div>
         </div>
