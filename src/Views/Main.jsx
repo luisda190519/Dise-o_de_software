@@ -100,6 +100,7 @@ let anuncios = [
 
 function Main() {
     const [announcements, setAnnouncements] = useState([]);
+    const [jobFocus, setJobfocus] = useState(anuncios[0]);
 
     const getAnnouncements = function () {
         setAnnouncements(anuncios);
@@ -107,7 +108,7 @@ function Main() {
 
     useEffect(() => {
         getAnnouncements();
-    }, [announcements]);
+    }, [announcements, jobFocus]);
 
     return (
         <div class="text-left h-100">
@@ -271,12 +272,8 @@ function Main() {
                                     style={{ borderBottom: "1px solid #ccc" }}
                                 >
                                     <Jobannouncement
-                                        title={anuncio.title}
-                                        company={anuncio.company}
-                                        location={anuncio.location}
-                                        publishTime={anuncio.publishTime}
-                                        image={anuncio.image}
-                                        rating={anuncio.rating}
+                                        job={anuncio}
+                                        setJobfocus={setJobfocus}
                                     />
                                 </div>
                             );
@@ -285,7 +282,7 @@ function Main() {
                 </div>
                 <div class="col-6">
                     <div className="">
-                        <Jobcard job={card_test1} />{" "}
+                        <Jobcard job={jobFocus} />{" "}
                     </div>{" "}
                 </div>
             </div>
