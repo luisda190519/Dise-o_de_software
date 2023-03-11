@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 function Jobannouncement({
     title,
     company,
@@ -7,9 +9,17 @@ function Jobannouncement({
     rating,
     active = false,
 }) {
+
     return (
-        <div className="">
-            <div class="card border-light text-start" >
+        <div
+            className="job-announcement"
+            onClick={(e) => seeJobAnnouncement(e)}
+        >
+            <div
+                className={`card border-light text-start ${
+                    active ? "bg-custom" : ""
+                }`}
+            >
                 <div class="card-body">
                     <div className="row g-0">
                         <div className="col-md-8">
@@ -31,7 +41,7 @@ function Jobannouncement({
                     </p>
                     <p className="fs-8 text-muted">Hace {publishTime}</p>
                 </div>
-            </div>  
+            </div>
         </div>
     );
 }

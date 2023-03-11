@@ -1,9 +1,35 @@
-body{
-  background-color: #F6FBFF;
+body {
+    background-color: #f6fbff;
 }
 
-#announcements{
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: relative;
+#announcements {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
 }
+
+#scrolleable {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+.bg-custom {
+    background-color: #eaf3fb;
+}
+
+.job-announcement:hover {
+    cursor: pointer;
+}
+
+#navbar-buttons{
+  display: inline-block;
+  color: #005DA9;
+}
+
+#hdv{
+  color: #005DA9;
+  border-color: #005DA9;
+  font-weight: bold;
+  background-color: white;
+}
+

@@ -1,6 +1,6 @@
 function Jobcard({ job }) {
     return (
-        <div className="mx-3">
+        <div className="mx-3" id="scrolleable">
             <div class="card text-start">
                 <div class="card-body ms-3 mt-1">
                     <div className="row g-0">
