@@ -1,10 +1,20 @@
-function Sidebar() {
+function Sidebar({ changeScreen, buttonActive }) {
     const handleHover = function (e) {
         e.target.classList.add("border");
     };
 
     const handleMouseLeave = function (e) {
         e.target.classList.remove("border");
+    };
+
+    const handleClick = function (e) {
+        changeScreen(e.target.id);
+        if (e.target.title == "active") {
+            e.target.title = ""
+            return e.target.classList.remove("active");
+        }
+        e.target.title = "active"
+        return e.target.classList.add("active");
     };
 
     return (
@@ -37,8 +47,9 @@ function Sidebar() {
                         data-bs-original-title="Home"
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseLeave={(e) => handleMouseLeave(e)}
+                        onClick={(e) => handleClick(e)}
                     >
-                        <i class="bi bi-search" id="sidebar-buttons"></i>
+                        <i class="bi bi-search text-white" id="job-search"></i>
                     </a>
                 </li>
                 <li>
@@ -51,8 +62,9 @@ function Sidebar() {
                         data-bs-original-title="Dashboard"
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseLeave={(e) => handleMouseLeave(e)}
+                        onClick={(e) => handleClick(e)}
                     >
-                        <i class="bi bi-send" id="sidebar-buttons"></i>
+                        <i class="bi bi-send text-white" id="applications"></i>
                     </a>
                 </li>
                 <li>
@@ -65,8 +77,9 @@ function Sidebar() {
                         data-bs-original-title="Orders"
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseLeave={(e) => handleMouseLeave(e)}
+                        onClick={(e) => handleClick(e)}
                     >
-                        <i class="bi bi-heart" id="sidebar-buttons"></i>
+                        <i class="bi bi-heart text-white" id="likes"></i>
                     </a>
                 </li>
                 <li>
@@ -79,8 +92,9 @@ function Sidebar() {
                         data-bs-original-title="Products"
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseLeave={(e) => handleMouseLeave(e)}
+                        onClick={(e) => handleClick(e)}
                     >
-                        <i class="bi bi-bell" id="sidebar-buttons"></i>
+                        <i class="bi bi-bell text-white" id="notifications"></i>
                     </a>
                 </li>
             </ul>
