@@ -1,107 +1,57 @@
+import SidebarButtons from "../components/SidebarButtons";
+import { useState, useEffect } from "react";
+
 function Sidebar({ changeScreen, buttonActive }) {
-    const handleHover = function (e) {
-        e.target.classList.add("border");
-    };
-
-    const handleMouseLeave = function (e) {
-        e.target.classList.remove("border");
-    };
-
-    const handleClick = function (e) {
-        changeScreen(e.target.id);
-        if (e.target.title == "active") {
-            e.target.title = ""
-            return e.target.classList.remove("active");
-        }
-        e.target.title = "active"
-        return e.target.classList.add("active");
-    };
+    useEffect(() => {}, [buttonActive]);
 
     return (
         <div
-            class="d-flex flex-column flex-shrink-0"
+            className="d-flex flex-column flex-shrink-0"
             style={{ width: "4.5rem", height: "100%" }}
             id="sidebar"
         >
             <a
                 href="/"
-                class="d-block p-3 link-white text-decoration-none"
+                className="d-block p-3 link-white text-decoration-none"
                 title=""
                 data-bs-toggle="tooltip"
                 data-bs-placement="right"
                 data-bs-original-title="Icon-only"
             >
                 <h1>
-                    <i class="bi bi-bootstrap text-white"></i>
+                    <i className="bi bi-bootstrap text-white"></i>
                 </h1>
             </a>
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
-                <li class="nav-item">
-                    <a
-                        href="#"
-                        aria-current="page"
-                        className="nav-link active py-3"
-                        title=""
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="right"
-                        data-bs-original-title="Home"
-                        onMouseEnter={(e) => handleHover(e)}
-                        onMouseLeave={(e) => handleMouseLeave(e)}
-                        onClick={(e) => handleClick(e)}
-                    >
-                        <i class="bi bi-search text-white" id="job-search"></i>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="#"
-                        class="nav-link py-3 "
-                        title=""
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="right"
-                        data-bs-original-title="Dashboard"
-                        onMouseEnter={(e) => handleHover(e)}
-                        onMouseLeave={(e) => handleMouseLeave(e)}
-                        onClick={(e) => handleClick(e)}
-                    >
-                        <i class="bi bi-send text-white" id="applications"></i>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="#"
-                        class="nav-link py-3"
-                        title=""
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="right"
-                        data-bs-original-title="Orders"
-                        onMouseEnter={(e) => handleHover(e)}
-                        onMouseLeave={(e) => handleMouseLeave(e)}
-                        onClick={(e) => handleClick(e)}
-                    >
-                        <i class="bi bi-heart text-white" id="likes"></i>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="#"
-                        class="nav-link py-3"
-                        title=""
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="right"
-                        data-bs-original-title="Products"
-                        onMouseEnter={(e) => handleHover(e)}
-                        onMouseLeave={(e) => handleMouseLeave(e)}
-                        onClick={(e) => handleClick(e)}
-                    >
-                        <i class="bi bi-bell text-white" id="notifications"></i>
-                    </a>
-                </li>
+            <ul className="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
+                <SidebarButtons
+                    id={0}
+                    type={"search"}
+                    changeScreen={changeScreen}
+                    buttonActive={buttonActive}
+                />
+                <SidebarButtons
+                    id={1}
+                    type={"send"}
+                    changeScreen={changeScreen}
+                    buttonActive={buttonActive}
+                />
+                <SidebarButtons
+                    id={2}
+                    type={"heart"}
+                    changeScreen={changeScreen}
+                    buttonActive={buttonActive}
+                />
+                <SidebarButtons
+                    id={3}
+                    type={"bell"}
+                    changeScreen={changeScreen}
+                    buttonActive={buttonActive}
+                />
             </ul>
-            <div class="dropdown border-top">
+            <div className="dropdown border-top">
                 <a
                     href="#"
-                    class="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle mb-1"
+                    className="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle mb-1"
                     id="dropdownUser3"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -111,30 +61,30 @@ function Sidebar({ changeScreen, buttonActive }) {
                         alt="mdo"
                         width="24"
                         height="24"
-                        class="rounded-circle"
+                        className="rounded-circle"
                     />
                 </a>
                 <ul
-                    class="dropdown-menu text-small shadow"
+                    className="dropdown-menu text-small shadow"
                     aria-labelledby="dropdownUser3"
                 >
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                             New project...
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                             Settings
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                             Profile
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                             Sign out
                         </a>
                     </li>

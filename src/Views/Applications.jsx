@@ -1,5 +1,5 @@
 function Applications(){
-    return <h1>hola777</h1>
+    return <h1>App</h1>
 }
 
 export default Applications;

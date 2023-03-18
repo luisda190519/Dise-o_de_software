@@ -115,7 +115,7 @@ function Main() {
     return (
         <div>
             <div className="row gx-0 justify-content-start">
-                <div class="col-5">
+                <div className="col-5">
                     <div className="card" id="scrolleable">
                         {anuncios.map((anuncio, key) => {
                             return (
@@ -133,7 +133,7 @@ function Main() {
                         })}
                     </div>
                 </div>
-                <div class="col-7">
+                <div className="col-7">
                     <div className="">
                         <Jobcard job={jobFocus} />{" "}
                     </div>{" "}

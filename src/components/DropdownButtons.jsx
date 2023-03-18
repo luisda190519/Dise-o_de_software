@@ -1,22 +1,22 @@
 function DropdownButtons({ title, filters }) {
     return (
-        <div class="btn-group ms-3" role="group">
+        <div className="btn-group ms-3" role="group">
             <button
                 type="button"
-                class="btn btn-primary dropdown-toggle rounded"
+                className="btn btn-primary dropdown-toggle rounded"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 id="btn-filter"
             >
                 {title}
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
                 {filters.map((filter, key) => {
                     return (
                         <div key={key}>
                             <li>
                                 <a
-                                    class="dropdown-item"
+                                    className="dropdown-item"
                                     href="#"
                                     style={{
                                         display: "flex",

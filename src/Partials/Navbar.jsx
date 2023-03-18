@@ -3,47 +3,47 @@ import DropdownButtons from "../components/DropdownButtons";
 function Navbar() {
     return (
         <div>
-            <div class="container my-3">
-                <div class="row align-items-center">
-                    <div class="col-3">
+            <div className="container my-3">
+                <div className="row align-items-center">
+                    <div className="col-3">
                         <img
                             src="https://cp.ct-stc.com/web/20230306.03/c/img/logos/logoct.svg?v=3.48"
                             alt=""
-                            class="navbar-buttons mx-3"
+                            className="navbar-buttons mx-3"
                             id="clickeable"
                         />
                     </div>
                     <div
-                        class="col-9 d-flex justify-content-start align-items-center"
+                        className="col-9 d-flex justify-content-start align-items-center"
                         id="button-group"
                     >
-                        <div class="input-group mb-3 w-75">
-                            <span class="input-group-text">
+                        <div className="input-group mb-3 w-75">
+                            <span className="input-group-text">
                                 <i
-                                    class="bi bi-briefcase"
+                                    className="bi bi-briefcase"
                                     id="navbar-buttons"
                                 ></i>
                             </span>
                             <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Cargo o categoria"
                                 aria-label="Username"
                             />
-                            <span class="input-group-text">
+                            <span className="input-group-text">
                                 <i
-                                    class="bi bi-geo-alt"
+                                    className="bi bi-geo-alt"
                                     id="navbar-buttons"
                                 ></i>
                             </span>
                             <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Lugar"
                                 aria-label="Server"
                             />
-                            <span class="input-group-text">
-                                <i class="bi bi-search" id="navbar-buttons"></i>
+                            <span className="input-group-text">
+                                <i className="bi bi-search" id="navbar-buttons"></i>
                             </span>
                         </div>
 
@@ -62,7 +62,7 @@ function Navbar() {
                 </div>
             </div>
 
-            <div class="container my-4">
+            <div className="container my-4">
                 <p>
                     <DropdownButtons
                         title={"Fecha"}

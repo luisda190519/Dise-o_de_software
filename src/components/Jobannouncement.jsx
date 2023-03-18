@@ -25,7 +25,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus }) {
                     active ? "bg-custom" : ""
                 }`}
             >
-                <div class="card-body">
+                <div className="card-body">
                     <div className="row g-0">
                         <div className="col-md-8">
                             <h4 className="card-title">{job.title}</h4>
@@ -34,7 +34,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus }) {
                         <div className="col-md-4 d-flex flex-row-reverse">
                             <img
                                 src={job.image}
-                                class="img-fluid rounded-start"
+                                className="img-fluid rounded-start"
                             />
                         </div>
                     </div>
@@ -42,7 +42,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus }) {
                     <p>
                         {job.company}{" "}
                         <i
-                            class="bi bi-star-fill"
+                            className="bi bi-star-fill"
                             style={{ color: "yellow" }}
                         ></i>{" "}
                         {job.rating}

@@ -1,8 +1,8 @@
 function Jobcard({ job }) {
     return (
         <div className="mx-3" id="scrolleable">
-            <div class="card text-start">
-                <div class="card-body ms-3 mt-1">
+            <div className="card text-start">
+                <div className="card-body ms-3 mt-1">
                     <div className="row g-0">
                         <div className="col-md-8">
                             <h4 className="card-title">{job.title}</h4>
@@ -11,7 +11,7 @@ function Jobcard({ job }) {
                         <div className="col-md-4 d-flex flex-row-reverse">
                             <img
                                 src={job.image}
-                                class="img-fluid rounded-start"
+                                className="img-fluid rounded-start"
                             />
                         </div>
                     </div>
@@ -19,7 +19,7 @@ function Jobcard({ job }) {
                     <p>
                         {job.company}{" "}
                         <i
-                            class="bi bi-star-fill"
+                            className="bi bi-star-fill"
                             style={{ color: "yellow" }}
                         ></i>{" "}
                         {job.rating}
@@ -32,7 +32,7 @@ function Jobcard({ job }) {
                             <i className="bi bi-heart"></i>
                         </button>
                         <button className="btn btn-light btn-lg rounded-circle mx-2">
-                            <i class="bi bi-share"></i>
+                            <i className="bi bi-share"></i>
                         </button>
                     </p>
                 </div>
@@ -46,7 +46,7 @@ function Jobcard({ job }) {
                     />
                 </div>
 
-                <div class="card-body ms-3">
+                <div className="card-body ms-3">
                     <div className="mb-3">
                         {job.tags.map((tag, key) => {
                             if (key == 0) {
@@ -57,6 +57,7 @@ function Jobcard({ job }) {
                                             className="btn btn-outline-dark rounded-pill me-1"
                                             disabled
                                             style={{ color: "black" }}
+                                            key={key}
                                         >
                                             {tag}
                                         </button>
@@ -76,8 +77,8 @@ function Jobcard({ job }) {
                             }
                         })}
                     </div>
-                    <p class="card-text">{job.description}</p>
-                    <h5 class="card-title mb-3">Requerimientos</h5>
+                    <p className="card-text">{job.description}</p>
+                    <h5 className="card-title mb-3">Requerimientos</h5>
                     <ul>
                         {job.requirements.map((requirement, key) => {
                             return <li className="mb-2">{requirement}</li>;
