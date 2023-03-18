@@ -74,7 +74,7 @@ function Applications() {
                 <div className="col-8">
                     {anuncios.map((anuncio, key) => {
                         return (
-                            <div className="card me-4 mb-4 pt-3 px-4">
+                            <div className="card me-4 mb-4 pt-3 px-4" key={key} id="applications">
                                 <div className="row g-0">
                                     <div className="col-md-8">
                                         <h4>{anuncio.title}</h4>
@@ -118,7 +118,7 @@ function Applications() {
                         <div className="card-body">
                             Estos son los estados en los que puede estar tu
                             candidatura.
-                            <div className="my-3 ms-3">
+                            <div className="my-3 ms-2" style={{fontSize:"1.1rem"}}>
                                 <p>
                                     <i
                                         class="bi bi-1-circle-fill me-2"
