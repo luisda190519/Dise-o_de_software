@@ -23,7 +23,7 @@ function App() {
             <div className="mt-4">
                 <Navbar buttonActive={screen}/>
             </div>
-            <div className="text-left h-100">
+            <div className="text-left">
                 <div className="row gx-0 justify-content-end">
                     <div className="col-1">
                         <Sidebar changeScreen={changeScreen} buttonActive={screen}/>

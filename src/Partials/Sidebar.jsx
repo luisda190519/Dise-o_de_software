@@ -7,7 +7,7 @@ function Sidebar({ changeScreen, buttonActive }) {
     return (
         <div
             className="d-flex flex-column flex-shrink-0"
-            style={{ width: "4.5rem", height: "100%" }}
+            style={{ width: "4.5rem", height: "100vh" }}
             id="sidebar"
         >
             <a
