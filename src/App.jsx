@@ -21,7 +21,7 @@ function App() {
     return (
         <div>
             <div className="mt-4">
-                <Navbar />
+                <Navbar buttonActive={screen}/>
             </div>
             <div className="text-left h-100">
                 <div className="row gx-0 justify-content-end">

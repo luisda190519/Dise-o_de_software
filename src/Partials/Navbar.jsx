@@ -1,6 +1,16 @@
 import DropdownButtons from "../components/DropdownButtons";
 
-function Navbar() {
+function Navbar({ buttonActive }) {
+    const handleMouseEnter = function (e) {
+        e.target.style.backgroundColor = "#0D3878";
+        e.target.classList.add("text-white");
+    };
+
+    const handleMouseLeave = function (e) {
+        e.target.style.backgroundColor = "#eaf3fb";
+        e.target.classList.remove("text-white");
+    };
+
     return (
         <div>
             <div className="container my-3">
@@ -43,7 +53,10 @@ function Navbar() {
                                 aria-label="Server"
                             />
                             <span className="input-group-text">
-                                <i className="bi bi-search" id="navbar-buttons"></i>
+                                <i
+                                    className="bi bi-search"
+                                    id="navbar-buttons"
+                                ></i>
                             </span>
                         </div>
 
@@ -63,95 +76,137 @@ function Navbar() {
             </div>
 
             <div className="container my-4">
-                <p>
-                    <DropdownButtons
-                        title={"Fecha"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                {buttonActive == 0 ? (
+                    <div className="d-flex justify-content-between">
+                        <DropdownButtons
+                            title={"Fecha"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Departamento"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Departamento"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Ciudad"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Ciudad"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Experiencia"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Experiencia"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Salario"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Salario"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Jornada"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Jornada"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Contrato"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
+                        <DropdownButtons
+                            title={"Contrato"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
 
-                    <DropdownButtons
-                        title={"Discapacidad"}
-                        filters={[
-                            { title: "Urgente", value: 45.245 },
-                            { title: "Hoy", value: 45.245 },
-                            { title: "Últimos 3 días", value: 45.245 },
-                            { title: "Última semana", value: 45.245 },
-                            { title: "Ultimo mes", value: 45.245 },
-                        ]}
-                    />
-                </p>
+                        <DropdownButtons
+                            title={"Discapacidad"}
+                            filters={[
+                                { title: "Urgente", value: 45.245 },
+                                { title: "Hoy", value: 45.245 },
+                                { title: "Últimos 3 días", value: 45.245 },
+                                { title: "Última semana", value: 45.245 },
+                                { title: "Ultimo mes", value: 45.245 },
+                            ]}
+                        />
+                    </div>
+                ) : (
+                    <div
+                        className="d-flex justify-content-between"
+                        id="navbar-part"
+                    >
+                        <button
+                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            onMouseEnter={(e) => handleMouseEnter(e)}
+                            onMouseLeave={(e) => handleMouseLeave(e)}
+                        >
+                            {" "}
+                            <i class="bi bi-house-door me-2 "></i>Mi area
+                        </button>
+                        <button
+                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            onMouseEnter={(e) => handleMouseEnter(e)}
+                            onMouseLeave={(e) => handleMouseLeave(e)}
+                        >
+                            {" "}
+                            <i class="bi bi-file-earmark-person me-2"></i>Hoja
+                            de Vida
+                        </button>
+                        <button
+                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            onMouseEnter={(e) => handleMouseEnter(e)}
+                            onMouseLeave={(e) => handleMouseLeave(e)}
+                        >
+                            {" "}
+                            <i class="bi bi-window-sidebar me-2"></i>Test y
+                            evaluaciones
+                        </button>
+                        <button
+                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            onMouseEnter={(e) => handleMouseEnter(e)}
+                            onMouseLeave={(e) => handleMouseLeave(e)}
+                        >
+                            {" "}
+                            <i class="bi bi-gear me-2"></i>Configuración
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

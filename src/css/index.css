@@ -54,3 +54,9 @@ body {
     position: absolute;
     top:0%;
 }
+
+#navbar-part{
+    background-color: #eaf3fb;
+    border-radius: 500px;
+    height: 3.5rem;
+}
