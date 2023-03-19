@@ -198,7 +198,7 @@ function Navbar({ buttonActive }) {
                             evaluaciones
                         </button>
                         <button
-                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            className="btn btn-outline-primary w-25 ms-3 text-secondary border border-0"
                             onMouseEnter={(e) => handleMouseEnter(e)}
                             onMouseLeave={(e) => handleMouseLeave(e)}
                         >
