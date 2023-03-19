@@ -2,7 +2,10 @@ import SidebarButtons from "../components/SidebarButtons";
 import { useState, useEffect } from "react";
 
 function Sidebar({ changeScreen, buttonActive }) {
-    useEffect(() => {}, [buttonActive]);
+    const [button, setButton] = useState(buttonActive)
+    useEffect(() => {
+        setButton(buttonActive)
+    }, [buttonActive]);
 
     return (
         <div
@@ -65,8 +68,9 @@ function Sidebar({ changeScreen, buttonActive }) {
                     />
                 </a>
                 <ul
-                    className="dropdown-menu text-small shadow"
+                    className="dropdown-menu text-small shadow "
                     aria-labelledby="dropdownUser3"
+                    style={{position:"relative", zIndex:"1000"}}
                 >
                     <li>
                         <a className="dropdown-item" href="#">

@@ -17,14 +17,14 @@ function SidebarButtons({ id, type, changeScreen, buttonActive }) {
 
     const setActiveButton = function () {
         if (buttonActive == id) {
-            return (setActive(true));
+            return setActive(true);
         }
-        return (setActive(false));
+        return setActive(false);
     };
 
     useEffect(() => {
         setActiveButton();
-    }, [active]);
+    }, [buttonActive]);
 
     return (
         <li className="nav-item">
