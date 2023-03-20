@@ -55,7 +55,7 @@ function Jobcard({ job }) {
                             return (
                                 <button
                                     type="button"
-                                    className="btn btn-outline-dark rounded-pill me-3"
+                                    className="btn btn-outline-dark rounded-pill me-3 mb-2"
                                     disabled
                                     style={{ color: "black" }}
                                     key={key}
