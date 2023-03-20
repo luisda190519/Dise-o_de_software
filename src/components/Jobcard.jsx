@@ -25,7 +25,10 @@ function Jobcard({ job }) {
                         {job.rating}
                     </p>
                     <p>
-                        <button className="btn btn-light btn-lg rounded-pill me-2 text-white" style={{backgroundColor:"#0D3878"}}>
+                        <button
+                            className="btn btn-light btn-lg rounded-pill me-2 text-white"
+                            style={{ backgroundColor: "#0D3878" }}
+                        >
                             Postularme
                         </button>
                         <button className="btn btn-light btn-lg rounded-circle mx-2">
@@ -49,32 +52,17 @@ function Jobcard({ job }) {
                 <div className="card-body ms-3">
                     <div className="mb-3">
                         {job.tags.map((tag, key) => {
-                            if (key == 0) {
-                                return (
-                                    <div className="my-2">
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline-dark rounded-pill me-1"
-                                            disabled
-                                            style={{ color: "black" }}
-                                            key={key}
-                                        >
-                                            {tag}
-                                        </button>
-                                    </div>
-                                );
-                            } else {
-                                return (
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-dark rounded-pill mx-1"
-                                        disabled
-                                        style={{ color: "black" }}
-                                    >
-                                        {tag}
-                                    </button>
-                                );
-                            }
+                            return (
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-dark rounded-pill me-3"
+                                    disabled
+                                    style={{ color: "black" }}
+                                    key={key}
+                                >
+                                    {tag}
+                                </button>
+                            );
                         })}
                     </div>
                     <p className="card-text">{job.description}</p>

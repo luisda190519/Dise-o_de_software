@@ -68,3 +68,9 @@ body {
 #applications:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+#job-card-expanded{
+    position: fixed;
+    top: 35vh;
+    right: 10vh;
+}
