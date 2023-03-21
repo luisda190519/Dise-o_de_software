@@ -1,0 +1,30 @@
+export let user = {
+    id: 1,
+    name: "Alma Marcela Gozo Hernadez",
+    city: "Barranquilla",
+    email: "olaempresarial.gmail.com",
+    estado: "Estudiante",
+    cellphone: 300145789,
+    image: "https://media.tenor.com/4tu7XjBaoGwAAAAC/animan-animan-studios.gif",
+    idiomas: ["Español", "ingles", "Turko", "Chekoslovaco"],
+    habilidadesBlandas: [
+        "Comunicativo",
+        "Feroz",
+        "Mamador",
+        "Acertivo",
+        "Responsable",
+        "Lame botas",
+        "Llorica",
+        "Furro",
+        "Furro x2",
+        "Furro x3",
+    ],
+    experiencia: ["No tengo", "Porfavor denme experiencia", "Mi mi mi mi mi"],
+    estudios: [
+        "Colegio - Harvard",
+        "Universidad - oxford",
+        "Doctorado - Hogwarts ",
+    ],
+    description:
+        "¡Hola! Soy [tu nombre], un estudiante apasionado y dedicado en busca de nuevas oportunidades para aprender y crecer. Actualmente estoy en busca de una pasantía o trabajo de medio tiempo para complementar mi educación y ganar experiencia práctica en mi campo de estudio.",
+};
