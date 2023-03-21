@@ -30,12 +30,7 @@ function SidebarButtons({ id, type, changeScreen, buttonActive }) {
         <li className="nav-item">
             <a
                 href="#"
-                aria-current="page"
                 className={active ? "nav-link active py-3" : "nav-link py-3"}
-                title=""
-                data-bs-toggle="tooltip"
-                data-bs-placement="right"
-                data-bs-original-title="Home"
                 onMouseEnter={(e) => handleHover(e)}
                 onMouseLeave={(e) => handleMouseLeave(e)}
                 onClick={(e) => handleClick(e)}
