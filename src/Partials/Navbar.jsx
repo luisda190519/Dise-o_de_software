@@ -1,14 +1,34 @@
 import DropdownButtons from "../components/DropdownButtons";
+import { useState, useEffect } from "react";
 
-function Navbar({ buttonActive }) {
-    const handleMouseEnter = function (e) {
-        e.target.style.backgroundColor = "#0D3878";
-        e.target.classList.add("text-white");
+function Navbar({ buttonActive, changeScreen }) {
+    const [option, setOption] = useState(false);
+
+    const changeOptionPage = function (e, page) {
+        setOption(page);
+        changeScreen(page + 4);
     };
 
-    const handleMouseLeave = function (e) {
-        e.target.style.backgroundColor = "#eaf3fb";
-        e.target.classList.remove("text-white");
+    useEffect(() => {}, [option]);
+
+    useEffect(() => {
+        if (buttonActive < 4) {
+            return setOption(false);
+        }
+    }, [buttonActive]);
+
+    const handleMouseEnter = function (e, page) {
+        if (page !== option) {
+            e.target.style.backgroundColor = "#0D3878";
+            e.target.classList.add("text-white");
+        }
+    };
+
+    const handleMouseLeave = function (e, page) {
+        if (page !== option) {
+            e.target.style.backgroundColor = "#eaf3fb";
+            e.target.classList.remove("text-white");
+        }
     };
 
     return (
@@ -174,35 +194,75 @@ function Navbar({ buttonActive }) {
                         id="navbar-part"
                     >
                         <button
-                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            onMouseEnter={(e) => handleMouseEnter(e)}
-                            onMouseLeave={(e) => handleMouseLeave(e)}
+                            className={
+                                option === 0
+                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
+                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            }
+                            onMouseEnter={(e) => handleMouseEnter(e, 0)}
+                            onMouseLeave={(e) => handleMouseLeave(e, 0)}
+                            onClick={(e) => changeOptionPage(e, 0)}
+                            style={
+                                option === 0
+                                    ? { backgroundColor: "#0D3878" }
+                                    : { color: "#eaf3fb" }
+                            }
                         >
                             {" "}
                             <i class="bi bi-house-door me-2 "></i>Mi area
                         </button>
                         <button
-                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            onMouseEnter={(e) => handleMouseEnter(e)}
-                            onMouseLeave={(e) => handleMouseLeave(e)}
+                            className={
+                                option === 1
+                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
+                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            }
+                            onMouseEnter={(e) => handleMouseEnter(e, 1)}
+                            onMouseLeave={(e) => handleMouseLeave(e, 1)}
+                            onClick={(e) => changeOptionPage(e, 1)}
+                            style={
+                                option === 1
+                                    ? { backgroundColor: "#0D3878" }
+                                    : { color: "#eaf3fb" }
+                            }
                         >
                             {" "}
                             <i class="bi bi-file-earmark-person me-2"></i>Hoja
                             de Vida
                         </button>
                         <button
-                            className="btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            onMouseEnter={(e) => handleMouseEnter(e)}
-                            onMouseLeave={(e) => handleMouseLeave(e)}
+                            className={
+                                option === 2
+                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
+                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
+                            }
+                            onMouseEnter={(e) => handleMouseEnter(e, 2)}
+                            onMouseLeave={(e) => handleMouseLeave(e, 2)}
+                            onClick={(e) => changeOptionPage(e, 2)}
+                            style={
+                                option === 2
+                                    ? { backgroundColor: "#0D3878" }
+                                    : { color: "#eaf3fb" }
+                            }
                         >
                             {" "}
                             <i class="bi bi-window-sidebar me-2"></i>Test y
                             evaluaciones
                         </button>
                         <button
-                            className="btn btn-outline-primary w-25 ms-3 text-secondary border border-0"
-                            onMouseEnter={(e) => handleMouseEnter(e)}
-                            onMouseLeave={(e) => handleMouseLeave(e)}
+                            className={
+                                option === 3
+                                    ? "btn btn-outline-primary w-25 ms-3 text-white border border-0"
+                                    : "btn btn-outline-primary w-25 ms-3 text-secondary border border-0"
+                            }
+                            onMouseEnter={(e) => handleMouseEnter(e, 3)}
+                            onMouseLeave={(e) => handleMouseLeave(e, 3)}
+                            onClick={(e) => changeOptionPage(e, 3)}
+                            style={
+                                option === 3
+                                    ? { backgroundColor: "#0D3878" }
+                                    : { color: "#eaf3fb" }
+                            }
                         >
                             {" "}
                             <i class="bi bi-gear me-2"></i>Configuración

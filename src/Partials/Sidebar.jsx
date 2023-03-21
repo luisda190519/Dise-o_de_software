@@ -70,7 +70,7 @@ function Sidebar({ changeScreen, buttonActive }) {
                 <ul
                     className="dropdown-menu text-small shadow "
                     aria-labelledby="dropdownUser3"
-                    style={{position:"relative", zIndex:"1000"}}
+                    style={{position:"absolute", zIndex:"999"}}
                 >
                     <li>
                         <a className="dropdown-item" href="#">
