@@ -13,6 +13,17 @@ import { useState, useEffect } from "react";
 
 function App() {
     const [screen, setScreen] = useState(0);
+    const screens = [
+        <Main />,
+        <Applications />,
+        <Likes />,
+        <Notifications />,
+        <MiArea />,
+        <CV />,
+        <Test />,
+        <Config />,
+        <PageNotFound />,
+    ];
 
     const changeScreen = function (id) {
         setScreen(id);
@@ -41,25 +52,7 @@ function App() {
                                 changeScreen={changeScreen}
                             />
                         </div>
-                        {screen == 0 ? (
-                            <Main />
-                        ) : screen == 1 ? (
-                            <Applications />
-                        ) : screen == 2 ? (
-                            <Likes />
-                        ) : screen == 3 ? (
-                            <Notifications />
-                        ) : screen == 4 ? (
-                            <MiArea />
-                        ) : screen == 5 ? (
-                            <CV />
-                        ) : screen == 6 ? (
-                            <Test />
-                        ) : screen == 7 ? (
-                            <Config />
-                        ) : (
-                            <PageNotFound />
-                        )}
+                        <div>{screens[screen]}</div>
                     </div>
                 </div>
             </div>
