@@ -34,6 +34,7 @@ function SidebarButtons({ id, type, changeScreen, buttonActive }) {
                 onMouseEnter={(e) => handleHover(e)}
                 onMouseLeave={(e) => handleMouseLeave(e)}
                 onClick={(e) => handleClick(e)}
+                style={active ? {backgroundColor:"#62B6CB"} : {backgroundColor:"#1B4965"}}
             >
                 <i className={"bi bi-" + type + " text-white"}></i>
             </a>

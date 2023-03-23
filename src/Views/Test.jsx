@@ -6,7 +6,7 @@ function Test() {
                     <div className="col-8 py-4 px-5">
                         <h5
                             style={{
-                                color: "#59BAA8",
+                                color: "#5FA8D3",
                             }}
                         >
                             Cuenta Premium
@@ -20,7 +20,7 @@ function Test() {
                         <button
                             className="btn btn-primary btn-lg w-50 rounded-pill mt-3"
                             style={{
-                                backgroundColor: "#59BAA8",
+                                backgroundColor: "#5FA8D3",
                                 border: "none",
                             }}
                         >
@@ -38,7 +38,7 @@ function Test() {
 
             <h3 className="text-center mt-4">
                 Más beneficios destacados de la{" "}
-                <b style={{ color: "#59BAA8" }}>Cuenta Premium</b>{" "}
+                <b style={{ color: "#5FA8D3" }}>Cuenta Premium</b>{" "}
             </h3>
 
             <div className="row row-cols-1 row-cols-md-3 g-4 mt-2">

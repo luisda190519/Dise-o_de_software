@@ -22,7 +22,7 @@ function Sidebar({ changeScreen, buttonActive }) {
                 data-bs-original-title="Icon-only"
             >
                 <h1>
-                    <i className="bi bi-bootstrap text-white"></i>
+                    <img className="img-fluid mt-4" src="/icon.png"/>
                 </h1>
             </a>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center my-5">

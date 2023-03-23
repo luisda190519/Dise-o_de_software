@@ -66,7 +66,7 @@ function Likes() {
                                                         className="btn btn-primary btn-lg rounded-pill me-4"
                                                         style={{
                                                             backgroundColor:
-                                                                "#0D3878",
+                                                                "#1B4965",
                                                             border: "none",
                                                         }}
                                                     >
@@ -98,7 +98,7 @@ function Likes() {
                                     <button
                                         className="btn btn-primary w-75 rounded-pill"
                                         style={{
-                                            backgroundColor: "#0D3878",
+                                            backgroundColor: "#1B4965",
                                             border: "none",
                                         }}
                                     >

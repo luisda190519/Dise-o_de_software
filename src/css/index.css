@@ -14,7 +14,7 @@ body {
 }
 
 .bg-custom {
-    background-color: #eaf3fb;
+    background-color: #BEE9E8;
 }
 
 .job-announcement:hover {
@@ -27,13 +27,13 @@ body {
 
 #navbar-buttons {
     display: inline-block;
-    color: #0D3878;
+    color: #1B4965;
 }
 
 
 #hdv {
-    color: #0D3878;
-    border-color: #0D3878;
+    color: #1B4965;
+    border-color: #1B4965;
     font-weight: bold;
     background-color: white;
 }
@@ -50,13 +50,13 @@ body {
 }
 
 #sidebar{
-    background-color: #0D3878 ;
+    background-color: #1B4965 ;
     position: fixed;
     top:0%;
 }
 
 #navbar-part{
-    background-color: #eaf3fb;
+    background-color: #CAE9FF;
     border-radius: 500px;
     height: 3.5rem;
 }

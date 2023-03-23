@@ -26,9 +26,6 @@ function App() {
 
     return (
         <div>
-            <div className="mt-4">
-                <Navbar buttonActive={screen} changeScreen={changeScreen}/>
-            </div>
             <div className="text-left">
                 <div className="row gx-0 justify-content-end">
                     <div className="col-1">
@@ -37,7 +34,13 @@ function App() {
                             buttonActive={screen}
                         />
                     </div>
-                    <div className="col-11">
+                    <div className="col-11 container-fluid">
+                        <div className="mt-4">
+                            <Navbar
+                                buttonActive={screen}
+                                changeScreen={changeScreen}
+                            />
+                        </div>
                         {screen == 0 ? (
                             <Main />
                         ) : screen == 1 ? (

@@ -1,6 +1,6 @@
 function DropdownButtons({ title, filters }) {
     return (
-        <div className="btn-group ms-3" role="group">
+        <div className="btn-group me-3" role="group">
             <button
                 type="button"
                 className="btn btn-primary dropdown-toggle rounded"

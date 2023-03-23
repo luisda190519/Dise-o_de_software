@@ -46,7 +46,7 @@ function JobExpanded({ job }) {
                         <p>
                             <button
                                 className="btn btn-light rounded-pill me-2 text-white w-75"
-                                style={{ backgroundColor: "#0D3878" }}
+                                style={{ backgroundColor: "#1B4965" }}
                             >
                                 Postularme
                             </button>

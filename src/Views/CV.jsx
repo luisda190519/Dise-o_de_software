@@ -3,7 +3,7 @@ import { user } from "../utils/user";
 function CV() {
     return (
         <div>
-            <div className="row gx-0 justify-content-start">
+            <div className="row justify-content-start">
                 <div className="col-8">
                     <div className="card px-5 py-5 mb-4">
                         <div className="row">
@@ -33,7 +33,7 @@ function CV() {
                                 <p>{user.description}</p>
 
                                 <div
-                                    className="container card px-3 py-3"
+                                    className="card px-3 py-3"
                                     style={{ backgroundColor: "#e9ebf6" }}
                                 >
                                     Una descripción bien detallada y extensa de
@@ -118,7 +118,7 @@ function CV() {
                             <button
                                 className="btn btn-primary btn-lg w-75 rounded-pill"
                                 style={{
-                                    backgroundColor: "#0D3878",
+                                    backgroundColor: "#1B4965",
                                     border: "none",
                                 }}
                             >
@@ -129,10 +129,10 @@ function CV() {
 
                     <div
                         className="card mt-4"
-                        style={{ border: "1px solid #59BAA8" }}
+                        style={{ border: "1px solid #5FA8D3" }}
                     >
                         <div className="card-body">
-                            <span style={{ color: "#59BAA8" }}>Premium</span>
+                            <span style={{ color: "#5FA8D3" }}>Premium</span>
                             <p className="fs-4">Cartas de presentación</p>
                             Crea o edita tus cartas de presentación y adjúntalas
                             a las ofertas en las que te postulas.{" "}
@@ -144,7 +144,7 @@ function CV() {
                             <button
                                 className="btn btn-primary btn-lg w-75 rounded-pill"
                                 style={{
-                                    backgroundColor: "#59BAA8",
+                                    backgroundColor: "#5FA8D3",
                                     border: "none",
                                 }}
                             >

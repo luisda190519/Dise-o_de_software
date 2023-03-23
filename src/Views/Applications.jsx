@@ -99,7 +99,7 @@ function Applications() {
                             style={
                                 opcion == 0
                                     ? {
-                                          backgroundColor: "#eaf3fb",
+                                          backgroundColor: "#BEE9E8",
                                           border: "none",
                                           color: "gray",
                                       }
@@ -114,7 +114,7 @@ function Applications() {
                             style={
                                 opcion == 1
                                     ? {
-                                          backgroundColor: "#eaf3fb",
+                                          backgroundColor: "#BEE9E8",
                                           border: "none",
                                           color: "gray",
                                       }
@@ -129,7 +129,7 @@ function Applications() {
                             style={
                                 opcion == 2
                                     ? {
-                                          backgroundColor: "#eaf3fb",
+                                          backgroundColor: "#BEE9E8",
                                           border: "none",
                                           color: "gray",
                                       }
@@ -144,7 +144,7 @@ function Applications() {
                             style={
                                 opcion == 3
                                     ? {
-                                          backgroundColor: "#eaf3fb",
+                                          backgroundColor: "#BEE9E8",
                                           border: "none",
                                           color: "gray",
                                       }
@@ -159,7 +159,7 @@ function Applications() {
                             style={
                                 opcion == 4
                                     ? {
-                                          backgroundColor: "#eaf3fb",
+                                          backgroundColor: "#BEE9E8",
                                           border: "none",
                                           color: "gray",
                                       }
@@ -198,7 +198,7 @@ function Applications() {
                                             <div className="col-md-4 d-flex flex-row">
                                                 <i
                                                     class="bi bi-1-circle-fill me-2 fs-1"
-                                                    style={{ color: "#0D3878" }}
+                                                    style={{ color: "#1B4965" }}
                                                 ></i>
                                                 <div className="">
                                                     <p className="my-0">
@@ -234,28 +234,28 @@ function Applications() {
                                         <p>
                                             <i
                                                 class="bi bi-1-circle-fill me-2"
-                                                style={{ color: "#0D3878" }}
+                                                style={{ color: "#1B4965" }}
                                             ></i>{" "}
                                             Postulado
                                         </p>
                                         <p>
                                             <i
                                                 class="bi bi-2-circle-fill me-2"
-                                                style={{ color: "#0D3878" }}
+                                                style={{ color: "#1B4965" }}
                                             ></i>
                                             CV Visto
                                         </p>
                                         <p>
                                             <i
                                                 class="bi bi-3-circle-fill me-2"
-                                                style={{ color: "#0D3878" }}
+                                                style={{ color: "#1B4965" }}
                                             ></i>
                                             Finalista
                                         </p>
                                         <p>
                                             <i
                                                 class="bi bi-4-circle-fill me-2"
-                                                style={{ color: "#0D3878" }}
+                                                style={{ color: "#1B4965" }}
                                             ></i>
                                             Proceso finalizado
                                         </p>

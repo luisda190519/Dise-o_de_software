@@ -19,85 +19,82 @@ function Navbar({ buttonActive, changeScreen }) {
 
     const handleMouseEnter = function (e, page) {
         if (page !== option) {
-            e.target.style.backgroundColor = "#0D3878";
+            e.target.style.backgroundColor = "#1B4965";
             e.target.classList.add("text-white");
+            e.target.style.borderRadius = "500px";
         }
     };
 
     const handleMouseLeave = function (e, page) {
         if (page !== option) {
-            e.target.style.backgroundColor = "#eaf3fb";
+            e.target.style.backgroundColor = "#CAE9FF";
+            e.target.style.borderRadius = "500px";
             e.target.classList.remove("text-white");
         }
     };
 
     return (
-        <div>
-            <div className="container my-3">
+        <div className="">
+            <div className="my-3">
                 <div className="row">
-                    <div className="d-flex align-items-center">
-                        <div className="col-3">
-                            <img
-                                src="https://cp.ct-stc.com/web/20230306.03/c/img/logos/logoct.svg?v=3.48"
-                                alt=""
-                                className="navbar-buttons mx-3"
-                                id="clickeable"
+                    <div className="col-3">
+                        <img
+                            src="/logo.png"
+                            className="img-fluid w-75"
+                            id="clickeable"
+                        />
+                    </div>
+                    <div className="col-6" id="button-group">
+                        <div className="input-group mb-3">
+                            <span className="input-group-text">
+                                <i
+                                    className="bi bi-briefcase"
+                                    id="navbar-buttons"
+                                ></i>
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Cargo o categoria"
+                                aria-label="Username"
                             />
+                            <span className="input-group-text">
+                                <i
+                                    className="bi bi-geo-alt"
+                                    id="navbar-buttons"
+                                ></i>
+                            </span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Lugar"
+                                aria-label="Server"
+                            />
+                            <span className="input-group-text">
+                                <i
+                                    className="bi bi-search"
+                                    id="navbar-buttons"
+                                ></i>
+                            </span>
                         </div>
-                        <div
-                            className="col-9 d-flex justify-content-start align-items-center"
-                            id="button-group"
+                    </div>
+                    <div className="col-2 text-center">
+                        <a
+                            className="text-dark  me-5"
+                            href="https://www.youtube.com/shorts/2AKxs2n3CUk"
                         >
-                            <div className="input-group mb-3 w-75">
-                                <span className="input-group-text">
-                                    <i
-                                        className="bi bi-briefcase"
-                                        id="navbar-buttons"
-                                    ></i>
-                                </span>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Cargo o categoria"
-                                    aria-label="Username"
-                                />
-                                <span className="input-group-text">
-                                    <i
-                                        className="bi bi-geo-alt"
-                                        id="navbar-buttons"
-                                    ></i>
-                                </span>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Lugar"
-                                    aria-label="Server"
-                                />
-                                <span className="input-group-text">
-                                    <i
-                                        className="bi bi-search"
-                                        id="navbar-buttons"
-                                    ></i>
-                                </span>
-                            </div>
-
-                            <div className="mx-5 d-flex align-items-end">
-                                <a
-                                    className="text-dark "
-                                    href="https://www.youtube.com/shorts/2AKxs2n3CUk"
-                                >
-                                    <b>¡Publica ofertas gratis!</b>
-                                </a>
-                                <button className="btn btn-white" id="hdv">
-                                    Crear HdV
-                                </button>
-                            </div>
-                        </div>
+                            <b>¡Publica ofertas gratis!</b>
+                        </a>
+                    </div>
+                    <div className="col-1">
+                        <button className="btn btn-white" id="hdv">
+                            Crear HdV
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div className="container my-4">
+            <div className="my-4">
                 {buttonActive == 0 ? (
                     <div className="d-flex justify-content-between">
                         <DropdownButtons
@@ -204,8 +201,8 @@ function Navbar({ buttonActive, changeScreen }) {
                             onClick={(e) => changeOptionPage(e, 0)}
                             style={
                                 option === 0
-                                    ? { backgroundColor: "#0D3878" }
-                                    : { color: "#eaf3fb" }
+                                    ? { backgroundColor: "#1B4965" }
+                                    : { color: "#CAE9FF" }
                             }
                         >
                             {" "}
@@ -222,8 +219,8 @@ function Navbar({ buttonActive, changeScreen }) {
                             onClick={(e) => changeOptionPage(e, 1)}
                             style={
                                 option === 1
-                                    ? { backgroundColor: "#0D3878" }
-                                    : { color: "#eaf3fb" }
+                                    ? { backgroundColor: "#1B4965" }
+                                    : { color: "#CAE9FF" }
                             }
                         >
                             {" "}
@@ -241,8 +238,8 @@ function Navbar({ buttonActive, changeScreen }) {
                             onClick={(e) => changeOptionPage(e, 2)}
                             style={
                                 option === 2
-                                    ? { backgroundColor: "#0D3878" }
-                                    : { color: "#eaf3fb" }
+                                    ? { backgroundColor: "#1B4965" }
+                                    : { color: "#CAE9FF" }
                             }
                         >
                             {" "}
@@ -260,8 +257,8 @@ function Navbar({ buttonActive, changeScreen }) {
                             onClick={(e) => changeOptionPage(e, 3)}
                             style={
                                 option === 3
-                                    ? { backgroundColor: "#0D3878" }
-                                    : { color: "#eaf3fb" }
+                                    ? { backgroundColor: "#1B4965" }
+                                    : { color: "#CAE9FF" }
                             }
                         >
                             {" "}
