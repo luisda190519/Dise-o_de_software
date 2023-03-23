@@ -1,7 +1,7 @@
 import Jobcard from "../components/Jobcard";
 import Jobannouncement from "../components/Jobannouncement";
 import { useEffect, useState } from "react";
-import {anuncios} from "../utils/jsonJobs"
+import { anuncios } from "../utils/jsonJobs";
 
 function Main() {
     const [announcements, setAnnouncements] = useState([]);
@@ -37,9 +37,7 @@ function Main() {
                     </div>
                 </div>
                 <div className="col-7">
-                    <div className="">
-                        <Jobcard job={jobFocus} />{" "}
-                    </div>{" "}
+                    <Jobcard job={jobFocus} />
                 </div>
             </div>
         </div>

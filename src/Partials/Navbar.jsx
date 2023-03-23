@@ -1,12 +1,113 @@
 import DropdownButtons from "../components/DropdownButtons";
+import RoundButton from "../components/RoundButton";
 import { useState, useEffect } from "react";
 
 function Navbar({ buttonActive, changeScreen }) {
     const [option, setOption] = useState(false);
 
-    const changeOptionPage = function (e, page) {
-        setOption(page);
-        changeScreen(page + 4);
+    const getFilterDropdownButtons = function () {
+        return (
+            <>
+                <DropdownButtons
+                    title={"Fecha"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Departamento"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Ciudad"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Experiencia"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Salario"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Jornada"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Contrato"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+
+                <DropdownButtons
+                    title={"Discapacidad"}
+                    filters={[
+                        { title: "Urgente", value: 45.245 },
+                        { title: "Hoy", value: 45.245 },
+                        { title: "Últimos 3 días", value: 45.245 },
+                        { title: "Última semana", value: 45.245 },
+                        { title: "Ultimo mes", value: 45.245 },
+                    ]}
+                />
+            </>
+        );
+    };
+
+    const getButtonGroup = function () {
+        return (
+            <>
+                <RoundButton type={"house-door"} id={0} option={option} setOption={setOption} text={"Mi area"}/>
+                <RoundButton type={"file-earmark-person"} id={1} option={option} setOption={setOption} text={"Hoja de Vida"}/>
+                <RoundButton type={"window-sidebar"} id={2} option={option} setOption={setOption} text={"Test y evaluaciones"}/>
+                <RoundButton type={"gear"} id={3} option={option} setOption={setOption} text={"Configuración"}/>
+            </>
+        );
     };
 
     useEffect(() => {}, [option]);
@@ -16,22 +117,6 @@ function Navbar({ buttonActive, changeScreen }) {
             return setOption(false);
         }
     }, [buttonActive]);
-
-    const handleMouseEnter = function (e, page) {
-        if (page !== option) {
-            e.target.style.backgroundColor = "#1B4965";
-            e.target.classList.add("text-white");
-            e.target.style.borderRadius = "500px";
-        }
-    };
-
-    const handleMouseLeave = function (e, page) {
-        if (page !== option) {
-            e.target.style.backgroundColor = "#CAE9FF";
-            e.target.style.borderRadius = "500px";
-            e.target.classList.remove("text-white");
-        }
-    };
 
     return (
         <div className="">
@@ -97,173 +182,14 @@ function Navbar({ buttonActive, changeScreen }) {
             <div className="my-4">
                 {buttonActive == 0 ? (
                     <div className="d-flex justify-content-between">
-                        <DropdownButtons
-                            title={"Fecha"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Departamento"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Ciudad"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Experiencia"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Salario"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Jornada"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Contrato"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
-
-                        <DropdownButtons
-                            title={"Discapacidad"}
-                            filters={[
-                                { title: "Urgente", value: 45.245 },
-                                { title: "Hoy", value: 45.245 },
-                                { title: "Últimos 3 días", value: 45.245 },
-                                { title: "Última semana", value: 45.245 },
-                                { title: "Ultimo mes", value: 45.245 },
-                            ]}
-                        />
+                        {getFilterDropdownButtons()}
                     </div>
                 ) : (
                     <div
                         className="d-flex justify-content-between"
                         id="navbar-part"
                     >
-                        <button
-                            className={
-                                option === 0
-                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
-                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            }
-                            onMouseEnter={(e) => handleMouseEnter(e, 0)}
-                            onMouseLeave={(e) => handleMouseLeave(e, 0)}
-                            onClick={(e) => changeOptionPage(e, 0)}
-                            style={
-                                option === 0
-                                    ? { backgroundColor: "#1B4965" }
-                                    : { color: "#CAE9FF" }
-                            }
-                        >
-                            {" "}
-                            <i class="bi bi-house-door me-2 "></i>Mi area
-                        </button>
-                        <button
-                            className={
-                                option === 1
-                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
-                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            }
-                            onMouseEnter={(e) => handleMouseEnter(e, 1)}
-                            onMouseLeave={(e) => handleMouseLeave(e, 1)}
-                            onClick={(e) => changeOptionPage(e, 1)}
-                            style={
-                                option === 1
-                                    ? { backgroundColor: "#1B4965" }
-                                    : { color: "#CAE9FF" }
-                            }
-                        >
-                            {" "}
-                            <i class="bi bi-file-earmark-person me-2"></i>Hoja
-                            de Vida
-                        </button>
-                        <button
-                            className={
-                                option === 2
-                                    ? "btn btn-outline-primary w-25 me-3 text-white border border-0"
-                                    : "btn btn-outline-primary w-25 me-3 text-secondary border border-0"
-                            }
-                            onMouseEnter={(e) => handleMouseEnter(e, 2)}
-                            onMouseLeave={(e) => handleMouseLeave(e, 2)}
-                            onClick={(e) => changeOptionPage(e, 2)}
-                            style={
-                                option === 2
-                                    ? { backgroundColor: "#1B4965" }
-                                    : { color: "#CAE9FF" }
-                            }
-                        >
-                            {" "}
-                            <i class="bi bi-window-sidebar me-2"></i>Test y
-                            evaluaciones
-                        </button>
-                        <button
-                            className={
-                                option === 3
-                                    ? "btn btn-outline-primary w-25 ms-3 text-white border border-0"
-                                    : "btn btn-outline-primary w-25 ms-3 text-secondary border border-0"
-                            }
-                            onMouseEnter={(e) => handleMouseEnter(e, 3)}
-                            onMouseLeave={(e) => handleMouseLeave(e, 3)}
-                            onClick={(e) => changeOptionPage(e, 3)}
-                            style={
-                                option === 3
-                                    ? { backgroundColor: "#1B4965" }
-                                    : { color: "#CAE9FF" }
-                            }
-                        >
-                            {" "}
-                            <i class="bi bi-gear me-2"></i>Configuración
-                        </button>
+                        {getButtonGroup()}
                     </div>
                 )}
             </div>
