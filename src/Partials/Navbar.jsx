@@ -102,10 +102,10 @@ function Navbar({ buttonActive, changeScreen }) {
     const getButtonGroup = function () {
         return (
             <>
-                <RoundButton type={"house-door"} id={0} option={option} setOption={setOption} text={"Mi area"}/>
-                <RoundButton type={"file-earmark-person"} id={1} option={option} setOption={setOption} text={"Hoja de Vida"}/>
-                <RoundButton type={"window-sidebar"} id={2} option={option} setOption={setOption} text={"Test y evaluaciones"}/>
-                <RoundButton type={"gear"} id={3} option={option} setOption={setOption} text={"Configuración"}/>
+                <RoundButton type={"house-door"} id={0} option={option} setOption={setOption} text={"Mi area"} changeScreen={changeScreen}/>
+                <RoundButton type={"file-earmark-person"} id={1} option={option} setOption={setOption} text={"Hoja de Vida"} changeScreen={changeScreen}/>
+                <RoundButton type={"window-sidebar"} id={2} option={option} setOption={setOption} text={"Test y evaluaciones"} changeScreen={changeScreen}/>
+                <RoundButton type={"gear"} id={3} option={option} setOption={setOption} text={"Configuración"} changeScreen={changeScreen}/>
             </>
         );
     };
