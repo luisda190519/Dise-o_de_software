@@ -85,7 +85,7 @@ function Applications() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-6 mt-2">
                             <Jobcard job={jobView} />
                         </div>
                     </div>

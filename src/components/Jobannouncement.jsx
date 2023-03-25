@@ -34,7 +34,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus }) {
                         <div className="col-md-4 d-flex flex-row-reverse">
                             <img
                                 src={job.image}
-                                className="img-fluid rounded-start"
+                                className="img-fluid rounded-start w-75 h-75"
                             />
                         </div>
                     </div>
