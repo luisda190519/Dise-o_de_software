@@ -24,7 +24,6 @@ function Main() {
                             return (
                                 <div
                                     key={key}
-                                    style={{ borderBottom: "1px solid #ccc" }}
                                 >
                                     <Jobannouncement
                                         job={anuncio}

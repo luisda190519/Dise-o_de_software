@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Jobannouncement({ job, setJobfocus, jobFocus }) {
+function Jobannouncement({ job, setJobfocus, jobFocus=false }) {
     const [active, setActive] = useState(false);
 
     const seeJobAnnouncement = function (e) {
@@ -21,7 +21,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus }) {
             onClick={(e) => seeJobAnnouncement(e)}
         >
             <div
-                className={`card border-light text-start ${
+                className={`card border text-start ${
                     active ? "bg-custom" : ""
                 }`}
             >
