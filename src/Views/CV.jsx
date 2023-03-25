@@ -12,7 +12,7 @@ function CV() {
                                 <div className="col-4">
                                     <img
                                         src={user.image}
-                                        className="img-fluid rounded-pill"
+                                        className="img-fluid rounded w-100 h-75"
                                     />
                                 </div>
 
@@ -29,7 +29,7 @@ function CV() {
                                 </div>
                             </div>
 
-                            <div className="mt-5">
+                            <div className="mt-2">
                                 <h4>{user.estado}</h4>
                                 <p>{user.description}</p>
 

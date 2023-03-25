@@ -64,7 +64,7 @@ function App() {
                         ) : (
                             <div></div>
                         )}
-                        <div>{screens[screen]}</div>
+                        <div className="my-3">{screens[screen]}</div>
                     </div>
                 </div>
             </div>

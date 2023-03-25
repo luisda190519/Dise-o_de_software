@@ -5,7 +5,7 @@ export let user = {
     email: "olaempresarial.gmail.com",
     estado: "Estudiante",
     cellphone: 300145789,
-    image: "https://media.tenor.com/4tu7XjBaoGwAAAAC/animan-animan-studios.gif",
+    image: "https://pbs.twimg.com/media/FoXoU5IagAMXMW-.jpg",
     idiomas: ["Español", "ingles", "Turko", "Chekoslovaco"],
     habilidadesBlandas: [
         "Comunicativo",

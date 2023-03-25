@@ -10,7 +10,10 @@ function MiArea() {
             <div className="row">
                 <div className="col-3">
                     <div className="card text-center mb-4">
-                        <img src={user.image} className="card-img-top" />
+                        <div className="d-flex justify-content-center">
+                            <img src={user.image} className="img-fluid rounded w-50 mt-3" />
+                        </div>
+
                         <div className="card-body">
                             <h6>{user.name}</h6>
                             <span className="text-secondary">
@@ -69,7 +72,7 @@ function MiArea() {
                 </div>
                 <div className="col-3">
                     <div
-                        className="card text-bg-light"
+                        className="card"
                         style={{ border: "1px solid #5FA8D3" }}
                     >
                         <img
