@@ -14,12 +14,13 @@ function Sidebar({ changeScreen, buttonActive }) {
             id="sidebar"
         >
             <a
-                href="/"
                 className="d-block p-3 link-white text-decoration-none"
                 title=""
                 data-bs-toggle="tooltip"
                 data-bs-placement="right"
                 data-bs-original-title="Icon-only"
+                onClick={(e) => changeScreen(0)}
+                style={{cursor:"pointer"}}
             >
                 <h1>
                     <img className="img-fluid mt-4" src="/icon.png"/>
@@ -27,25 +28,25 @@ function Sidebar({ changeScreen, buttonActive }) {
             </a>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
                 <SidebarButtons
-                    id={0}
+                    id={1}
                     type={"search"}
                     changeScreen={changeScreen}
                     buttonActive={buttonActive}
                 />
                 <SidebarButtons
-                    id={1}
+                    id={2}
                     type={"send"}
                     changeScreen={changeScreen}
                     buttonActive={buttonActive}
                 />
                 <SidebarButtons
-                    id={2}
+                    id={3}
                     type={"heart"}
                     changeScreen={changeScreen}
                     buttonActive={buttonActive}
                 />
                 <SidebarButtons
-                    id={3}
+                    id={4}
                     type={"bell"}
                     changeScreen={changeScreen}
                     buttonActive={buttonActive}
