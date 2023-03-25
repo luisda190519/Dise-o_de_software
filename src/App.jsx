@@ -16,8 +16,16 @@ function App() {
     const [screen, setScreen] = useState(0);
     const [navbar, setNavabr] = useState(true);
 
+    const changeScreen = function (id) {
+        setScreen(id);
+        if (id === 0) {
+            return setNavabr(false);
+        }
+        return setNavabr(true);
+    };
+
     const screens = [
-        <Home />,
+        <Home changeScreen={changeScreen} buttonActive={screen} />,
         <Main />,
         <Applications />,
         <Likes />,
@@ -28,14 +36,6 @@ function App() {
         <Config />,
         <PageNotFound />,
     ];
-
-    const changeScreen = function (id) {
-        setScreen(id);
-        if (id === 0) {
-            return setNavabr(false);
-        }
-        return setNavabr(true);
-    };
 
     useEffect(() => {
         changeScreen(0);
