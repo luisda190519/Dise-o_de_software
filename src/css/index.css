@@ -78,3 +78,10 @@ body {
     top: 35vh;
     right: 10vh;
 }
+
+.background-image {
+    background-image: url("/src/assets/employee.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
