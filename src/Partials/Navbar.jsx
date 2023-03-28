@@ -2,7 +2,7 @@ import DropdownButtons from "../components/DropdownButtons";
 import RoundButton from "../components/RoundButton";
 import { useState, useEffect } from "react";
 
-function Navbar({ buttonActive, changeScreen }) {
+function Navbar({ utils: { changeScreen, buttonActive } }) {
     const [option, setOption] = useState(false);
 
     const getFilterDropdownButtons = function () {

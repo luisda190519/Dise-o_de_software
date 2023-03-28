@@ -1,10 +1,10 @@
 import SidebarButtons from "../components/SidebarButtons";
 import { useState, useEffect } from "react";
 
-function Sidebar({ changeScreen, buttonActive }) {
-    const [button, setButton] = useState(buttonActive)
+function Sidebar({ utils: { changeScreen, buttonActive } }) {
+    const [button, setButton] = useState(buttonActive);
     useEffect(() => {
-        setButton(buttonActive)
+        setButton(buttonActive);
     }, [buttonActive]);
 
     return (
@@ -20,10 +20,10 @@ function Sidebar({ changeScreen, buttonActive }) {
                 data-bs-placement="right"
                 data-bs-original-title="Icon-only"
                 onClick={(e) => changeScreen(0)}
-                style={{cursor:"pointer"}}
+                style={{ cursor: "pointer" }}
             >
                 <h1>
-                    <img className="img-fluid mt-4" src="/icon.png"/>
+                    <img className="img-fluid mt-4" src="/icon.png" />
                 </h1>
             </a>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
@@ -71,7 +71,7 @@ function Sidebar({ changeScreen, buttonActive }) {
                 <ul
                     className="dropdown-menu text-small shadow "
                     aria-labelledby="dropdownUser3"
-                    style={{position:"absolute", zIndex:"999"}}
+                    style={{ position: "absolute", zIndex: "999" }}
                 >
                     <li>
                         <a className="dropdown-item" href="#">

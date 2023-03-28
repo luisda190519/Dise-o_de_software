@@ -1,4 +1,4 @@
-function Home({ changeScreen, buttonActive }) {
+function Home({ utils: { changeScreen, buttonActive } }) {
     const searchJob = function (e) {
         changeScreen(1);
     };

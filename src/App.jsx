@@ -14,18 +14,20 @@ import { useState, useEffect } from "react";
 
 function App() {
     const [screen, setScreen] = useState(0);
-    const [navbar, setNavabr] = useState(true);
+    const [navbar, setNavabar] = useState();
+    const [sidebar, setSidebar] = useState();
 
     const changeScreen = function (id) {
         setScreen(id);
-        if (id === 0) {
-            return setNavabr(false);
-        }
-        return setNavabr(true);
+    };
+
+    const utils = {
+        changeScreen,
+        buttonActive: screen,
     };
 
     const screens = [
-        <Home changeScreen={changeScreen} buttonActive={screen} />,
+        <Home utils={utils} />,
         <Main />,
         <Applications />,
         <Likes />,
@@ -41,29 +43,26 @@ function App() {
         changeScreen(0);
     }, []);
 
-    useEffect(() => {}, [screen, navbar]);
+    useEffect(() => {
+        if (screen !== 0) {
+            setNavabar(
+                <Navbar utils={utils} />
+            );
+            return setSidebar(
+                <Sidebar utils={utils} />
+            );
+        }
+        setNavabar(null);
+        return setSidebar(null);
+    }, [screen, navbar, sidebar]);
 
     return (
         <div>
             <div className="text-left">
                 <div className="row gx-0 justify-content-end">
-                    <div className="col-1">
-                        <Sidebar
-                            changeScreen={changeScreen}
-                            buttonActive={screen}
-                        />
-                    </div>
+                    <div className="col-1">{sidebar}</div>
                     <div className="col-11 container-fluid">
-                        {navbar ? (
-                            <div className="mt-4">
-                                <Navbar
-                                    buttonActive={screen}
-                                    changeScreen={changeScreen}
-                                />
-                            </div>
-                        ) : (
-                            <div></div>
-                        )}
+                        <div className="mt-4">{navbar}</div>
                         <div className="my-3">{screens[screen]}</div>
                     </div>
                 </div>
