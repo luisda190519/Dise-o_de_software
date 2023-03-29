@@ -23,6 +23,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         width: "100vw",
                         height: "75vh",
                         position: "absolute",
+                        top: "1vh",
                         zIndex: "-5",
                     }}
                 />
@@ -75,15 +76,25 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 style={
                     searchBar == 0
                         ? { marginTop: "25vh", backgroundColor: "#ffff" }
-                        : { marginTop: "25vh", backgroundColor: "#ef476f" }
+                        : { marginTop: "25vh", backgroundColor: "#1B4965" }
                 }
             >
+                <div
+                    className="rounded"
+                    style={{
+                        position: "absolute",
+                        backgroundColor: "#f6f7f8",
+                        padding: "7rem 35rem",
+                        zIndex: "-1",
+                        boxShadow:"0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)"
+                    }}
+                ></div>
                 <button
                     className="btn btn-light border-0"
                     style={{
                         position: "absolute",
                         left: "-0.2px",
-                        top: "-36px",
+                        top: "-2.3rem",
                         backgroundColor: "#ffff",
                         zIndex: "10",
                     }}
@@ -96,8 +107,8 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     style={{
                         position: "absolute",
                         left: "150px",
-                        top: "-36px",
-                        backgroundColor: "#ef476f",
+                        top: "-2.3rem",
+                        backgroundColor: "#1B4965",
                         zIndex: "10",
                     }}
                     onClick={(e) => changeSearchBar(e, 1)}
@@ -169,10 +180,13 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 </div>
             </div>
 
-            <div style={{ marginTop: "40vh" }}>
+            <div
+                className="pb-5"
+                style={{ marginTop: "40vh", backgroundColor: "#fff" }}
+            >
                 <hr />
                 <div className="mt-5 border-bottom mb-5 pb-5 ">
-                    <div className="text-center">
+                    <div className="text-center mt-5">
                         <h3>Si buscas trabajo HireMeNow es tu mejor aliado!</h3>
                         <p className="fs-5 text-secondary">
                             Miles de ofertas de empleo están esperándote
