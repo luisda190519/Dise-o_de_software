@@ -45,12 +45,8 @@ function App() {
 
     useEffect(() => {
         if (screen !== 0) {
-            setNavabar(
-                <Navbar utils={utils} />
-            );
-            return setSidebar(
-                <Sidebar utils={utils} />
-            );
+            setNavabar(<Navbar utils={utils} />);
+            return setSidebar(<Sidebar utils={utils} />);
         }
         setNavabar(null);
         return setSidebar(null);
@@ -59,13 +55,17 @@ function App() {
     return (
         <div>
             <div className="text-left">
-                <div className="row gx-0 justify-content-end">
-                    <div className="col-1">{sidebar}</div>
-                    <div className="col-11 container-fluid">
-                        <div className="mt-4">{navbar}</div>
-                        <div className="my-3">{screens[screen]}</div>
+                {screen === 0 ? (
+                    screens[screen]
+                ) : (
+                    <div className="row gx-0 justify-content-end">
+                        <div className="col-1">{sidebar}</div>
+                        <div className="col-11 container-fluid">
+                            <div className="mt-4">{navbar}</div>
+                            <div className="my-3">{screens[screen]}</div>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );
