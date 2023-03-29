@@ -72,7 +72,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
             </div>
 
             <div
-                className="container card d-flex justify-content-center align-items-center p-4 w-75 border-0"
+                className="container card d-flex justify-content-center align-items-center p-4 border-0"
                 style={
                     searchBar == 0
                         ? { marginTop: "25vh", backgroundColor: "#ffff" }
@@ -84,7 +84,8 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     style={{
                         position: "absolute",
                         backgroundColor: "#f6f7f8",
-                        padding: "7rem 35rem",
+                        paddingTop: "13rem",
+                        width:"90vw",
                         zIndex: "-1",
                         boxShadow:"0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)"
                     }}
