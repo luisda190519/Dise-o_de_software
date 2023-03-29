@@ -17,38 +17,37 @@ function Home({ utils: { changeScreen, buttonActive } }) {
         <div>
             <div className="mx-0">
                 <img
-                    src="https://cloudbooking.com/wp-content/uploads/2022/08/activity-based-working-feature-.jpg"
+                    src="/home.png"
                     className="img-fluid"
                     style={{
                         width: "100vw",
                         height: "75vh",
                         position: "absolute",
                         zIndex: "-5",
-                        filter: "blur(1px)",
                     }}
                 />
 
-                <div className="container-fluid">
+                <div className="bg-white container-fluid border border-top-0">
                     <div className="row">
                         <div className="col-3">
                             <img src="/logo.png" className="w-75 py-3" />
                         </div>
-                        <div className="col-9 mt-3">
+                        <div className="col-9 pt-3">
                             <div className="d-flex justify-content-end align-items-center">
-                                <a href="" className="me-5 text-white">
-                                    <b>Home</b>
+                                <a href="" className="me-5 text-black fs-5">
+                                    Home
                                 </a>
-                                <a href="" className="me-5 text-white">
-                                    <b>About</b>
+                                <a href="" className="me-5 text-black fs-5">
+                                    About
                                 </a>
-                                <a href="" className="me-5 text-white">
-                                    <b>Blog</b>
+                                <a href="" className="me-5 text-black fs-5">
+                                    Blog
                                 </a>
-                                <a href="" className="me-5 text-white">
-                                    <b>Contact</b>
+                                <a href="" className="me-5 text-black fs-5">
+                                    Contact
                                 </a>
                                 <button
-                                    className="btn btn-primary  rounded-pill me-3"
+                                    className="btn btn-primary rounded-pill me-3"
                                     style={{
                                         backgroundColor: "#62B6CB",
                                         border: "none",
@@ -75,8 +74,8 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 className="container card d-flex justify-content-center align-items-center p-4 w-75 border-0"
                 style={
                     searchBar == 0
-                        ? { marginTop: "20vh", backgroundColor: "#ffff" }
-                        : { marginTop: "20vh", backgroundColor: "#1B4965" }
+                        ? { marginTop: "25vh", backgroundColor: "#ffff" }
+                        : { marginTop: "25vh", backgroundColor: "#ef476f" }
                 }
             >
                 <button
@@ -98,7 +97,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         position: "absolute",
                         left: "150px",
                         top: "-36px",
-                        backgroundColor: "#1B4965",
+                        backgroundColor: "#ef476f",
                         zIndex: "10",
                     }}
                     onClick={(e) => changeSearchBar(e, 1)}
@@ -262,22 +261,24 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         <div className="col-4">
                             <div className="row gx-0">
                                 <div className="col-2 d-flex align-items-center justify-content-center text-primary">
-                                <i className="bi bi-eye fs-1"></i>
+                                    <i className="bi bi-eye fs-1"></i>
                                 </div>
                                 <div className="col-8">
                                     <h5>Revisa las postulaciones</h5>
-                                    Selecciona a los mejores candidatos entre todos los CVs recibidos.
+                                    Selecciona a los mejores candidatos entre
+                                    todos los CVs recibidos.
                                 </div>
                             </div>
                         </div>
                         <div className="col-4">
                             <div className="row gx-0">
                                 <div className="col-2 d-flex align-items-center justify-content-center text-warning">
-                                <i className="bi bi-star fs-1"></i>
+                                    <i className="bi bi-star fs-1"></i>
                                 </div>
                                 <div className="col-8">
                                     <h5>Contrata</h5>
-                                    Encuentra al candidato que mejor se adapta al perfil buscado.
+                                    Encuentra al candidato que mejor se adapta
+                                    al perfil buscado.
                                 </div>
                             </div>
                         </div>
