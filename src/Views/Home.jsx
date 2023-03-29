@@ -21,7 +21,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     className="img-fluid"
                     style={{
                         width: "100vw",
-                        maxHeight: "75vh",
+                        height: "75vh",
                         position: "absolute",
                         zIndex: "-5",
                         filter: "blur(1px)",
@@ -105,16 +105,16 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 >
                     Busca un candidato
                 </button>
-                <div class="input-group me-3">
+                <div className="input-group me-3">
                     <span
-                        class="input-group-text"
+                        className="input-group-text"
                         id="inputGroup-sizing-default"
                     >
-                        <i class="bi bi-bar-chart-line"></i>
+                        <i className="bi bi-bar-chart-line"></i>
                     </span>
                     <input
                         type="text"
-                        class="form-control me-3"
+                        className="form-control me-3"
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         placeholder={
@@ -124,27 +124,27 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         }
                     />
                     <span
-                        class="input-group-text"
+                        className="input-group-text"
                         id="inputGroup-sizing-default"
                     >
-                        <i class="bi bi-building"></i>
+                        <i className="bi bi-building"></i>
                     </span>
                     <input
                         type="text"
-                        class="form-control me-3"
+                        className="form-control me-3"
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         placeholder="Compañia"
                     />
                     <span
-                        class="input-group-text"
+                        className="input-group-text"
                         id="inputGroup-sizing-default"
                     >
-                        <i class="bi bi-geo-alt"></i>
+                        <i className="bi bi-geo-alt"></i>
                     </span>
                     <input
                         type="text"
-                        class="form-control me-3"
+                        className="form-control me-3"
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         placeholder="Lugar, ubicacion"
@@ -167,6 +167,121 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     >
                         Buscar Empleos
                     </button>
+                </div>
+            </div>
+
+            <div style={{ marginTop: "40vh" }}>
+                <hr />
+                <div className="mt-5 border-bottom mb-5 pb-5 ">
+                    <div className="text-center">
+                        <h3>Si buscas trabajo HireMeNow es tu mejor aliado!</h3>
+                        <p className="fs-5 text-secondary">
+                            Miles de ofertas de empleo están esperándote
+                        </p>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <div className="row mt-5">
+                            <div className="col-4">
+                                <img
+                                    src="https://cp.ct-stc.com/web/20230328.12/c/img/encontrar_empleo.png"
+                                    className="img-fluid"
+                                />
+                            </div>
+                            <div className="col-8 ps-5">
+                                <h3>Te ayudamos a encontrar un empleo mejor</h3>
+                                <p className="fs-6 text-secondary">
+                                    Haz que tu currículum sea visible para miles
+                                    de empresas en nuestra bolsa de trabajo
+                                </p>
+                                <div>
+                                    <div className="d-flex">
+                                        <i className="bi bi-check-lg text-success me-2"></i>
+                                        <b>Registro gratuito</b>
+                                        <p className="text-secondary ms-2">
+                                            Encuentra tu próximo trabajo hoy.
+                                        </p>
+                                    </div>
+                                    <div className="d-flex">
+                                        <i className="bi bi-check-lg text-success me-2"></i>
+                                        <b>Ofertas cada día.</b>
+                                        <p className="text-secondary ms-2">
+                                            Empleos que se ajustan a tu perfil.
+                                        </p>
+                                    </div>
+                                    <div className="d-flex">
+                                        <i className="bi bi-check-lg text-success me-2"></i>
+                                        <b>Alertas personalizadas.</b>
+                                        <p className="text-secondary ms-2">
+                                            Tú crea alertas de empleo y nosotros
+                                            te avisaremos.
+                                        </p>
+                                    </div>
+                                    <div className="d-flex">
+                                        <i className="bi bi-check-lg text-success me-2"></i>
+                                        <b>Completa tu perfil..</b>
+                                        <p className="text-secondary ms-2">
+                                            Muéstrate profesional y ganarás
+                                            visibilidad.
+                                        </p>
+                                    </div>
+                                    <button
+                                        className="btn btn-primary btn-lg rounded-pill mt-3"
+                                        style={{
+                                            backgroundColor: "#1B4965",
+                                            border: "none",
+                                        }}
+                                    >
+                                        Buscar un empleo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-5 mb-5">
+                    <div className="container">
+                        <h2 className="text-center">
+                            Publica tus ofertas en el portal de empleo con mayor
+                            audiencia en Latinoamérica
+                        </h2>
+                    </div>
+                    <div className="row mt-5">
+                        <div className="col-4">
+                            <div className="row gx-0">
+                                <div className="col-2 d-flex align-items-center justify-content-center text-danger">
+                                    <i className="bi bi-newspaper fs-1"></i>
+                                </div>
+                                <div className="col-8">
+                                    <h5>Publica tu vacante</h5>
+                                    Crea fácilmente tu oferta de trabajo y
+                                    publícala en un click.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-4">
+                            <div className="row gx-0">
+                                <div className="col-2 d-flex align-items-center justify-content-center text-primary">
+                                <i className="bi bi-eye fs-1"></i>
+                                </div>
+                                <div className="col-8">
+                                    <h5>Revisa las postulaciones</h5>
+                                    Selecciona a los mejores candidatos entre todos los CVs recibidos.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-4">
+                            <div className="row gx-0">
+                                <div className="col-2 d-flex align-items-center justify-content-center text-warning">
+                                <i className="bi bi-star fs-1"></i>
+                                </div>
+                                <div className="col-8">
+                                    <h5>Contrata</h5>
+                                    Encuentra al candidato que mejor se adapta al perfil buscado.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
