@@ -30,7 +30,7 @@ function Test() {
                     <div className="col-4">
                         <img
                             className="img-fluid"
-                            src="https://media.tenor.com/FIBoZEHq8UsAAAAd/perdida-de-tiempo-mejor-ponte-a-aprender-ingl%C3%A9s.gif"
+                            src="https://fotografias.flooxernow.com/clipping/cmsimages02/2019/12/23/FA7C1DC1-B48C-479D-9DA4-DC082E9F579D/98.jpg?crop=1300,731,x0,y13&width=1900&height=1069&optimize=high&format=webply"
                         />
                     </div>
                 </div>

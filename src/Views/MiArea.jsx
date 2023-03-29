@@ -11,14 +11,14 @@ function MiArea() {
                 <div className="col-3">
                     <div className="card text-center mb-4">
                         <div className="d-flex justify-content-center">
-                            <img src={user.image} className="img-fluid rounded w-50 mt-3" />
+                            <img src={user.image} className=" rounded w-50 vh-50 mt-3" />
                         </div>
 
                         <div className="card-body">
                             <h6>{user.name}</h6>
-                            <span className="text-secondary">
+                            <div className="text-secondary">
                                 {user.estado}
-                            </span>
+                            </div>
                             <button className="btn btn-outline-primary mt-3 rounded-pill">
                                 Mejora tu perfil profesional
                             </button>

@@ -55,7 +55,7 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
             <div className="dropdown border-top">
                 <a
                     href="#"
-                    className="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle mb-1"
+                    className="d-flex align-items-center justify-content-center p-3 link-white text-decoration-none dropdown-toggle mb-1 text-white"
                     id="dropdownUser3"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -69,7 +69,7 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
                     />
                 </a>
                 <ul
-                    className="dropdown-menu text-small shadow "
+                    className="dropdown-menu text-small shadow"
                     aria-labelledby="dropdownUser3"
                     style={{ position: "absolute", zIndex: "999" }}
                 >

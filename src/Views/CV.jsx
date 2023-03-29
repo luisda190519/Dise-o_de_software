@@ -12,7 +12,7 @@ function CV() {
                                 <div className="col-4">
                                     <img
                                         src={user.image}
-                                        className="img-fluid rounded w-100 h-75"
+                                        className="img-fluid rounded w-75 h-75"
                                     />
                                 </div>
 
@@ -43,7 +43,7 @@ function CV() {
                                 </div>
                             </div>
 
-                            <div className="mt-5">
+                            <div className="mt-5" style={{ whiteSpace: "pre-wrap" }}>
                                 <h4>Mis experiencias profesionales</h4>
                                 <ul>
                                     {user.experiencia.map(
@@ -76,7 +76,7 @@ function CV() {
                                 <div className="row">
                                     {user.idiomas.map((idioma, key) => {
                                         return (
-                                            <div className="col-auto border me-4 mt-2 rounded-pill px-2 py-1">
+                                            <div className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
                                                 {idioma}
                                                 <button className="btn">
                                                     <i className="bi bi-x-lg"></i>
@@ -93,7 +93,7 @@ function CV() {
                                     {user.habilidadesBlandas.map(
                                         (habilidad, key) => {
                                             return (
-                                                <div className="col-auto border me-4 mt-2 rounded-pill px-2 py-1">
+                                                <div className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
                                                     {habilidad}
                                                     <button className="btn">
                                                         <i className="bi bi-x-lg"></i>
@@ -108,7 +108,7 @@ function CV() {
                     </div>
                 </div>
                 <div className="col-3 ms-5">
-                    <Ads/>
+                    <Ads />
                 </div>
             </div>
         </div>

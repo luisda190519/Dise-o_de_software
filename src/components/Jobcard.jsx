@@ -65,7 +65,7 @@ function Jobcard({ job }) {
                             );
                         })}
                     </div>
-                    <p className="card-text">{job.description}</p>
+                    <p className="" style={{ whiteSpace: "pre-wrap" }}>{job.description}</p>
                     <h5 className="card-title mb-3">Requerimientos</h5>
                     <ul>
                         {job.requirements.map((requirement, key) => {
