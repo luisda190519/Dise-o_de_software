@@ -95,7 +95,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     style={{
                         position: "absolute",
                         left: "-0.2px",
-                        top: "-2.3rem",
+                        top: "-2.25rem",
                         backgroundColor: "#ffff",
                         zIndex: "10",
                     }}
@@ -108,7 +108,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                     style={{
                         position: "absolute",
                         left: "150px",
-                        top: "-2.3rem",
+                        top: "-2.25rem",
                         backgroundColor: "#1B4965",
                         zIndex: "10",
                     }}
@@ -260,7 +260,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                             audiencia en Latinoamérica
                         </h2>
                     </div>
-                    <div className="row mt-5">
+                    <div className="row mt-5 ms-5">
                         <div className="col-4">
                             <div className="row gx-0">
                                 <div className="col-2 d-flex align-items-center justify-content-center text-danger">
