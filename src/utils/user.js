@@ -5,7 +5,7 @@ export let user = {
     email: "elonmusk@gmail.com",
     estado: "Estudiante",
     cellphone: 300145789,
-    image: "https://pbs.twimg.com/media/FoXoU5IagAMXMW-.jpg",
+    image: "https://img.freepik.com/fotos-premium/concepto-personas-felicidad-adolescente-sonriente-sobre-fondo-blanco_380164-63917.jpg",
     idiomas: ["Español", "ingles", "Turko", "Chekoslovaco"],
     habilidadesBlandas: [
         "Comunicativo",
