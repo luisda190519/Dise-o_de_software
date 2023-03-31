@@ -36,9 +36,6 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         <div className="col-9 pt-3">
                             <div className="d-flex justify-content-end align-items-center">
                                 <a href="" className="me-5 text-black fs-5">
-                                    Home
-                                </a>
-                                <a href="" className="me-5 text-black fs-5">
                                     About
                                 </a>
                                 <a href="" className="me-5 text-black fs-5">
@@ -62,6 +59,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                                         backgroundColor: "#1B4965",
                                         border: "none",
                                     }}
+                                    onClick={(e) => searchJob(e)}
                                 >
                                     Buscar un empleo
                                 </button>
@@ -246,6 +244,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                                             backgroundColor: "#1B4965",
                                             border: "none",
                                         }}
+                                        onClick={(e) => searchJob(e)}
                                     >
                                         Buscar un empleo
                                     </button>
