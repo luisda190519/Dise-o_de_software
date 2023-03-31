@@ -76,7 +76,7 @@ function CV() {
                                 <div className="row">
                                     {user.idiomas.map((idioma, key) => {
                                         return (
-                                            <div className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
+                                            <div key={key} className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
                                                 {idioma}
                                                 <button className="btn">
                                                     <i className="bi bi-x-lg"></i>
@@ -93,7 +93,7 @@ function CV() {
                                     {user.habilidadesBlandas.map(
                                         (habilidad, key) => {
                                             return (
-                                                <div className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
+                                                <div key={key} className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
                                                     {habilidad}
                                                     <button className="btn">
                                                         <i className="bi bi-x-lg"></i>

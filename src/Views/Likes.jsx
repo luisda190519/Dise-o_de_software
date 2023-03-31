@@ -1,5 +1,5 @@
 import { anuncios } from "../utils/jsonJobs";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import JobExpanded from "./JobExpanded";
 
 function Likes() {
@@ -56,7 +56,7 @@ function Likes() {
                                                         }}
                                                     ></i>{" "}
                                                     {anuncio.rating}
-                                                    <p>{anuncio.location}</p>
+                                                    {anuncio.location}
                                                 </p>
                                             </div>
 
@@ -86,7 +86,7 @@ function Likes() {
                             <div className="card me-5">
                                 <img
                                     src="https://www.lahora.com.ec/wp-content/uploads/2022/03/busqueda-trabajo-remoto-2.jpg"
-                                    class="img-fluid"
+                                    className="img-fluid"
                                     alt=""
                                 />
                                 <div className="card-body">

@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 
 function Home({ utils: { changeScreen, buttonActive } }) {
     const [searchBar, setSearchBar] = useState(0);
@@ -11,7 +11,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
         setSearchBar(id);
     };
 
-    useEffect(() => {}, [searchBar]);
+    //useEffect(() => {}, [searchBar]);
 
     return (
         <div>

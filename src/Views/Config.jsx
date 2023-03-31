@@ -25,7 +25,7 @@ function Config() {
                                 name="1"
                                 id="1"
                                 className="form-check-inpu me-2"
-                                checked
+                                defaultChecked
                             />
                             <label htmlFor="1" className="form-check-label">
                                 Hoja de vida visible para las empresas

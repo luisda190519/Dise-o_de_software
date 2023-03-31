@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 function Sidebar({ utils: { changeScreen, buttonActive } }) {
     const [button, setButton] = useState(buttonActive);
     useEffect(() => {
+        console.log("AQUI 2")
         setButton(buttonActive);
     }, [buttonActive]);
 
@@ -31,25 +32,25 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
                     id={1}
                     type={"search"}
                     changeScreen={changeScreen}
-                    buttonActive={buttonActive}
+                    buttonActive={button}
                 />
                 <SidebarButtons
                     id={2}
                     type={"send"}
                     changeScreen={changeScreen}
-                    buttonActive={buttonActive}
+                    buttonActive={button}
                 />
                 <SidebarButtons
                     id={3}
                     type={"heart"}
                     changeScreen={changeScreen}
-                    buttonActive={buttonActive}
+                    buttonActive={button}
                 />
                 <SidebarButtons
                     id={4}
                     type={"bell"}
                     changeScreen={changeScreen}
-                    buttonActive={buttonActive}
+                    buttonActive={button}
                 />
             </ul>
             <div className="dropdown border-top">

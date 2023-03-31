@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { anuncios } from "../utils/jsonJobs";
 import Jobcard from "../components/Jobcard";
 
@@ -18,7 +18,7 @@ function Applications() {
         setJobView(anuncios.find((job) => job.id === jobId));
     };
 
-    useEffect(() => {}, [opcion, jobView]);
+    //useEffect(() => {}, [opcion, jobView]);
 
     return (
         <div className="my-3">
@@ -50,7 +50,7 @@ function Applications() {
                                     <div className="row">
                                         <div className="col-4 ">
                                             <div className="d-flex justify-content-center align-items-center h-100">
-                                                <i class="bi bi-1-circle-fill me-2 text-white fs-1"></i>
+                                                <i className="bi bi-1-circle-fill me-2 text-white fs-1"></i>
                                             </div>
                                         </div>
                                         <div className="col-8">
@@ -197,7 +197,7 @@ function Applications() {
 
                                             <div className="col-md-4 d-flex flex-row">
                                                 <i
-                                                    class="bi bi-1-circle-fill me-2 fs-1"
+                                                    className="bi bi-1-circle-fill me-2 fs-1"
                                                     style={{ color: "#1B4965" }}
                                                 ></i>
                                                 <div className="">
@@ -221,7 +221,7 @@ function Applications() {
                             <div className="card me-5">
                                 <img
                                     src="https://www.naukrigulf.com/career-tips/wp-content/uploads/2019/01/Job-Apllication-Writing-Tips.jpg"
-                                    class="img-fluid"
+                                    className="img-fluid"
                                     alt=""
                                 />
                                 <div className="card-body">
@@ -233,28 +233,28 @@ function Applications() {
                                     >
                                         <p>
                                             <i
-                                                class="bi bi-1-circle-fill me-2"
+                                                className="bi bi-1-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>{" "}
                                             Postulado
                                         </p>
                                         <p>
                                             <i
-                                                class="bi bi-2-circle-fill me-2"
+                                                className="bi bi-2-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>
                                             CV Visto
                                         </p>
                                         <p>
                                             <i
-                                                class="bi bi-3-circle-fill me-2"
+                                                className="bi bi-3-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>
                                             Finalista
                                         </p>
                                         <p>
                                             <i
-                                                class="bi bi-4-circle-fill me-2"
+                                                className="bi bi-4-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>
                                             Proceso finalizado

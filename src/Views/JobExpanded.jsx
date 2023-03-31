@@ -1,5 +1,3 @@
-import { anuncios } from "../utils/jsonJobs";
-
 function JobExpanded({ job }) {
     return (
         <div className="">
@@ -26,7 +24,7 @@ function JobExpanded({ job }) {
                     <h5 className="card-title mb-3">Requerimientos</h5>
                     <ul>
                         {job.requirements.map((requirement, key) => {
-                            return <li className="mb-2">{requirement}</li>;
+                            return <li key={key} className="mb-2">{requirement}</li>;
                         })}
                     </ul>
 

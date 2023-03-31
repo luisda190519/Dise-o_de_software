@@ -15,16 +15,9 @@ function SidebarButtons({ id, type, changeScreen, buttonActive }) {
         changeScreen(id);
     };
 
-    const setActiveButton = function () {
-        if (buttonActive == id) {
-            return setActive(true);
-        }
-        return setActive(false);
-    };
-
     useEffect(() => {
-        setActiveButton();
-    }, [buttonActive]);
+        setActive(buttonActive == id)
+    }, [buttonActive, id]);
 
     return (
         <li className="nav-item">

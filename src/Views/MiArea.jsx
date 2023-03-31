@@ -2,7 +2,6 @@ import Ads from "../components/Ads";
 import { anuncios } from "../utils/jsonJobs";
 import { user } from "../utils/user";
 import Jobannouncement from "../components/Jobannouncement";
-import { useEffect, useState } from "react";
 
 function MiArea() {
     return (
