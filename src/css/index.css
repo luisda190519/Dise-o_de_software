@@ -4,6 +4,7 @@ html {
 
 body {
     background-color: #f6fbff;
+    overflow-x: hidden;
 }
 
 #announcements {

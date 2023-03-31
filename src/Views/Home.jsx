@@ -17,7 +17,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
         <div>
             <div className="mx-0">
                 <img
-                    src="/home.png"
+                    src="/home2.png"
                     className="img-fluid"
                     style={{
                         width: "100vw",
@@ -31,7 +31,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 <div className="bg-white container-fluid border border-top-0">
                     <div className="row">
                         <div className="col-3">
-                            <img src="/logo.png" className="w-75 py-3" />
+                            <img src="/logo.png" className="w-75 py-3" style={{cursor:"pointer"}}/>
                         </div>
                         <div className="col-9 pt-3">
                             <div className="d-flex justify-content-end align-items-center">
@@ -75,8 +75,8 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 className="container card d-flex justify-content-center align-items-center p-4 border-0"
                 style={
                     searchBar == 0
-                        ? { marginTop: "25vh", backgroundColor: "#ffff" }
-                        : { marginTop: "25vh", backgroundColor: "#1B4965" }
+                        ? { marginTop: "38vh", backgroundColor: "#ffff" }
+                        : { marginTop: "38vh", backgroundColor: "#1B4965" }
                 }
             >
                 <div
@@ -85,11 +85,13 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         position: "absolute",
                         backgroundColor: "#f6f7f8",
                         paddingTop: "13rem",
-                        width:"90vw",
+                        width: "90vw",
                         zIndex: "-1",
-                        boxShadow:"0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)"
+                        boxShadow:
+                            "0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)",
                     }}
                 ></div>
+                
                 <button
                     className="btn btn-light border-0"
                     style={{
@@ -183,7 +185,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
 
             <div
                 className="pb-5"
-                style={{ marginTop: "40vh", backgroundColor: "#fff" }}
+                style={{ marginTop: "25vh", backgroundColor: "#fff" }}
             >
                 <hr />
                 <div className="mt-5 border-bottom mb-5 pb-5 ">
