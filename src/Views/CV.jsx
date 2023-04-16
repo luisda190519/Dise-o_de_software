@@ -1,7 +1,6 @@
-import { user } from "../utils/user";
 import Ads from "../components/Ads";
 
-function CV() {
+function CV({user}) {
     return (
         <div>
             <div className="row justify-content-start">
@@ -11,14 +10,14 @@ function CV() {
                             <div className="row">
                                 <div className="col-4">
                                     <img
-                                        src={user.image}
+                                        src="https://img.freepik.com/fotos-premium/concepto-personas-felicidad-adolescente-sonriente-sobre-fondo-blanco_380164-63917.jpg"
                                         className="img-fluid rounded w-75 h-75"
                                     />
                                 </div>
 
                                 <div className="col-8">
-                                    <h4>{user.name}</h4>
-                                    <p>{user.city}</p>
+                                    <h4>{user.firstName} <span></span> {user.lastName}</h4>
+                                    <p>{user.location}</p>
                                     <p>
                                         <i className="bi bi-envelope me-2"></i>
                                         {user.email}{" "}
@@ -30,7 +29,7 @@ function CV() {
                             </div>
 
                             <div className="mt-2">
-                                <h4>{user.estado}</h4>
+                                <h4>{user.role}</h4>
                                 <p>{user.description}</p>
 
                                 <div
@@ -46,7 +45,7 @@ function CV() {
                             <div className="mt-5" style={{ whiteSpace: "pre-wrap" }}>
                                 <h4>Mis experiencias profesionales</h4>
                                 <ul>
-                                    {user.experiencia.map(
+                                    {user.experience.map(
                                         (experiencia, key) => {
                                             return (
                                                 <li className="my-3" key={key}>
@@ -90,7 +89,7 @@ function CV() {
                             <div className="mt-4">
                                 <h4>Conocimientos y habilidades</h4>
                                 <div className="row">
-                                    {user.habilidadesBlandas.map(
+                                    {user.skills.map(
                                         (habilidad, key) => {
                                             return (
                                                 <div key={key} className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">

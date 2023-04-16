@@ -1,22 +1,21 @@
 import Ads from "../components/Ads";
 import { anuncios } from "../utils/jsonJobs";
-import { user } from "../utils/user";
 import Jobannouncement from "../components/Jobannouncement";
 
-function MiArea() {
+function MiArea({user}) {
     return (
         <div>
             <div className="row">
                 <div className="col-3">
                     <div className="card text-center mb-4">
                         <div className="d-flex justify-content-center">
-                            <img src={user.image} className=" rounded w-50 vh-50 mt-3" />
+                            <img src="https://img.freepik.com/fotos-premium/concepto-personas-felicidad-adolescente-sonriente-sobre-fondo-blanco_380164-63917.jpg" className=" rounded w-50 vh-50 mt-3" />
                         </div>
 
                         <div className="card-body">
-                            <h6>{user.name}</h6>
+                            <h6>{user.firstName} <span></span> {user.lastName}</h6>
                             <div className="text-secondary">
-                                {user.estado}
+                                {user.role}
                             </div>
                             <button className="btn btn-outline-primary mt-3 rounded-pill">
                                 Mejora tu perfil profesional

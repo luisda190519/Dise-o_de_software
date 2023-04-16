@@ -5,8 +5,8 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => {
-    setIsAuthenticated(true);
+  const login = (id) => {
+    setIsAuthenticated(id);
   };
 
   const logout = () => {

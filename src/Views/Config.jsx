@@ -1,6 +1,6 @@
 import { user } from "../utils/user";
 
-function Config() {
+function Config({user}) {
     return (
         <div className="mb-4">
             <div>

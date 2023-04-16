@@ -35,16 +35,15 @@ function SignupUser() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const message = await postRequest("/auth/signup", {
+        const user = await postRequest("/auth/signup", {
             email,
             password,
             firstName:name,
             lastName:lastname,
             cellphone:number,
         });
-        console.log(message);
-        login();
-        return navigate("/");
+        login(user._id);
+        return navigate("/fillProfile");
     };
 
     return (

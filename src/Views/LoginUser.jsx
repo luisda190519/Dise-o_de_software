@@ -19,12 +19,11 @@ function LoginUser() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const message = await postRequest("/auth/login", {
+        const user = await postRequest("/auth/login", {
             email,
             password,
         });
-        console.log(message);
-        login();
+        await login(user._id);
         return navigate("/");
     };
 

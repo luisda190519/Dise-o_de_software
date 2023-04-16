@@ -11,12 +11,14 @@ import Config from "./Views/Config";
 import Authpopup from "./components/Authpopup";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "./utils/AuthContext";
+import { getRequest } from "./utils/request";
 
 function App() {
     const [screen, setScreen] = useState(0);
     const [authPopup, setAuthpopup] = useState(false);
     const [blurScreen, setBlurScreen] = useState({});
     const { isAuthenticated, logout } = useContext(AuthContext);
+    const [user, setUser] = useState({});
 
     console.log(isAuthenticated);
 
@@ -39,21 +41,35 @@ function App() {
     };
 
     const screens = [
-        <Main />,
-        <Applications />,
-        <Likes />,
-        <Notifications />,
-        <MiArea />,
-        <CV />,
-        <Test />,
-        <Config />,
+        <Main user={user} />,
+        <Applications user={user} />,
+        <Likes user={user} />,
+        <Notifications user={user} />,
+        <MiArea user={user} />,
+        <CV user={user} />,
+        <Test user={user} />,
+        <Config user={user} />,
     ];
+
+    const findUser = async function () {
+        console.log("este es "+ isAuthenticated)
+        if (isAuthenticated) {
+            const user = await getRequest("/auth/" + isAuthenticated);
+            setUser(user);
+            console.log(user);
+        }
+    };
 
     useEffect(() => {
         changeScreen(0);
+        findUser();
     }, []);
 
-    useEffect(() => {}, [screen, authPopup]);
+    useEffect(() => {}, [screen]);
+
+    useEffect(() => {
+        findUser();
+    }, [authPopup]);
 
     return (
         <div>

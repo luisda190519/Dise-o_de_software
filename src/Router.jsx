@@ -4,6 +4,7 @@ import LoginUser from "./Views/LoginUser";
 import SignupUser from "./Views/SignupUser";
 import App from "./App";
 import Home from "./Views/Home";
+import FillProfile from "./Views/FillProfile";
 import PageNotFound from "./Views/PageNotFound";
 import { AuthContext, AuthProvider } from "./utils/AuthContext";
 
@@ -16,6 +17,7 @@ function Router() {
                     <Route path="/home" Component={Home} />
                     <Route path="/loginUser" Component={LoginUser} />
                     <Route path="/signupUser" Component={SignupUser} />
+                    <Route path="/fillProfile" Component={FillProfile} />
                     <Route path="*" Component={PageNotFound} />
                 </Routes>
             </BrowserRouter>
