@@ -1,17 +1,36 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Home({ utils: { changeScreen, buttonActive } }) {
+function Home() {
     const [searchBar, setSearchBar] = useState(0);
+    const [job, setJob] = useState("");
+    const [company, setCompany] = useState("");
+    const [place, setPlace] = useState("");
+    const navigate = useNavigate();
 
     const searchJob = function (e) {
-        changeScreen(1);
+        return navigate("/");
     };
 
     const changeSearchBar = function (e, id) {
         setSearchBar(id);
     };
 
-    //useEffect(() => {}, [searchBar]);
+    const signin = function (e) {
+        return navigate("/login");
+    };
+
+    const typeJob = function (e) {
+        setJob(e.target.value);
+    };
+
+    const typeComapny = function (e) {
+        setCompany(e.target.value);
+    };
+
+    const typePlace = function (e) {
+        setPlace(e.target.value);
+    };
 
     return (
         <div>
@@ -31,19 +50,14 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                 <div className="bg-white container-fluid border border-top-0">
                     <div className="row">
                         <div className="col-3">
-                            <img src="/logo.png" className="w-75 py-3" style={{cursor:"pointer"}}/>
+                            <img
+                                src="/logo.png"
+                                className="w-75 py-3"
+                                style={{ cursor: "pointer" }}
+                            />
                         </div>
                         <div className="col-9 pt-3">
                             <div className="d-flex justify-content-end align-items-center">
-                                <a href="" className="me-5 text-black fs-5">
-                                    About
-                                </a>
-                                <a href="" className="me-5 text-black fs-5">
-                                    Blog
-                                </a>
-                                <a href="" className="me-5 text-black fs-5">
-                                    Contact
-                                </a>
                                 <button
                                     className="btn btn-primary rounded-pill me-3"
                                     style={{
@@ -62,6 +76,16 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                                     onClick={(e) => searchJob(e)}
                                 >
                                     Buscar un empleo
+                                </button>
+                                <button
+                                    className="btn btn-primary rounded-pill ms-3"
+                                    style={{
+                                        backgroundColor: "#e63946",
+                                        border: "none",
+                                    }}
+                                    onClick={(e) => signin(e)}
+                                >
+                                    Ingresar
                                 </button>
                             </div>
                         </div>
@@ -89,7 +113,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                             "0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)",
                     }}
                 ></div>
-                
+
                 <button
                     className="btn btn-light border-0"
                     style={{
@@ -133,6 +157,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                                 ? "título o palabras clave"
                                 : "Carrera"
                         }
+                        onChange={(e) => typeJob(e)}
                     />
                     <span
                         className="input-group-text"
@@ -146,6 +171,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         placeholder="Compañia"
+                        onChange={(e) => typeCompany(e)}
                     />
                     <span
                         className="input-group-text"
@@ -159,6 +185,7 @@ function Home({ utils: { changeScreen, buttonActive } }) {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         placeholder="Lugar, ubicacion"
+                        onChange={(e) => typePlace(e)}
                     />
                     <button
                         className="btn btn-primary rounded-pill"

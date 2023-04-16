@@ -1,9 +1,15 @@
 import DropdownButtons from '../components/DropdownButtons';
 import RoundButton from '../components/RoundButton';
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Navbar({ utils: { changeScreen, buttonActive } }) {
   const [option, setOption] = useState(false);
+  const navigate = useNavigate();
+
+  const goHome = function(e){
+    return navigate("/home");
+  }
 
   const getFilterDropdownButtons = function () {
     return (
@@ -152,7 +158,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
       <div className="my-3">
         <div className="row">
           <div className="col-3">
-            <img src="/logo.png" className="img-fluid w-75" id="clickeable" />
+            <img src="/logo.png" className="img-fluid w-75" id="clickeable" onClick={e => goHome(e)}/>
           </div>
           <div className="col-6" id="button-group">
             <div className="input-group mb-3">

@@ -1,10 +1,17 @@
 import SidebarButtons from "../components/SidebarButtons";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar({ utils: { changeScreen, buttonActive } }) {
     const [button, setButton] = useState(buttonActive);
+    const navigate = useNavigate();
+
+    const goHome = function (e) {
+        return navigate("/home");
+    };
+
     useEffect(() => {
-        console.log("AQUI 2")
+        console.log("AQUI 2");
         setButton(buttonActive);
     }, [buttonActive]);
 
@@ -20,7 +27,7 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
                 data-bs-toggle="tooltip"
                 data-bs-placement="right"
                 data-bs-original-title="Icon-only"
-                onClick={(e) => changeScreen(0)}
+                onClick={(e) => goHome(e)}
                 style={{ cursor: "pointer" }}
             >
                 <h1>
