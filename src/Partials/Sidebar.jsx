@@ -11,7 +11,6 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
     };
 
     useEffect(() => {
-        console.log("AQUI 2");
         setButton(buttonActive);
     }, [buttonActive]);
 
@@ -36,25 +35,25 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
             </a>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center my-5">
                 <SidebarButtons
-                    id={1}
+                    id={0}
                     type={"search"}
                     changeScreen={changeScreen}
                     buttonActive={button}
                 />
                 <SidebarButtons
-                    id={2}
+                    id={1}
                     type={"send"}
                     changeScreen={changeScreen}
                     buttonActive={button}
                 />
                 <SidebarButtons
-                    id={3}
+                    id={2}
                     type={"heart"}
                     changeScreen={changeScreen}
                     buttonActive={button}
                 />
                 <SidebarButtons
-                    id={4}
+                    id={3}
                     type={"bell"}
                     changeScreen={changeScreen}
                     buttonActive={button}

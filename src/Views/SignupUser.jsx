@@ -55,6 +55,12 @@ function SignupUser() {
                                     <div className="row">
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
+                                                <label
+                                                    className="form-label"
+                                                    htmlFor="form3Example1"
+                                                >
+                                                    Nombres
+                                                </label>
                                                 <input
                                                     type="text"
                                                     id="form3Example1"
@@ -63,16 +69,16 @@ function SignupUser() {
                                                         handleNameChange(e)
                                                     }
                                                 />
-                                                <label
-                                                    className="form-label"
-                                                    htmlFor="form3Example1"
-                                                >
-                                                    Nombres
-                                                </label>
                                             </div>
                                         </div>
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
+                                                <label
+                                                    className="form-label"
+                                                    htmlFor="form3Example2"
+                                                >
+                                                    Apellidos
+                                                </label>
                                                 <input
                                                     type="text"
                                                     id="form3Example2"
@@ -81,17 +87,17 @@ function SignupUser() {
                                                         handleLastnameChange(e)
                                                     }
                                                 />
-                                                <label
-                                                    className="form-label"
-                                                    htmlFor="form3Example2"
-                                                >
-                                                    Apellidos
-                                                </label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="form-outline mb-4">
+                                        <label
+                                            className="form-label"
+                                            htmlFor="form3Example3"
+                                        >
+                                            Celular
+                                        </label>
                                         <input
                                             type="number"
                                             id="form3Example3"
@@ -100,15 +106,15 @@ function SignupUser() {
                                                 handleNumberChange(e)
                                             }
                                         />
+                                    </div>
+
+                                    <div className="form-outline mb-4">
                                         <label
                                             className="form-label"
                                             htmlFor="form3Example3"
                                         >
-                                            Celular
+                                            Email
                                         </label>
-                                    </div>
-
-                                    <div className="form-outline mb-4">
                                         <input
                                             type="email"
                                             id="form3Example3"
@@ -117,15 +123,15 @@ function SignupUser() {
                                                 handleEmailChange(e)
                                             }
                                         />
-                                        <label
-                                            className="form-label"
-                                            htmlFor="form3Example3"
-                                        >
-                                            Email
-                                        </label>
                                     </div>
 
                                     <div className="form-outline mb-4">
+                                        <label
+                                            className="form-label"
+                                            htmlFor="form3Example4"
+                                        >
+                                            Contraseña
+                                        </label>
                                         <input
                                             type="password"
                                             id="form3Example4"
@@ -134,17 +140,11 @@ function SignupUser() {
                                                 handlePasswordChange(e)
                                             }
                                         />
-                                        <label
-                                            className="form-label"
-                                            htmlFor="form3Example4"
-                                        >
-                                            Contraseña
-                                        </label>
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary btn-block mb-4"
+                                        className="btn btn-primary w-100 mb-4"
                                     >
                                         Sign up
                                     </button>
@@ -155,28 +155,28 @@ function SignupUser() {
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-facebook-f"></i>
+                                            <i className="bi bi-facebook"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-google"></i>
+                                            <i className="bi bi-google"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-twitter"></i>
+                                            <i className="bi bi-twitter"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-github"></i>
+                                            <i className="bi bi-github"></i>
                                         </button>
                                     </div>
                                 </form>

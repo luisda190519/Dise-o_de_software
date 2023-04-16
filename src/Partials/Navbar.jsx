@@ -147,7 +147,6 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
   //useEffect(() => {}, [option]);
 
   useEffect(() => {
-    console.log("AQUI")
     if (buttonActive < 4) {
       return setOption(false);
     }

@@ -2,7 +2,7 @@ function RoundButton({ option, id, type, setOption, text, changeScreen }) {
   const off = option == 3 ? 'me-2' : 'ms-2';
   const changeOptionPage = function (e, page) {
     setOption(page);
-    changeScreen(page + 5);
+    changeScreen(page + 4);
   };
 
   const handleMouseEnter = function (e, page) {

@@ -38,6 +38,12 @@ function LoginUser() {
                             <div className="card-body py-5 px-md-5">
                                 <form>
                                     <div className="form-outline mb-4">
+                                        <label
+                                            className="form-label"
+                                            htmlFor="form3Example3"
+                                        >
+                                            Email
+                                        </label>
                                         <input
                                             type="email"
                                             id="form3Example3"
@@ -46,15 +52,15 @@ function LoginUser() {
                                                 handleEmailChange(e)
                                             }
                                         />
-                                        <label
-                                            className="form-label"
-                                            htmlFor="form3Example3"
-                                        >
-                                            Email
-                                        </label>
                                     </div>
 
                                     <div className="form-outline mb-4">
+                                        <label
+                                            className="form-label"
+                                            htmlFor="form3Example4"
+                                        >
+                                            Contraseña
+                                        </label>
                                         <input
                                             type="password"
                                             id="form3Example4"
@@ -63,17 +69,11 @@ function LoginUser() {
                                                 handlePasswordChange(e)
                                             }
                                         />
-                                        <label
-                                            className="form-label"
-                                            htmlFor="form3Example4"
-                                        >
-                                            Contraseña
-                                        </label>
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary btn-block mb-4"
+                                        className="btn btn-primary mb-4 w-100"
                                     >
                                         Log in
                                     </button>
@@ -84,28 +84,28 @@ function LoginUser() {
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-facebook-f"></i>
+                                            <i className="bi bi-facebook"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-google"></i>
+                                            <i className="bi bi-google"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-twitter"></i>
+                                            <i className="bi bi-twitter"></i>
                                         </button>
 
                                         <button
                                             type="button"
                                             className="btn btn-link btn-floating mx-1"
                                         >
-                                            <i className="fab fa-github"></i>
+                                            <i className="bi bi-github"></i>
                                         </button>
                                     </div>
                                 </form>
