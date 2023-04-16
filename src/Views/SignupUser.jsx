@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../utils/AuthContext";
+import { postRequest } from "../utils/request";
+import { useNavigate } from "react-router-dom";
 
 function SignupUser() {
     const [email, setEmail] = useState("");
@@ -6,6 +9,8 @@ function SignupUser() {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [number, setNumber] = useState("");
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -27,9 +32,19 @@ function SignupUser() {
         setNumber(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Perform login logic using email and password state
+
+        const message = await postRequest("/auth/signup", {
+            email,
+            password,
+            firstName:name,
+            lastName:lastname,
+            cellphone:number,
+        });
+        console.log(message);
+        login();
+        return navigate("/");
     };
 
     return (
@@ -65,7 +80,7 @@ function SignupUser() {
                                                     type="text"
                                                     id="form3Example1"
                                                     className="form-control"
-                                                    onClick={(e) =>
+                                                    onChange={(e) =>
                                                         handleNameChange(e)
                                                     }
                                                 />
@@ -83,7 +98,7 @@ function SignupUser() {
                                                     type="text"
                                                     id="form3Example2"
                                                     className="form-control"
-                                                    onClick={(e) =>
+                                                    onChange={(e) =>
                                                         handleLastnameChange(e)
                                                     }
                                                 />
@@ -102,7 +117,7 @@ function SignupUser() {
                                             type="number"
                                             id="form3Example3"
                                             className="form-control"
-                                            onClick={(e) =>
+                                            onChange={(e) =>
                                                 handleNumberChange(e)
                                             }
                                         />
@@ -119,7 +134,7 @@ function SignupUser() {
                                             type="email"
                                             id="form3Example3"
                                             className="form-control"
-                                            onClick={(e) =>
+                                            onChange={(e) =>
                                                 handleEmailChange(e)
                                             }
                                         />
@@ -136,7 +151,7 @@ function SignupUser() {
                                             type="password"
                                             id="form3Example4"
                                             className="form-control"
-                                            onClick={(e) =>
+                                            onChange={(e) =>
                                                 handlePasswordChange(e)
                                             }
                                         />
@@ -145,6 +160,7 @@ function SignupUser() {
                                     <button
                                         type="submit"
                                         className="btn btn-primary w-100 mb-4"
+                                        onClick={(e) => handleSubmit(e)}
                                     >
                                         Sign up
                                     </button>

@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../utils/AuthContext";
+import { postRequest } from "../utils/request";
+import { useNavigate } from "react-router-dom";
 
 function LoginUser() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -12,9 +17,15 @@ function LoginUser() {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Perform login logic using email and password state
+        const message = await postRequest("/auth/login", {
+            email,
+            password,
+        });
+        console.log(message);
+        login();
+        return navigate("/");
     };
 
     return (
@@ -48,7 +59,7 @@ function LoginUser() {
                                             type="email"
                                             id="form3Example3"
                                             className="form-control"
-                                            onClick={(e) =>
+                                            onChange={(e) =>
                                                 handleEmailChange(e)
                                             }
                                         />
@@ -65,7 +76,7 @@ function LoginUser() {
                                             type="password"
                                             id="form3Example4"
                                             className="form-control"
-                                            onClick={(e) =>
+                                            onChange={(e) =>
                                                 handlePasswordChange(e)
                                             }
                                         />
@@ -74,6 +85,7 @@ function LoginUser() {
                                     <button
                                         type="submit"
                                         className="btn btn-primary mb-4 w-100"
+                                        onClick={(e) => handleSubmit(e)}
                                     >
                                         Log in
                                     </button>
