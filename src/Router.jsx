@@ -5,6 +5,7 @@ import SignupUser from "./Views/SignupUser";
 import App from "./App";
 import Home from "./Views/Home";
 import FillProfile from "./Views/FillProfile";
+import JobForm from "./Views/JobForm";
 import PageNotFound from "./Views/PageNotFound";
 import { AuthContext, AuthProvider } from "./utils/AuthContext";
 
@@ -15,9 +16,10 @@ function Router() {
                 <Routes>
                     <Route path="/" Component={App} />
                     <Route path="/home" Component={Home} />
-                    <Route path="/loginUser" Component={LoginUser} />
-                    <Route path="/signupUser" Component={SignupUser} />
+                    <Route path="/login" Component={LoginUser} />
+                    <Route path="/signup" Component={SignupUser} />
                     <Route path="/fillProfile" Component={FillProfile} />
+                    <Route path="/jobform" Component={JobForm} />
                     <Route path="*" Component={PageNotFound} />
                 </Routes>
             </BrowserRouter>

@@ -1,25 +1,3 @@
-export let card_test1 = {
-    id: 1,
-    title: "Guarda de Seguridad",
-    location: "Bogota",
-    company: "MANPOWER PROFESSIONAL LTDA",
-    description:
-        "Importante multinacional de Seguridad requiere vincular Guardas de Seguridad con experiencia reciente mínima 3 años, no estar reportado en datacredito, ser bachiller tener acta y diploma, tener libreta militar de primera o segunda, tener curso de vigilancia y excelente actitud. \n\nPara laboral inicialmente en el área de disponibilidad. Salario mínimo legal vigente + todas las prestaciones de ley + Contrato directo con la compañía a término indefinido",
-    requirements: [
-        "Educación mínima: Bachillerato / Educación Media",
-        "3 años de experiencia",
-    ],
-    rating: 4.4,
-    tags: [
-        "$ 1.000.000,00 (Mensual)",
-        "Contrato a término indefinido",
-        "Tiempo Completo",
-        "Buen ambiente",
-    ],
-    publishTime: "18 minutos",
-    image: "https://ii.ct-stc.com/1/logos/empresas/2020/03/26//manpower141207thumbnail.png",
-};
-
 export let card_test2 = {
     id: 2,
     title: "Desarollador/a Full Stack",
@@ -48,6 +26,7 @@ export let card_test2 = {
         "Presencial y remoto",
     ],
     publishTime: "45 dias",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2023/02/27//caja-colombiana-de-subsidio-familiar-colsubsidio-153724thumbnail.jpeg",
 };
 
@@ -83,6 +62,7 @@ Horario: lunes a viernes de 8:00 a.m. a 6:00 p.m. y sábado de 8:00 a.m. A 3:00 
         "Tiempo Completo",
     ],
     publishTime: "14 dias",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2023/02/06/comfama-C33915ABE219B74D130714thumbnail.png",
 };
 
@@ -107,6 +87,7 @@ export let card_test4 = {
         "Tiempo Completo",
     ],
     publishTime: "25 dias",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2017/07/14/406a0c8bf53f40a8beba171844thumbnail.png",
 };
 
@@ -129,6 +110,7 @@ export let card_test5 = {
         "Tiempo Completo",
     ],
     publishTime: "18 minutos",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2017/06/13/activos-09AB45621F6528D6210244thumbnail.png",
 };
 
@@ -151,6 +133,7 @@ export let card_test6 = {
         "Tiempo Completo",
     ],
     publishTime: "2 horas",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2023/02/20/inmel-sas-4F1592D7D717A018140703thumbnail.jpeg",
 };
 
@@ -179,11 +162,11 @@ export let card_test7 = {
         "Remoto",
     ],
     publishTime: "2 horas",
+    owner:"643c8522a1fd7ee44bc5d499",
     image: "https://ii.ct-stc.com/1/logos/empresas/2023/01/17/woutsourcing-8647FCF2786257ED141410thumbnail.jpeg",
 };
 
 export let anuncios = [
-    card_test1,
     card_test2,
     card_test3,
     card_test4,

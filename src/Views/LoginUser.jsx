@@ -23,8 +23,11 @@ function LoginUser() {
             email,
             password,
         });
-        await login(user._id);
-        return navigate("/");
+
+        if (typeof user === "object" && user !== null) {
+            await login(user._id);
+            return navigate("/");
+        }
     };
 
     return (

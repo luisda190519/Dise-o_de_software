@@ -9,6 +9,7 @@ function SignupUser() {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [number, setNumber] = useState("");
+    const [role, setRole] = useState("user");
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -34,16 +35,22 @@ function SignupUser() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const user = await postRequest("/auth/signup", {
             email,
             password,
-            firstName:name,
-            lastName:lastname,
-            cellphone:number,
+            firstName: name,
+            lastName: lastname,
+            cellphone: number,
+            role: role,
         });
-        login(user._id);
-        return navigate("/fillProfile");
+
+        if (typeof user === "object" && user !== null) {
+            login(user._id);
+            if (role === "user") {
+                return navigate("/fillProfile");
+            }
+            return navigate("/");
+        }
     };
 
     return (
@@ -154,6 +161,58 @@ function SignupUser() {
                                                 handlePasswordChange(e)
                                             }
                                         />
+                                    </div>
+
+                                    <div className="form-outline mb-4">
+                                        <label htmlFor="role" className="me-3">
+                                            Sign up as:
+                                        </label>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="role"
+                                                id="user"
+                                                value="user"
+                                                checked={
+                                                    role === "user"
+                                                        ? true
+                                                        : false
+                                                }
+                                                onChange={(e) =>
+                                                    setRole("user")
+                                                }
+                                            />
+                                            <label
+                                                className="form-check-label"
+                                                htmlFor="user"
+                                            >
+                                                Usuario
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="role"
+                                                id="recruiter"
+                                                value="recruiter"
+                                                checked={
+                                                    role !== "user"
+                                                        ? true
+                                                        : false
+                                                }
+                                                onChange={(e) =>
+                                                    setRole("recruiter")
+                                                }
+                                            />
+                                            <label
+                                                className="form-check-label"
+                                                htmlFor="recruiter"
+                                            >
+                                                Reclutador
+                                            </label>
+                                        </div>
                                     </div>
 
                                     <button

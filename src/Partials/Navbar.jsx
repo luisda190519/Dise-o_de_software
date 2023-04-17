@@ -187,7 +187,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
           <div className="col-2 text-center">
             <a
               className="text-dark  me-5"
-              href="https://www.youtube.com/shorts/2AKxs2n3CUk"
+              onClick={e => navigate("/jobForm")}
             >
               <b>¡Publica ofertas gratis!</b>
             </a>

@@ -1,14 +1,21 @@
 import SidebarButtons from "../components/SidebarButtons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../utils/AuthContext";
 
 function Sidebar({ utils: { changeScreen, buttonActive } }) {
     const [button, setButton] = useState(buttonActive);
     const navigate = useNavigate();
+    const { isAuthenticated, logout } = useContext(AuthContext);
 
     const goHome = function (e) {
         return navigate("/home");
     };
+
+    const handleLogout = function(e){
+        logout();
+        return navigate("/home");
+    }
 
     useEffect(() => {
         setButton(buttonActive);
@@ -96,7 +103,7 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
                         </a>
                     </li>
                     <li>
-                        <a className="dropdown-item" href="#">
+                        <a className="dropdown-item" href="" onClick={e => handleLogout(e)}>
                             Sign out
                         </a>
                     </li>
