@@ -1,10 +1,18 @@
-import { useState } from "react";
-import { anuncios } from "../utils/jsonJobs";
+import { useState, useContext, useEffect } from "react";
 import Jobcard from "../components/Jobcard";
+import { AuthContext } from "../utils/AuthContext";
+import { getRequest } from "../utils/request";
 
-function Applications() {
+function Applications({ user }) {
     const [opcion, setOpcion] = useState(0);
     const [jobView, setJobView] = useState(false);
+    const [applications, setApplications] = useState([]);
+    const { isAuthenticated, logout } = useContext(AuthContext);
+    const buttonStyle1 = {
+        backgroundColor: "#BEE9E8",
+        border: "none",
+        color: "gray",
+    };
 
     const handleClick = function (e, op) {
         setOpcion(op);
@@ -15,10 +23,61 @@ function Applications() {
     };
 
     const getJob = function (e, jobId) {
-        setJobView(anuncios.find((job) => job.id === jobId));
+        setJobView(applications.find((job) => job.id === jobId));
     };
 
-    //useEffect(() => {}, [opcion, jobView]);
+    const getApplications = async function () {
+        try {
+            setApplications(user.jobApplications);
+        } catch (error) {}
+    };
+
+    const getApplicationsComponent = function () {
+        return applications.map((anuncio, key) => {
+            return (
+                <div
+                    className="card me-4 mb-4 pt-3 px-4"
+                    key={key}
+                    id="applications"
+                    onClick={(e) => getJob(e, anuncio.id)}
+                >
+                    <div className="row g-0">
+                        <div className="col-md-8">
+                            <h4>{anuncio.title}</h4>
+                            <p>
+                                {anuncio.company}{" "}
+                                <i
+                                    className="bi bi-star-fill"
+                                    style={{
+                                        color: "yellow",
+                                    }}
+                                ></i>{" "}
+                                {anuncio.rating}
+                            </p>
+                        </div>
+
+                        <div className="col-md-4 d-flex flex-row">
+                            <i
+                                className="bi bi-1-circle-fill me-2 fs-1"
+                                style={{ color: "#1B4965" }}
+                            ></i>
+                            <div className="">
+                                <p className="my-0">Aplicado</p>
+                                <p className="my-0">Más de 30 días</p>
+                                <p className="mt-0">66 candidatos postulados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+    };
+
+    useEffect(() => {
+        getApplications();
+    }, []);
+
+    useEffect(() => {}, [opcion, jobView]);
 
     return (
         <div className="my-3">
@@ -96,75 +155,35 @@ function Applications() {
                     <div className="my-4">
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={
-                                opcion == 0
-                                    ? {
-                                          backgroundColor: "#BEE9E8",
-                                          border: "none",
-                                          color: "gray",
-                                      }
-                                    : {}
-                            }
+                            style={opcion == 0 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 0)}
                         >
                             Todas las aplicaciones
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={
-                                opcion == 1
-                                    ? {
-                                          backgroundColor: "#BEE9E8",
-                                          border: "none",
-                                          color: "gray",
-                                      }
-                                    : {}
-                            }
+                            style={opcion == 1 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 1)}
                         >
                             Aplicadas
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={
-                                opcion == 2
-                                    ? {
-                                          backgroundColor: "#BEE9E8",
-                                          border: "none",
-                                          color: "gray",
-                                      }
-                                    : {}
-                            }
+                            style={opcion == 2 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 2)}
                         >
                             HdV Vistas
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={
-                                opcion == 3
-                                    ? {
-                                          backgroundColor: "#BEE9E8",
-                                          border: "none",
-                                          color: "gray",
-                                      }
-                                    : {}
-                            }
+                            style={opcion == 3 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 3)}
                         >
                             En proceso
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={
-                                opcion == 4
-                                    ? {
-                                          backgroundColor: "#BEE9E8",
-                                          border: "none",
-                                          color: "gray",
-                                      }
-                                    : {}
-                            }
+                            style={opcion == 4 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 4)}
                         >
                             Proceso finalizado
@@ -172,50 +191,18 @@ function Applications() {
                     </div>
                     <div className="row gx-0 justify-content-start">
                         <div className="col-8">
-                            {anuncios.map((anuncio, key) => {
-                                return (
-                                    <div
-                                        className="card me-4 mb-4 pt-3 px-4"
-                                        key={key}
-                                        id="applications"
-                                        onClick={(e) => getJob(e, anuncio.id)}
-                                    >
-                                        <div className="row g-0">
-                                            <div className="col-md-8">
-                                                <h4>{anuncio.title}</h4>
-                                                <p>
-                                                    {anuncio.company}{" "}
-                                                    <i
-                                                        className="bi bi-star-fill"
-                                                        style={{
-                                                            color: "yellow",
-                                                        }}
-                                                    ></i>{" "}
-                                                    {anuncio.rating}
-                                                </p>
-                                            </div>
-
-                                            <div className="col-md-4 d-flex flex-row">
-                                                <i
-                                                    className="bi bi-1-circle-fill me-2 fs-1"
-                                                    style={{ color: "#1B4965" }}
-                                                ></i>
-                                                <div className="">
-                                                    <p className="my-0">
-                                                        Aplicado
-                                                    </p>
-                                                    <p className="my-0">
-                                                        Más de 30 días
-                                                    </p>
-                                                    <p className="mt-0">
-                                                        66 candidatos postulados
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                            {applications.length !== 0 ? (
+                                getApplicationsComponent()
+                            ) : (
+                                <div
+                                    className="card px-3 py-3 me-3"
+                                    style={{
+                                        backgroundColor: "#e9ebf6",
+                                    }}
+                                >
+                                    No tienes aplicaciones registradas
+                                </div>
+                            )}
                         </div>
                         <div className="col-4">
                             <div className="card me-5">

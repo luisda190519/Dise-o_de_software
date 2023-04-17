@@ -1,8 +1,7 @@
-import { anuncios } from "../utils/jsonJobs";
 import { useState } from "react";
 import JobExpanded from "./JobExpanded";
 
-function Likes() {
+function Likes({ user }) {
     const [jobView, setJobView] = useState(false);
 
     const goBack = function (e) {
@@ -10,7 +9,7 @@ function Likes() {
     };
 
     const getJob = function (e, jobId) {
-        setJobView(anuncios.find((job) => job.id === jobId));
+        setJobView(user.find((job) => job.id === jobId));
     };
 
     return (
@@ -36,51 +35,64 @@ function Likes() {
                     <h2>Mis favoritos</h2>
                     <div className="row gx-0 justify-content-start mt-4">
                         <div className="col-8">
-                            {anuncios.map((anuncio, key) => {
-                                return (
-                                    <div
-                                        className="card me-4 mb-4 pt-3 px-4"
-                                        key={key}
-                                        id="applications"
-                                        onClick={(e) => getJob(e, anuncio.id)}
-                                    >
-                                        <div className="row g-0">
-                                            <div className="col-md-8">
-                                                <h5>{anuncio.title}</h5>
-                                                <p>
-                                                    {anuncio.company}{" "}
-                                                    <i
-                                                        className="bi bi-star-fill"
-                                                        style={{
-                                                            color: "yellow",
-                                                        }}
-                                                    ></i>{" "}
-                                                    {anuncio.rating}
-                                                    {anuncio.location}
-                                                </p>
-                                            </div>
+                            {user.jobLikes .length !== 0 ? (
+                                user.jobLikes.map((anuncio, key) => {
+                                    return (
+                                        <div
+                                            className="card me-4 mb-4 pt-3 px-4"
+                                            key={key}
+                                            id="applications"
+                                            onClick={(e) =>
+                                                getJob(e, anuncio.id)
+                                            }
+                                        >
+                                            <div className="row g-0">
+                                                <div className="col-md-8">
+                                                    <h5>{anuncio.title}</h5>
+                                                    <p>
+                                                        {anuncio.company}{" "}
+                                                        <i
+                                                            className="bi bi-star-fill"
+                                                            style={{
+                                                                color: "yellow",
+                                                            }}
+                                                        ></i>{" "}
+                                                        {anuncio.rating}
+                                                        {anuncio.location}
+                                                    </p>
+                                                </div>
 
-                                            <div className="col-md-4 d-flex justify-content-end">
-                                                <div className="my-3">
-                                                    <button
-                                                        className="btn btn-primary btn-lg rounded-pill me-4"
-                                                        style={{
-                                                            backgroundColor:
-                                                                "#1B4965",
-                                                            border: "none",
-                                                        }}
-                                                    >
-                                                        Aplicar
-                                                    </button>
-                                                    <button className="btn btn-danger btn-lg rounded-circle">
-                                                        <i className="bi bi-heart"></i>
-                                                    </button>
+                                                <div className="col-md-4 d-flex justify-content-end">
+                                                    <div className="my-3">
+                                                        <button
+                                                            className="btn btn-primary btn-lg rounded-pill me-4"
+                                                            style={{
+                                                                backgroundColor:
+                                                                    "#1B4965",
+                                                                border: "none",
+                                                            }}
+                                                        >
+                                                            Aplicar
+                                                        </button>
+                                                        <button className="btn btn-danger btn-lg rounded-circle">
+                                                            <i className="bi bi-heart"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })
+                            ) : (
+                                <div
+                                    className="card px-3 py-3 me-3"
+                                    style={{
+                                        backgroundColor: "#e9ebf6",
+                                    }}
+                                >
+                                    No tienes empleos que hayas guardado
+                                </div>
+                            )}
                         </div>
                         <div className="col-4">
                             <div className="card me-5">

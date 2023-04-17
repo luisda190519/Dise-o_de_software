@@ -2,7 +2,7 @@ import Jobcard from "../components/Jobcard";
 import Jobannouncement from "../components/Jobannouncement";
 import { useEffect, useState } from "react";
 import { getRequest } from "../utils/request";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Main() {
     const [announcements, setAnnouncements] = useState([]);

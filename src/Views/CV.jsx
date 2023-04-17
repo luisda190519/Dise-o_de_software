@@ -1,6 +1,23 @@
 import Ads from "../components/Ads";
 
-function CV({user}) {
+function CV({ user }) {
+    const completaTuPerfil = function () {
+        return (
+            <div>
+                <p>
+                    Completa tu perfil{" "}
+                    <a
+                        href="/fillProfile"
+                        className="text-primary"
+                        style={{ cursor: "pointer" }}
+                    >
+                        aqui
+                    </a>
+                </p>
+            </div>
+        );
+    };
+
     return (
         <div>
             <div className="row justify-content-start">
@@ -16,7 +33,10 @@ function CV({user}) {
                                 </div>
 
                                 <div className="col-8">
-                                    <h4>{user.firstName} <span></span> {user.lastName}</h4>
+                                    <h4>
+                                        {user.firstName} <span></span>{" "}
+                                        {user.lastName}
+                                    </h4>
                                     <p>{user.location}</p>
                                     <p>
                                         <i className="bi bi-envelope me-2"></i>
@@ -30,29 +50,46 @@ function CV({user}) {
 
                             <div className="mt-2">
                                 <h4>{user.role}</h4>
-                                <p>{user.description}</p>
-
-                                <div
-                                    className="card px-3 py-3"
-                                    style={{ backgroundColor: "#e9ebf6" }}
-                                >
-                                    Una descripción bien detallada y extensa de
-                                    tu perfil profesional te ayudará a destacar
-                                    entre otros candidatos.
-                                </div>
+                                <p>
+                                    {typeof user.description !== 'undefined' ? (
+                                        user.description
+                                    ) : (
+                                        <div
+                                            className="card px-3 py-3"
+                                            style={{
+                                                backgroundColor: "#e9ebf6",
+                                            }}
+                                        >
+                                            Una descripción bien detallada y
+                                            extensa de tu perfil profesional te
+                                            ayudará a destacar entre otros
+                                            candidatos.
+                                        </div>
+                                    )}
+                                </p>
                             </div>
 
-                            <div className="mt-5" style={{ whiteSpace: "pre-wrap" }}>
+                            <div
+                                className="mt-5"
+                                style={{ whiteSpace: "pre-wrap" }}
+                            >
                                 <h4>Mis experiencias profesionales</h4>
                                 <ul>
-                                    {user.experience.map(
-                                        (experiencia, key) => {
-                                            return (
-                                                <li className="my-3" key={key}>
-                                                    {experiencia}
-                                                </li>
-                                            );
-                                        }
+                                    {user.experience .length !== 0 ? (
+                                        user.experience.map(
+                                            (experiencia, key) => {
+                                                return (
+                                                    <li
+                                                        className="my-3"
+                                                        key={key}
+                                                    >
+                                                        {experiencia}
+                                                    </li>
+                                                );
+                                            }
+                                        )
+                                    ) : (
+                                        <div>{completaTuPerfil()}</div>
                                     )}
                                 </ul>
                             </div>
@@ -60,46 +97,62 @@ function CV({user}) {
                             <div className="mt-4">
                                 <h4>Mis estudios</h4>
                                 <ul>
-                                    {user.estudios.map((estudio, key) => {
-                                        return (
-                                            <li className="my-3" key={key}>
-                                                {estudio}
-                                            </li>
-                                        );
-                                    })}
+                                    {user.estudios .length !== 0 ? (
+                                        user.estudios.map((estudio, key) => {
+                                            return (
+                                                <li className="my-3" key={key}>
+                                                    {estudio}
+                                                </li>
+                                            );
+                                        })
+                                    ) : (
+                                        <div>{completaTuPerfil()}</div>
+                                    )}
                                 </ul>
                             </div>
 
                             <div className="mt-4">
                                 <h4>Idiomas</h4>
                                 <div className="row">
-                                    {user.idiomas.map((idioma, key) => {
-                                        return (
-                                            <div key={key} className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
-                                                {idioma}
-                                                <button className="btn">
-                                                    <i className="bi bi-x-lg"></i>
-                                                </button>
-                                            </div>
-                                        );
-                                    })}
+                                    {user.idiomas .length !== 0 ? (
+                                        user.idiomas.map((idioma, key) => {
+                                            return (
+                                                <div
+                                                    key={key}
+                                                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                                                >
+                                                    {idioma}
+                                                    <button className="btn">
+                                                        <i className="bi bi-x-lg"></i>
+                                                    </button>
+                                                </div>
+                                            );
+                                        })
+                                    ) : (
+                                        <div>{completaTuPerfil()}</div>
+                                    )}
                                 </div>
                             </div>
 
                             <div className="mt-4">
                                 <h4>Conocimientos y habilidades</h4>
                                 <div className="row">
-                                    {user.skills.map(
-                                        (habilidad, key) => {
+                                    {user.skills .length !== 0 ? (
+                                        user.skills.map((habilidad, key) => {
                                             return (
-                                                <div key={key} className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1">
+                                                <div
+                                                    key={key}
+                                                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                                                >
                                                     {habilidad}
                                                     <button className="btn">
                                                         <i className="bi bi-x-lg"></i>
                                                     </button>
                                                 </div>
                                             );
-                                        }
+                                        })
+                                    ) : (
+                                        <div>{completaTuPerfil()}</div>
                                     )}
                                 </div>
                             </div>

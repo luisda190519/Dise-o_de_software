@@ -15,6 +15,7 @@ function Router() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/jobs/:title/:company/:location" Component={App} />
+                    <Route path="/jobs" Component={App} />
                     <Route path="/home" Component={Home} />
                     <Route path="/login" Component={LoginUser} />
                     <Route path="/signup" Component={SignupUser} />

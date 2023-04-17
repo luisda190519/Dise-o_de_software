@@ -49,7 +49,7 @@ function SignupUser() {
             if (role === "user") {
                 return navigate("/fillProfile");
             }
-            return navigate("/");
+            return navigate("/jobs");
         }
     };
 

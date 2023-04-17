@@ -20,8 +20,6 @@ function App() {
     const { isAuthenticated, logout } = useContext(AuthContext);
     const [user, setUser] = useState({});
 
-    console.log(isAuthenticated);
-
     const changeScreen = function (id) {
         if (id !== 0 && id !== 6 && !isAuthenticated) {
             setBlurScreen({ filter: "blur(1px)", position: "absolute" });
@@ -41,22 +39,20 @@ function App() {
     };
 
     const screens = [
-        <Main user={user} />,
-        <Applications user={user} />,
-        <Likes user={user} />,
-        <Notifications user={user} />,
-        <MiArea user={user} />,
-        <CV user={user} />,
-        <Test user={user} />,
-        <Config user={user} />,
+        (props) => <Main {...props} />,
+        (props) => <Applications {...props} />,
+        (props) => <Likes {...props} />,
+        (props) => <Notifications {...props} />,
+        (props) => <MiArea {...props} />,
+        (props) => <CV {...props} />,
+        (props) => <Test {...props} />,
+        (props) => <Config {...props} />,
     ];
 
     const findUser = async function () {
-        console.log("este es "+ isAuthenticated)
         if (isAuthenticated) {
             const user = await getRequest("/auth/" + isAuthenticated);
-            setUser(user);
-            console.log(user);
+            await setUser(user);
         }
     };
 
@@ -79,7 +75,7 @@ function App() {
                     <div className="col-11 container-fluid">
                         <div className="mt-4">{<Navbar utils={utils} />}</div>
                         <div className="my-3" style={{ zIndex: "-1" }}>
-                            {screens[screen]}
+                            {user ? screens[screen]({ user: user }) : {}}
                         </div>
                     </div>
                 </div>

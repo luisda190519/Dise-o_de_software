@@ -26,7 +26,7 @@ function LoginUser() {
 
         if (typeof user === "object" && user !== null) {
             await login(user._id);
-            return navigate("/");
+            return navigate("/jobs");
         }
     };
 

@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { postRequest } from "../utils/request";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../utils/AuthContext";
-import { anuncios } from "../utils/jsonJobs";
 
 function JobForm() {
     const [title, setTitle] = useState("");
