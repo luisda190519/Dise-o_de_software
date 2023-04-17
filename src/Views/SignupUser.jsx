@@ -69,7 +69,7 @@ function SignupUser() {
                         </h1>
                     </div>
 
-                    <div className="col-lg-6 mb-5 mb-lg-0">
+                    <div className="col-lg-6 mb-5" style={{marginTop:"10em"}}>
                         <div className="card">
                             <div className="card-body py-5 px-md-5">
                                 <form>
@@ -222,6 +222,19 @@ function SignupUser() {
                                     >
                                         Sign up
                                     </button>
+
+                                    <div>
+                                        Ya tiene cuenta,{" "}
+                                        <a
+                                            className="text-primary"
+                                            style={{ cursor: "pointer" }}
+                                            href="/login"
+                                        >
+                                            inicie sesion aqui
+                                        </a>
+                                    </div>
+
+                                    <hr />
 
                                     <div className="text-center">
                                         <p>o ingrese con:</p>

@@ -92,6 +92,19 @@ function LoginUser() {
                                         Log in
                                     </button>
 
+                                    <div>
+                                        No tiene cuenta,{" "}
+                                        <a
+                                            className="text-primary"
+                                            style={{ cursor: "pointer" }}
+                                            href="/signup"
+                                        >
+                                            registrese gratis aqui
+                                        </a>
+                                    </div>
+
+                                    <hr />
+
                                     <div className="text-center">
                                         <p>o ingrese con:</p>
                                         <button
