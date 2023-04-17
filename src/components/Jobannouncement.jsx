@@ -9,7 +9,7 @@ function Jobannouncement({ job, setJobfocus, jobFocus=false }) {
     };
 
     useEffect(() => {
-        if(job.id == jobFocus.id){
+        if(job._id == jobFocus._id){
             return setActive(true)
         }
         return setActive(false)

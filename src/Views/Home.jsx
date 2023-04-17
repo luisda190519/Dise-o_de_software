@@ -9,7 +9,7 @@ function Home() {
     const navigate = useNavigate();
 
     const searchJob = function (e) {
-        return navigate("/");
+        return navigate("/jobs/" + job + "/" + company + "/" + place);
     };
 
     const changeSearchBar = function (e, id) {
@@ -24,7 +24,7 @@ function Home() {
         setJob(e.target.value);
     };
 
-    const typeComapny = function (e) {
+    const typeCompany = function (e) {
         setCompany(e.target.value);
     };
 
