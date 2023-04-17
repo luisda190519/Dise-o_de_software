@@ -9,7 +9,12 @@ function Home() {
     const navigate = useNavigate();
 
     const searchJob = function (e) {
-        return navigate("/jobs/" + job + "/" + company + "/" + place);
+        return navigate(
+            "/jobs" +
+                (job.length !== 0 ? "/title/" + job : "") +
+                (company.length !== 0 ? "/company/" + company : "") +
+                (place.length !== 0 ? "/place/" + place : "")
+        );
     };
 
     const changeSearchBar = function (e, id) {

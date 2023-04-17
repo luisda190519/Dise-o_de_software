@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../utils/AuthContext";
 
-function Sidebar({ utils: { changeScreen, buttonActive } }) {
+function Sidebar({ utils: { changeScreen, buttonActive }, user }) {
     const [button, setButton] = useState(buttonActive);
     const navigate = useNavigate();
     const { isAuthenticated, logout } = useContext(AuthContext);
@@ -12,10 +12,10 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
         return navigate("/home");
     };
 
-    const handleLogout = function(e){
+    const handleLogout = function (e) {
         logout();
         return navigate("/home");
-    }
+    };
 
     useEffect(() => {
         setButton(buttonActive);
@@ -75,39 +75,42 @@ function Sidebar({ utils: { changeScreen, buttonActive } }) {
                     aria-expanded="false"
                 >
                     <img
-                        src="https://github.com/mdo.png"
+                        src={
+                            typeof user.image !== "undefined"
+                                ? user.image
+                                : "https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png"
+                        }
                         alt="mdo"
                         width="24"
                         height="24"
                         className="rounded-circle"
                     />
                 </a>
-                <ul
-                    className="dropdown-menu text-small shadow"
-                    aria-labelledby="dropdownUser3"
-                    style={{ position: "absolute", zIndex: "999" }}
-                >
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            New project...
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Profile
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="" onClick={e => handleLogout(e)}>
-                            Sign out
-                        </a>
-                    </li>
-                </ul>
+
+                {typeof user._id !== "undefined" ? (
+                    <ul
+                        className="dropdown-menu text-small shadow"
+                        aria-labelledby="dropdownUser3"
+                        style={{ position: "absolute", zIndex: "999" }}
+                    >
+                        <li>
+                            <a className="dropdown-item" href="#">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="dropdown-item"
+                                href=""
+                                onClick={(e) => handleLogout(e)}
+                            >
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                ) : (
+                    <div></div>
+                )}
             </div>
         </div>
     );

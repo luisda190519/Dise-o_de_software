@@ -1,11 +1,13 @@
 import DropdownButtons from '../components/DropdownButtons';
 import RoundButton from '../components/RoundButton';
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 function Navbar({ utils: { changeScreen, buttonActive } }) {
   const [option, setOption] = useState(false);
   const navigate = useNavigate();
+  const { title, company, location } = useParams();
 
   const goHome = function(e){
     return navigate("/home");
@@ -167,7 +169,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Cargo o categoria"
+                placeholder={title.length !== 0 ? title : "Cargo o categoria"}
                 aria-label="Username"
               />
               <span className="input-group-text">
@@ -176,7 +178,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Lugar"
+                placeholder={title.length !== 0 ? title : "Lugar o ubicacion"}
                 aria-label="Server"
               />
               <span className="input-group-text">

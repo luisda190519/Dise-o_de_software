@@ -39,7 +39,7 @@ function Authpopup({ setAuthpopup, setBlurScreen }) {
             </div>
             <p className="fs-4">Tu próximo trabajo está aquí</p>
             <p className="fs-5">Ingresa y postúlate a miles de empleos</p>
-            <button className="btn btn-primary mt-2" style={buttonStyle1} onClick={e => navigate("/loginUser")}>
+            <button className="btn btn-primary mt-2" style={buttonStyle1} onClick={e => navigate("/login")}>
                 Iniciar sesion
             </button>
             <div className="d-flex align-items-center justify-content-center">
@@ -48,7 +48,7 @@ function Authpopup({ setAuthpopup, setBlurScreen }) {
                 <hr className="flex-grow-1 ml-3" />
             </div>
 
-            <button className="btn btn-primary mt-2" style={buttonStyle2} onClick={e => navigate("/signupUser")}>
+            <button className="btn btn-primary mt-2" style={buttonStyle2} onClick={e => navigate("/signup")}>
                 Registrarse
             </button>
         </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../utils/request";
 import { useParams } from "react-router-dom";
 
-function Main() {
+function Jobs() {
     const [announcements, setAnnouncements] = useState([]);
     const [jobFocus, setJobfocus] = useState({});
     const { title, company, location } = useParams();
@@ -13,7 +13,6 @@ function Main() {
         const anuncios = await getRequest(
             "/jobs/" + title + "/" + company + "/" + location
         );
-        console.log(anuncios);
         setAnnouncements(anuncios);
         setJobfocus(anuncios[0])
     };
@@ -54,4 +53,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default Jobs;
