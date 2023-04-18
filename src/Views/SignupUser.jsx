@@ -45,7 +45,7 @@ function SignupUser() {
         });
 
         if (typeof user === "object" && user !== null) {
-            login(user._id);
+            login(user);
             if (role === "user") {
                 return navigate("/fillProfile");
             }

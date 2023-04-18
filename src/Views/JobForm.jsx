@@ -14,7 +14,7 @@ function JobForm() {
     const [requirements, setRequirements] = useState([]);
     const [tags, setTags] = useState([]);
     const navigate = useNavigate();
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { userAuthenticated, logout } = useContext(AuthContext);
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handleTitleChange = function (e) {
@@ -96,10 +96,16 @@ function JobForm() {
             image,
             publishTime,
             company,
-            owner:isAuthenticated
+            owner:userAuthenticated._id
         });
         return navigate("/");
     };
+
+    useEffect(()=>{
+        if(!userAuthenticated.isRecruiter){
+            navigate("/jobs")
+        }
+    },[])
 
     useEffect(() => {}, [
         title,

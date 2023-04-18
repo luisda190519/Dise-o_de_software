@@ -25,7 +25,7 @@ function LoginUser() {
         });
 
         if (typeof user === "object" && user !== null) {
-            await login(user._id);
+            await login(user);
             return navigate("/jobs");
         }
     };

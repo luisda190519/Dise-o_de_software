@@ -14,7 +14,7 @@ function Jobs() {
             "/jobs/" + title + "/" + company + "/" + location
         );
         setAnnouncements(anuncios);
-        setJobfocus(anuncios[0])
+        setJobfocus(anuncios[0]);
     };
 
     useEffect(() => {
@@ -47,7 +47,7 @@ function Jobs() {
                     </div>
                 </div>
             ) : (
-                <div>Loading...</div>
+                <div>Cargando...</div>
             )}
         </div>
     );

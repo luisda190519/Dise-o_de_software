@@ -17,11 +17,11 @@ function Dashboard() {
     const [screen, setScreen] = useState(0);
     const [authPopup, setAuthpopup] = useState(false);
     const [blurScreen, setBlurScreen] = useState({});
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { userAuthenticated, logout } = useContext(AuthContext);
     const [user, setUser] = useState({});
 
     const changeScreen = function (id) {
-        if (id !== 0 && id !== 6 && !isAuthenticated) {
+        if (id !== 0 && id !== 6 && !userAuthenticated) {
             setBlurScreen({ filter: "blur(1px)", position: "absolute" });
             return setAuthpopup(
                 <Authpopup
@@ -50,8 +50,8 @@ function Dashboard() {
     ];
 
     const findUser = async function () {
-        if (isAuthenticated) {
-            const user = await getRequest("/auth/" + isAuthenticated);
+        if (userAuthenticated) {
+            const user = await getRequest("/auth/" + userAuthenticated._id);
             await setUser(user);
         }
     };
@@ -61,7 +61,7 @@ function Dashboard() {
         findUser();
     }, []);
 
-    useEffect(() => {}, [screen, isAuthenticated]);
+    useEffect(() => {}, [screen, userAuthenticated]);
 
     useEffect(() => {
         findUser();

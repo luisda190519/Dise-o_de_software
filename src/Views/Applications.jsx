@@ -7,7 +7,6 @@ function Applications({ user }) {
     const [opcion, setOpcion] = useState(0);
     const [jobView, setJobView] = useState(false);
     const [applications, setApplications] = useState([]);
-    const { isAuthenticated, logout } = useContext(AuthContext);
     const buttonStyle1 = {
         backgroundColor: "#BEE9E8",
         border: "none",

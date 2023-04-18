@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ userAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

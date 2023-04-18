@@ -13,7 +13,7 @@ import Home from "./Views/Home";
 import FillProfile from "./Views/FillProfile";
 import JobForm from "./Views/JobForm";
 import PageNotFound from "./Views/PageNotFound";
-import { AuthContext, AuthProvider } from "./utils/AuthContext";
+import { AuthProvider } from "./utils/AuthContext";
 
 function App() {
     return (

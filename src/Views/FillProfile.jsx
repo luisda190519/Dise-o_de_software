@@ -12,7 +12,7 @@ function FillProfile() {
     const [ubicacion, setUbicacion] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const navigate = useNavigate();
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { userAuthenticated, logout } = useContext(AuthContext);
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handlePerfilChange = function (e) {
@@ -120,7 +120,7 @@ function FillProfile() {
     };
 
     const finishFill = async function (e) {
-        const user = await putRequest("/auth/fillProfile/" + isAuthenticated, {
+        const user = await putRequest("/auth/fillProfile/" + userAuthenticated._id, {
             role: perfil,
             location: ubicacion,
             description: descripcion,
