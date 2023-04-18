@@ -19,7 +19,6 @@ function Jobs() {
 
         if (anuncios.length > 0) {
             setAnnouncements(anuncios);
-            console.log(announcements);
             setFindedquery(true);
             return setJobfocus(anuncios[0]);
         }
@@ -33,8 +32,6 @@ function Jobs() {
     useEffect(() => {
         getAnnouncements();
     }, []);
-
-    console.log(findedQuery)
 
     useEffect(() => {
         getAnnouncements();

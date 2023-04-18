@@ -15,7 +15,7 @@ import JobForm from "./Views/JobForm";
 import PageNotFound from "./Views/PageNotFound";
 import { AuthProvider } from "./utils/AuthContext";
 
-function App() {
+function App() {    
     return (
         <AuthProvider>
             <BrowserRouter>

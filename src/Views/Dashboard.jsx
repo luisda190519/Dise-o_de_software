@@ -73,7 +73,7 @@ function Dashboard() {
                 <div className="row gx-0 justify-content-end">
                     <div className="col-1">{<Sidebar utils={utils} user={user}/>}</div>
                     <div className="col-11 container-fluid">
-                        <div className="mt-4">{<Navbar utils={utils} user={user}/>}</div>
+                        <div className="mt-4 ">{<Navbar utils={utils} user={user}/>}</div>
                         <div className="my-3" style={{ zIndex: "-1" }}>
                             {user ? screens[screen]({ user: user }) : {}}
                         </div>

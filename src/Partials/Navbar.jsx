@@ -11,6 +11,25 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
     const { userAuthenticated, logout } = useContext(AuthContext);
     const { title, company, place } = useParams();
     const navigate = useNavigate();
+    const colorDarkBlue = { color: "#1b4965", border: "none" };
+    const colorLightBlue = { color: "#62B6CB", border: "none" };
+    const red = { color: "#e63946", border: "none" };
+    const backgroundColorDarkBlue = {
+        backgroundColor: "#1b4965",
+        border: "none",
+        color: "white",
+    };
+    const backgroundColorLightBlue = {
+        backgroundColor: "#62B6CB",
+        border: "none",
+        color: "white",
+        paddingLeft:"7em"
+    };
+    const backgroundRed = {
+        backgroundColor: "#e63946",
+        border: "none",
+        color: "white",
+    };
 
     const goHome = function (e) {
         return navigate("/home");
@@ -34,7 +53,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
 
     const getFilterDropdownButtons = function () {
         return (
-            <>
+            <div className="d-flex justify-content-between">
                 <DropdownButtons
                     title={"Fecha"}
                     filters={[
@@ -122,13 +141,13 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                         { title: "Ultimo mes", value: 45.245 },
                     ]}
                 />
-            </>
+            </div>
         );
     };
 
     const getButtonGroup = function () {
         return (
-            <>
+            <div className="d-flex justify-content-between">
                 <RoundButton
                     type={"house-door"}
                     id={0}
@@ -161,7 +180,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                     text={"Configuración"}
                     changeScreen={changeScreen}
                 />
-            </>
+            </div>
         );
     };
 
@@ -174,19 +193,31 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
     }, [buttonActive]);
 
     return (
-        <div className="">
-            <div className="my-3">
+        <div
+            className=""
+            style={{
+                marginTop: "-2em",
+                width: "100vw",
+                marginLeft: "-10vw",
+            }}
+        >
+            <div className="bg-white pt-3 pb-2" style={{paddingLeft:"7em"}}>
                 <div className="row">
                     <div className="col-3">
-                        <img
-                            src="/logo.png"
-                            className="img-fluid w-75"
-                            id="clickeable"
-                            onClick={(e) => goHome(e)}
-                        />
+                        <div className="">
+                            <h1
+                                style={colorDarkBlue}
+                                onClick={(e) => goHome(e)}
+                                id="clickeable"
+                            >
+                                <span style={red}>H</span>ire
+                                <span style={red}>M</span>e
+                                <span style={red}>N</span>ow
+                            </h1>
+                        </div>
                     </div>
-                    <div className="col-6" id="button-group">
-                        <div className="input-group mb-3">
+                    <div className="col-8 mt-2" id="button-group">
+                        <div className="input-group">
                             <span className="input-group-text">
                                 <i
                                     className="bi bi-briefcase"
@@ -221,47 +252,67 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                                 aria-label="Server"
                                 onChange={(e) => typeLugar(e)}
                             />
-                            <span className="input-group-text">
+                            <span
+                                className="input-group-text"
+                                style={{
+                                    backgroundColor: "#e63946",
+                                    cursor: "pointer",
+                                }}
+                            >
                                 <i
-                                    className="bi bi-search"
+                                    className="bi bi-search text-white"
                                     id="navbar-buttons"
-                                    onClick={e => searchJob(e)}
+                                    onClick={(e) => searchJob(e)}
                                 ></i>
                             </span>
                         </div>
                     </div>
-                    {userAuthenticated.isRecruiter ? (
-                        <div className="col-2 text-center">
-                            <a
-                                className="text-dark  me-5"
-                                onClick={(e) => navigate("/jobForm")}
-                                style={{ cursor: "pointer" }}
-                            >
-                                <b>¡Publica ofertas gratis!</b>
-                            </a>
-                        </div>
-                    ) : (
-                        <div className="col-2"></div>
-                    )}
+                </div>
+            </div>
 
-                    <div className="col-1">
-                        <button className="btn btn-white" id="hdv">
-                            Crear HdV
-                        </button>
+            <div className="text-white py-2" style={backgroundColorLightBlue}>
+                <div className="row">
+                    <div
+                        className="col-8 d-flex align-items-center"
+                        style={{ fontSize: "0.9em" }}
+                    >
+                        <a className="text-white" href="">
+                            Porque HireMeNow
+                        </a>
+                        <a className="text-white ms-5" href="">
+                            Lo que dicen nuestros miembros
+                        </a>
+                        <a className="text-white ms-5" href="">
+                            Contactenos
+                        </a>
+                    </div>
+                    <div className="col-4">
+                        <div className="d-flex justify-content-end align-items-center">
+                            <i className="bi bi-lightbulb me-3 fs-5"></i>
+                            <button
+                                className="btn btn-primary "
+                                style={backgroundColorDarkBlue}
+                                onClick={(e) => navigate("/login")}
+                            >
+                                Iniciar sesion
+                            </button>
+                            <button
+                                className="btn btn-primary mx-3"
+                                style={backgroundRed}
+                                onClick={(e) => navigate("/signup")}
+                            >
+                                Registrarse
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div className="my-4">
+            <div className="my-4 row ms-4" style={{paddingLeft:"7em"}}>
                 {buttonActive == 0 ? (
-                    <div className="d-flex justify-content-between">
-                        {getFilterDropdownButtons()}
-                    </div>
+                    <div className="col-11">{getFilterDropdownButtons()}</div>
                 ) : (
-                    <div
-                        className="d-flex justify-content-between"
-                        id="navbar-part"
-                    >
+                    <div className="col-11 " id="navbar-part">
                         {getButtonGroup()}
                     </div>
                 )}

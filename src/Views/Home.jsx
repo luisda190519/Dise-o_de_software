@@ -1,19 +1,39 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { opiniones } from "../utils/opinions";
+import { anuncios } from "../utils/jsonJobs";
 
 function Home() {
     const [searchBar, setSearchBar] = useState(0);
-    const [job, setJob] = useState("");
-    const [company, setCompany] = useState("");
-    const [place, setPlace] = useState("");
+    const [titulo, setTitulo] = useState("");
+    const [lugar, setLugar] = useState("");
+    let [index, setIndex] = useState(3);
+    const [move, setMove] = useState(opiniones.slice(0, index));
     const navigate = useNavigate();
+    const colorDarkBlue = { color: "#1b4965", border: "none" };
+    const colorLightBlue = { color: "#62B6CB", border: "none" };
+    const red = { color: "#e63946", border: "none" };
+    const backgroundColorDarkBlue = {
+        backgroundColor: "#1b4965",
+        border: "none",
+        color: "white",
+    };
+    const backgroundColorLightBlue = {
+        backgroundColor: "#62B6CB",
+        border: "none",
+        color: "white",
+    };
+    const backgroundRed = {
+        backgroundColor: "#e63946",
+        border: "none",
+        color: "white",
+    };
 
     const searchJob = function (e) {
         return navigate(
             "/jobs" +
-                (job.length !== 0 ? "/title/" + job : "") +
-                (company.length !== 0 ? "/company/" + company : "") +
-                (place.length !== 0 ? "/place/" + place : "")
+                (titulo.length !== 0 ? "/title/" + titulo : "") +
+                (lugar.length !== 0 ? "/place/" + lugar : "")
         );
     };
 
@@ -21,77 +41,135 @@ function Home() {
         setSearchBar(id);
     };
 
-    const signin = function (e) {
-        return navigate("/login");
+    const typeTitulo = function (e) {
+        setTitulo(e.target.value);
     };
 
-    const typeJob = function (e) {
-        setJob(e.target.value);
+    const typeLugar = function (e) {
+        setLugar(e.target.value);
     };
 
-    const typeCompany = function (e) {
-        setCompany(e.target.value);
-    };
+    const moveOpinions = function (e) {
+        e.preventDefault();
 
-    const typePlace = function (e) {
-        setPlace(e.target.value);
+        if (index >= opiniones.length) {
+            setMove(opiniones.slice(0, 3));
+            return setIndex(3);
+        }
+
+        setMove(opiniones.slice(index, index + 3));
+        setIndex((index += 3));
     };
 
     return (
-        <div>
-            <div className="mx-0">
-                <img
-                    src="/home2.png"
-                    className="img-fluid"
-                    style={{
-                        width: "100vw",
-                        height: "75vh",
-                        position: "absolute",
-                        top: "1vh",
-                        zIndex: "-5",
-                    }}
-                />
-
-                <div className="bg-white container-fluid border border-top-0">
+        <div className="bg-white">
+            <div
+                className="bg-white"
+                style={{
+                    position: "fixed",
+                    width: "100%",
+                    top: "0",
+                    left: "0",
+                    zIndex: "999",
+                }}
+            >
+                <div className="my-3">
                     <div className="row">
-                        <div className="col-3">
-                            <img
-                                src="/logo.png"
-                                className="w-75 py-3"
-                                style={{ cursor: "pointer" }}
-                            />
+                        <div className="col-3 ms-3">
+                            <div className="">
+                                <h1
+                                    style={colorDarkBlue}
+                                    onClick={(e) => goHome(e)}
+                                    id="clickeable"
+                                >
+                                    <span style={red}>H</span>ire
+                                    <span style={red}>M</span>e
+                                    <span style={red}>N</span>ow
+                                </h1>
+                            </div>
                         </div>
-                        <div className="col-9 pt-3">
-                            <div className="d-flex justify-content-end align-items-center">
-                                <button
-                                    className="btn btn-primary rounded-pill me-3"
-                                    style={{
-                                        backgroundColor: "#62B6CB",
-                                        border: "none",
-                                    }}
-                                >
-                                    Publica un trabajo
-                                </button>
-                                <button
-                                    className="btn btn-primary  rounded-pill"
-                                    style={{
-                                        backgroundColor: "#1B4965",
-                                        border: "none",
-                                    }}
-                                    onClick={(e) => searchJob(e)}
-                                >
-                                    Buscar un empleo
-                                </button>
-                                <button
-                                    className="btn btn-primary rounded-pill ms-3"
+                        <div className="col-8 mt-2" id="button-group">
+                            <div className="input-group">
+                                <span className="input-group-text">
+                                    <i
+                                        className="bi bi-briefcase"
+                                        id="navbar-buttons"
+                                    ></i>
+                                </span>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder={"Cargo o categoria"}
+                                    aria-label="Username"
+                                    onChange={(e) => typeTitulo(e)}
+                                />
+                                <span className="input-group-text">
+                                    <i
+                                        className="bi bi-geo-alt"
+                                        id="navbar-buttons"
+                                    ></i>
+                                </span>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder={"Lugar o ubicacion"}
+                                    aria-label="Server"
+                                    onChange={(e) => typeLugar(e)}
+                                />
+                                <span
+                                    className="input-group-text"
                                     style={{
                                         backgroundColor: "#e63946",
-                                        border: "none",
+                                        cursor: "pointer",
                                     }}
-                                    onClick={(e) => signin(e)}
                                 >
-                                    Ingresar
-                                </button>
+                                    <i
+                                        className="bi bi-search text-white"
+                                        id="navbar-buttons"
+                                        onClick={(e) => searchJob(e)}
+                                    ></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        className="text-white p-2 mt-3"
+                        style={backgroundColorDarkBlue}
+                    >
+                        <div className="row">
+                            <div
+                                className="col-8 d-flex align-items-center"
+                                style={{ fontSize: "0.9em" }}
+                            >
+                                <a className="text-white" href="">
+                                    Porque HireMeNow
+                                </a>
+                                <a className="text-white ms-5" href="">
+                                    Lo que dicen nuestros miembros
+                                </a>
+                                <a className="text-white ms-5" href="">
+                                    Contactenos
+                                </a>
+                            </div>
+                            <div className="col-4">
+                                <div className="d-flex justify-content-end align-items-center">
+                                    <i className="bi bi-lightbulb me-3 fs-5"></i>
+                                    <button
+                                        className="btn btn-primary "
+                                        style={backgroundColorLightBlue}
+                                        onClick={(e) => navigate("/login")}
+                                    >
+                                        Iniciar sesion
+                                    </button>
+                                    <button
+                                        className="btn btn-primary ms-3"
+                                        style={backgroundRed}
+                                        onClick={(e) => navigate("/signup")}
+                                    >
+                                        Registrarse
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,125 +177,103 @@ function Home() {
             </div>
 
             <div
-                className="container card d-flex justify-content-center align-items-center p-4 border-0"
-                style={
-                    searchBar == 0
-                        ? { marginTop: "38vh", backgroundColor: "#ffff" }
-                        : { marginTop: "38vh", backgroundColor: "#1B4965" }
-                }
+                className="p-5 w-75 mx-auto"
+                style={{ marginTop: "30vh", backgroundColor: "#C6DAE5 " }}
             >
-                <div
-                    className="rounded"
-                    style={{
-                        position: "absolute",
-                        backgroundColor: "#f6f7f8",
-                        paddingTop: "13rem",
-                        width: "90vw",
-                        zIndex: "-1",
-                        boxShadow:
-                            "0 9px 46px 0 9px 46px rgb(47 54 57 / 5%), 0 18px 38px rgb(47 54 57 / 6%), 0 11px 15px rgb(47 54 57 / 7%)",
-                    }}
-                ></div>
-
-                <button
-                    className="btn btn-light border-0"
-                    style={{
-                        position: "absolute",
-                        left: "-0.2px",
-                        top: "-2.25rem",
-                        backgroundColor: "#ffff",
-                        zIndex: "10",
-                    }}
-                    onClick={(e) => changeSearchBar(e, 0)}
-                >
-                    Busca un empleo
-                </button>
-                <button
-                    className="btn btn-light border-0 text-white"
-                    style={{
-                        position: "absolute",
-                        left: "150px",
-                        top: "-2.25rem",
-                        backgroundColor: "#1B4965",
-                        zIndex: "10",
-                    }}
-                    onClick={(e) => changeSearchBar(e, 1)}
-                >
-                    Busca un candidato
-                </button>
-                <div className="input-group me-3">
-                    <span
-                        className="input-group-text"
-                        id="inputGroup-sizing-default"
-                    >
-                        <i className="bi bi-bar-chart-line"></i>
-                    </span>
-                    <input
-                        type="text"
-                        className="form-control me-3"
-                        aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default"
-                        placeholder={
-                            searchBar == 0
-                                ? "título o palabras clave"
-                                : "Carrera"
-                        }
-                        onChange={(e) => typeJob(e)}
-                    />
-                    <span
-                        className="input-group-text"
-                        id="inputGroup-sizing-default"
-                    >
-                        <i className="bi bi-building"></i>
-                    </span>
-                    <input
-                        type="text"
-                        className="form-control me-3"
-                        aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default"
-                        placeholder="Compañia"
-                        onChange={(e) => typeCompany(e)}
-                    />
-                    <span
-                        className="input-group-text"
-                        id="inputGroup-sizing-default"
-                    >
-                        <i className="bi bi-geo-alt"></i>
-                    </span>
-                    <input
-                        type="text"
-                        className="form-control me-3"
-                        aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default"
-                        placeholder="Lugar, ubicacion"
-                        onChange={(e) => typePlace(e)}
-                    />
-                    <button
-                        className="btn btn-primary rounded-pill"
-                        onClick={(e) => searchJob(e)}
-                        style={
-                            searchBar == 0
-                                ? {
-                                      backgroundColor: "#1B4965",
-                                      border: "none",
-                                  }
-                                : {
-                                      backgroundColor: "#fff",
-                                      color: "#000",
-                                      border: "none",
-                                  }
-                        }
-                    >
-                        Buscar Empleos
-                    </button>
+                <div className="row">
+                    <div className="col-8">
+                        <h2 style={colorDarkBlue}>
+                            <span style={red}>El sitio de empleo #1 </span> para
+                            encontrar trabajos - sin anuncios, estafas ni
+                            basura. Encuentra tu próximo trabajo en HireMeNow
+                        </h2>
+                        <div className="mt-5">
+                            <button
+                                className="btn btn-primary"
+                                style={backgroundRed}
+                                onClick={e => navigate("/jobs")}
+                            >
+                                Buscar Empleos
+                            </button>
+                            <button
+                                className="btn btn-primary ms-3"
+                                style={backgroundColorDarkBlue}
+                                onClick={e => navigate("/signup")}
+                            >
+                                Publica ofertas
+                            </button>
+                        </div>
+                    </div>
+                    <div className="col-4">
+                        <img
+                            src="/home.png"
+                            className="img-fluid h-100 w-100"
+                        />
+                    </div>
                 </div>
             </div>
 
-            <div
-                className="pb-5"
-                style={{ marginTop: "25vh", backgroundColor: "#fff" }}
-            >
-                <hr />
+            <hr className="mt-5 mb-4" />
+
+            <div>
+                <h3 className="text-center mb-4">
+                    Lo que dicen nuestros miembros
+                </h3>
+                <div className="row d-flex align-items-center">
+                    <div className="col-1">
+                        <i
+                            className="bi bi-arrow-left fs-2 ms-5"
+                            style={{ cursor: "pointer" }}
+                            onClick={(e) => moveOpinions(e)}
+                        ></i>
+                    </div>
+                    <div className="col-10">
+                        <div className="row row-cols-1 row-cols-md-3 g-4 px-5">
+                            {move.map((opinion, key) => {
+                                return (
+                                    <div className="col" key={key}>
+                                        <div
+                                            className="card h-100"
+                                            style={
+                                                key === 1
+                                                    ? backgroundColorDarkBlue
+                                                    : {
+                                                          backgroundColor:
+                                                              "#C6DAE5",
+                                                      }
+                                            }
+                                        >
+                                            <div className="card-body">
+                                                {opinion.message}
+                                            </div>
+                                            <img
+                                                src={opinion.image}
+                                                className="img-fluid w-25 h-25 rounded-pill mx-auto"
+                                            />
+                                            <p className="text-center mt-3">
+                                                {opinion.name}{" "}
+                                                <i className="bi bi-dot"></i>{" "}
+                                                {opinion.location}
+                                            </p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    <div className="col-1">
+                        <i
+                            className="bi bi-arrow-right fs-2 me-5"
+                            style={{ cursor: "pointer" }}
+                            onClick={(e) => moveOpinions(e)}
+                        ></i>
+                    </div>
+                </div>
+            </div>
+
+            <hr className="mt-5" />
+
+            <div className="pb-5">
                 <div className="mt-5 border-bottom mb-5 pb-5 ">
                     <div className="text-center mt-5">
                         <h3>Si buscas trabajo HireMeNow es tu mejor aliado!</h3>
@@ -290,7 +346,7 @@ function Home() {
                     <div className="container">
                         <h2 className="text-center">
                             Publica tus ofertas en el portal de empleo con mayor
-                            audiencia en Latinoamérica
+                            audiencia en Colombia
                         </h2>
                     </div>
                     <div className="row mt-5 ms-5">
