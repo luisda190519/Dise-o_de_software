@@ -147,7 +147,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
 
     const getButtonGroup = function () {
         return (
-            <div className="d-flex justify-content-between">
+            <>
                 <RoundButton
                     type={"house-door"}
                     id={0}
@@ -180,7 +180,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                     text={"Configuración"}
                     changeScreen={changeScreen}
                 />
-            </div>
+            </>
         );
     };
 
@@ -308,11 +308,11 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                 </div>
             </div>
 
-            <div className="my-4 row ms-4" style={{paddingLeft:"7em"}}>
+            <div className="my-4 row d-flex justify-content-center mb-5" style={{paddingLeft:"7em"}}>
                 {buttonActive == 0 ? (
                     <div className="col-11">{getFilterDropdownButtons()}</div>
                 ) : (
-                    <div className="col-11 " id="navbar-part">
+                    <div className="col-11 d-flex justify-content-between" id="navbar-part">
                         {getButtonGroup()}
                     </div>
                 )}

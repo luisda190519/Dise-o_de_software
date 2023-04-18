@@ -21,7 +21,7 @@ function Dashboard() {
     const [user, setUser] = useState({});
 
     const changeScreen = function (id) {
-        if (id !== 0 && id !== 6 && !userAuthenticated) {
+        if (id !== 0 && id !== 6 && typeof userAuthenticated._id === "undefined") {
             setBlurScreen({ filter: "blur(1px)", position: "absolute" });
             return setAuthpopup(
                 <Authpopup
@@ -32,6 +32,8 @@ function Dashboard() {
         }
         return setScreen(id);
     };
+
+    console.log(userAuthenticated)
 
     const utils = {
         changeScreen,
@@ -50,9 +52,9 @@ function Dashboard() {
     ];
 
     const findUser = async function () {
-        if (userAuthenticated) {
+        if (typeof userAuthenticated._id !== "undefined") {
             const user = await getRequest("/auth/" + userAuthenticated._id);
-            await setUser(user);
+            return await setUser(user);
         }
     };
 
