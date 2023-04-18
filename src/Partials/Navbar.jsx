@@ -9,7 +9,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
     const [titulo, setTitulo] = useState("");
     const [lugar, setLugar] = useState("");
     const { userAuthenticated, logout } = useContext(AuthContext);
-    const { title, company, location } = useParams();
+    const { title, company, place } = useParams();
     const navigate = useNavigate();
 
     const goHome = function (e) {
@@ -215,7 +215,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                                 className="form-control"
                                 placeholder={
                                     typeof title !== "undefined"
-                                        ? title
+                                        ? place
                                         : "Lugar o ubicacion"
                                 }
                                 aria-label="Server"

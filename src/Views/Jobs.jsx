@@ -7,27 +7,45 @@ import { useParams } from "react-router-dom";
 function Jobs() {
     const [announcements, setAnnouncements] = useState([]);
     const [jobFocus, setJobfocus] = useState({});
-    const { title, company, location } = useParams();
+    const { title, company, place } = useParams();
+    const [findedQuery, setFindedquery] = useState(false);
 
     const getAnnouncements = async function () {
-        const anuncios = await getRequest(
-            "/jobs/" + title + "/" + company + "/" + location
+        let anuncios = await getRequest(
+            "/jobs" +
+                (title.length !== 0 ? "/title/" + title : "") +
+                (location.length !== 0 ? "/place/" + place : "")
         );
-        setAnnouncements(anuncios);
-        setJobfocus(anuncios[0]);
+
+        if (anuncios.length > 0) {
+            setAnnouncements(anuncios);
+            console.log(announcements);
+            setFindedquery(true);
+            return setJobfocus(anuncios[0]);
+        }
+
+        //anuncios = await getRequest("/jobs/randomJobs");
+        //setAnnouncements(anuncios);
+        //setFindedquery(false);
+        //return setJobfocus(anuncios[0]);
     };
 
     useEffect(() => {
         getAnnouncements();
     }, []);
 
-    useEffect(() => {}, [announcements, jobFocus]);
+    console.log(findedQuery)
+
+    useEffect(() => {
+        getAnnouncements();
+    }, [title, company, place]);
 
     return (
         <div>
             {announcements.length > 0 ? (
                 <div className="row gx-0 justify-content-start">
                     <div className="col-5">
+                        {!findedQuery ? <div>Hola</div> : <div></div>}
                         <div className="card" id="scrolleable">
                             {announcements.map((anuncio, key) => {
                                 return (
