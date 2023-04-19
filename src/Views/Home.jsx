@@ -188,7 +188,7 @@ function Home() {
 
       <div
         className="p-5 w-75 mx-auto"
-        style={{ marginTop: '30vh', backgroundColor: '#C6DAE5 ' }}
+        style={{ marginTop: '12em', backgroundColor: '#C6DAE5 ' }}
       >
         <div className="row">
           <div className="col-6">
@@ -217,7 +217,7 @@ function Home() {
           <div className="col-6 d-flex justify-content-center align-items-center">
             <img
               src="https://cp.ct-stc.com/web/20230328.12/c/img/encontrar_empleo.png"
-              className="img-fluid"
+              className="img-fluid h-25vh"
             />
           </div>
         </div>
@@ -253,7 +253,7 @@ function Home() {
                       <div className="card-body mb-3">{opinion.message}</div>
                       <img
                         src={opinion.image}
-                        className="img-fluid w-25 h-50 mx-auto"
+                        className="img-fluid w-25 h-50vh mx-auto"
                       />
                       <p className="text-center mt-5">
                         {opinion.name} <i className="bi bi-dot"></i>{' '}
