@@ -40,6 +40,9 @@ function Jobs({user}) {
         getAnnouncements();
     }, [title, company, place]);
 
+    useEffect(() => {
+    }, [jobFocus]);
+
     return (
         <div>
             {announcements.length > 0 ? (
@@ -76,7 +79,7 @@ function Jobs({user}) {
                         </div>
                     </div>
                     <div className="col-7">
-                        <Jobcard job={jobFocus} />
+                        <Jobcard job={jobFocus} user={usuario}/>
                     </div>
                 </div>
             ) : (

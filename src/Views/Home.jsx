@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { opiniones } from "../utils/opinions";
 import { anuncios } from "../utils/jsonJobs";
+import { AuthContext } from "../utils/AuthContext";
 
 function Home() {
     const [searchBar, setSearchBar] = useState(0);
@@ -10,6 +11,7 @@ function Home() {
     let [index, setIndex] = useState(3);
     const [move, setMove] = useState(opiniones.slice(0, index));
     const navigate = useNavigate();
+    const { userAuthenticated, logout } = useContext(AuthContext);
     const colorDarkBlue = { color: "#1b4965", border: "none" };
     const colorLightBlue = { color: "#62B6CB", border: "none" };
     const red = { color: "#e63946", border: "none" };
@@ -155,20 +157,46 @@ function Home() {
                             <div className="col-4">
                                 <div className="d-flex justify-content-end align-items-center">
                                     <i className="bi bi-lightbulb me-3 fs-5"></i>
-                                    <button
-                                        className="btn btn-primary "
-                                        style={backgroundColorLightBlue}
-                                        onClick={(e) => navigate("/login")}
-                                    >
-                                        Iniciar sesion
-                                    </button>
-                                    <button
-                                        className="btn btn-primary ms-3"
-                                        style={backgroundRed}
-                                        onClick={(e) => navigate("/signup")}
-                                    >
-                                        Registrarse
-                                    </button>
+                                    {userAuthenticated ? (
+                                        userAuthenticated.isRecruiter ? (
+                                            <div className="me-3">
+                                                <button
+                                                    className="btn btn-primary "
+                                                    style={
+                                                        backgroundColorLightBlue
+                                                    }
+                                                    onClick={(e) =>
+                                                        navigate("/jobform")
+                                                    }
+                                                >
+                                                    Publica ofertas
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div></div>
+                                        )
+                                    ) : (
+                                        <div>
+                                            <button
+                                                className="btn btn-primary "
+                                                style={backgroundColorLightBlue}
+                                                onClick={(e) =>
+                                                    navigate("/login")
+                                                }
+                                            >
+                                                Iniciar sesion
+                                            </button>
+                                            <button
+                                                className="btn btn-primary mx-3"
+                                                style={backgroundRed}
+                                                onClick={(e) =>
+                                                    navigate("/signup")
+                                                }
+                                            >
+                                                Registrarse
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -191,14 +219,14 @@ function Home() {
                             <button
                                 className="btn btn-primary"
                                 style={backgroundRed}
-                                onClick={e => navigate("/jobs")}
+                                onClick={(e) => navigate("/jobs")}
                             >
                                 Buscar Empleos
                             </button>
                             <button
                                 className="btn btn-primary ms-3"
                                 style={backgroundColorDarkBlue}
-                                onClick={e => navigate("/signup")}
+                                onClick={(e) => navigate("/signup")}
                             >
                                 Publica ofertas
                             </button>

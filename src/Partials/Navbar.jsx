@@ -23,7 +23,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
         backgroundColor: "#62B6CB",
         border: "none",
         color: "white",
-        paddingLeft:"7em"
+        paddingLeft: "7em",
     };
     const backgroundRed = {
         backgroundColor: "#e63946",
@@ -201,7 +201,7 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                 marginLeft: "-10vw",
             }}
         >
-            <div className="bg-white pt-3 pb-2" style={{paddingLeft:"7em"}}>
+            <div className="bg-white pt-3 pb-2" style={{ paddingLeft: "7em" }}>
                 <div className="row">
                     <div className="col-3">
                         <div className="">
@@ -288,31 +288,60 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                     </div>
                     <div className="col-4">
                         <div className="d-flex justify-content-end align-items-center">
-                            <i className="bi bi-lightbulb me-3 fs-5"></i>
-                            <button
-                                className="btn btn-primary "
-                                style={backgroundColorDarkBlue}
-                                onClick={(e) => navigate("/login")}
-                            >
-                                Iniciar sesion
-                            </button>
-                            <button
-                                className="btn btn-primary mx-3"
-                                style={backgroundRed}
-                                onClick={(e) => navigate("/signup")}
-                            >
-                                Registrarse
-                            </button>
+                            <i
+                                className="bi bi-lightbulb me-3 fs-5"
+                                id="clickeable"
+                            ></i>
+                            {userAuthenticated ? (
+                                userAuthenticated.isRecruiter ? (
+                                    <div className="me-3">
+                                        <button
+                                            className="btn btn-primary "
+                                            style={backgroundColorDarkBlue}
+                                            onClick={(e) =>
+                                                navigate("/jobform")
+                                            }
+                                        >
+                                            Publica ofertas
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )
+                            ) : (
+                                <div>
+                                    <button
+                                        className="btn btn-primary "
+                                        style={backgroundColorDarkBlue}
+                                        onClick={(e) => navigate("/login")}
+                                    >
+                                        Iniciar sesion
+                                    </button>
+                                    <button
+                                        className="btn btn-primary mx-3"
+                                        style={backgroundRed}
+                                        onClick={(e) => navigate("/signup")}
+                                    >
+                                        Registrarse
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="my-4 row d-flex justify-content-center mb-5" style={{paddingLeft:"7em"}}>
+            <div
+                className="my-4 row d-flex justify-content-center mb-5"
+                style={{ paddingLeft: "7em" }}
+            >
                 {buttonActive == 0 ? (
                     <div className="col-11">{getFilterDropdownButtons()}</div>
                 ) : (
-                    <div className="col-11 d-flex justify-content-between" id="navbar-part">
+                    <div
+                        className="col-11 d-flex justify-content-between"
+                        id="navbar-part"
+                    >
                         {getButtonGroup()}
                     </div>
                 )}

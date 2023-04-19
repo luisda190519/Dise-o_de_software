@@ -1,4 +1,47 @@
-function Jobcard({ job }) {
+import { postRequest, getRequest } from "../utils/request";
+import { useState, useEffect } from "react";
+
+function Jobcard({ job, user }) {
+    const [like, setLike] = useState(false);
+    const [postulado, setPostulado] = useState(false);
+
+    const postularEmpleo = async function (e) {
+        const message = await postRequest(
+            "/jobs/postular/" + job._id + "/user/" + user._id
+        );
+    };
+
+    const likeEmpleo = async function (e) {
+        const message = await postRequest(
+            "/jobs/like/" + job._id + "/user/" + user._id
+        );
+        return setLike(message);
+    };
+
+    const isJobIdInJobApplications = () => {
+        if (!user || !user.jobApplications) {
+            return false;
+        }
+        return user.jobApplications.includes(job._id);
+    };
+
+    const isJobIdInJobLike = () => {
+        if (!user || !user.jobLikes) {
+            return false;
+        }
+        return user.jobLikes.includes(job._id);
+    };
+
+    const updateUser = async function () {
+        user = await getRequest("/auth/" + user._id);
+        setPostulado(isJobIdInJobApplications());
+        setLike(isJobIdInJobLike());
+    };
+
+    useEffect(() => {
+        updateUser();
+    }, [job, like]);
+
     return (
         <div className="mx-3" id="scrolleable">
             <div className="card text-start">
@@ -27,11 +70,26 @@ function Jobcard({ job }) {
                     <p>
                         <button
                             className="btn btn-light btn-lg rounded-pill me-2 text-white"
-                            style={{ backgroundColor: "#1B4965", border:"none" }}
+                            style={{
+                                backgroundColor: "#1B4965",
+                                border: "none",
+                            }}
+                            onClick={(e) => postularEmpleo(e)}
                         >
                             Postularme
                         </button>
-                        <button className="btn btn-light btn-lg rounded-circle mx-2">
+                        <button
+                            className="btn btn-light btn-lg rounded-circle mx-2"
+                            onClick={(e) => likeEmpleo(e)}
+                            style={
+                                like
+                                    ? {
+                                          backgroundColor: "#e63946",
+                                          color: "white",
+                                      }
+                                    : {}
+                            }
+                        >
                             <i className="bi bi-heart"></i>
                         </button>
                         <button className="btn btn-light btn-lg rounded-circle mx-2">
@@ -65,11 +123,17 @@ function Jobcard({ job }) {
                             );
                         })}
                     </div>
-                    <p className="" style={{ whiteSpace: "pre-wrap" }}>{job.description}</p>
+                    <p className="" style={{ whiteSpace: "pre-wrap" }}>
+                        {job.description}
+                    </p>
                     <h5 className="card-title mb-3">Requerimientos</h5>
                     <ul>
                         {job.requirements.map((requirement, key) => {
-                            return <li key={key} className="mb-2">{requirement}</li>;
+                            return (
+                                <li key={key} className="mb-2">
+                                    {requirement}
+                                </li>
+                            );
                         })}
                     </ul>
 

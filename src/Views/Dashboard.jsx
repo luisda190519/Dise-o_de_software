@@ -18,7 +18,7 @@ function Dashboard() {
     const [authPopup, setAuthpopup] = useState(false);
     const [blurScreen, setBlurScreen] = useState({});
     const { userAuthenticated, logout } = useContext(AuthContext);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(userAuthenticated || {});
 
     const changeScreen = function (id) {
         if (id !== 0 && id !== 6 && typeof userAuthenticated._id === "undefined") {

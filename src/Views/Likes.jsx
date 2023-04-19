@@ -1,16 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import JobExpanded from "./JobExpanded";
+import { getRequest } from "../utils/request";
 
 function Likes({ user }) {
     const [jobView, setJobView] = useState(false);
+    const [jobLikes, setLikes] = useState([]);
 
     const goBack = function (e) {
         setJobView(false);
     };
 
     const getJob = function (e, jobId) {
-        setJobView(user.find((job) => job.id === jobId));
+        e.preventDefault()
+        console.log(jobId)
+        setJobView(jobLikes.find((job) => job._id === jobId));
     };
+
+    const getJobsLikes = async function () {
+        const jobs = await getRequest("/auth/jobLikes/" + user._id);
+        setLikes(jobs.jobLikes);
+    };
+
+    useEffect(() => {
+        getJobsLikes();
+    }, [jobLikes]);
+
 
     return (
         <div className="my-3">
@@ -35,15 +49,15 @@ function Likes({ user }) {
                     <h2>Mis favoritos</h2>
                     <div className="row gx-0 justify-content-start mt-4">
                         <div className="col-8">
-                            {user.jobLikes .length !== 0 ? (
-                                user.jobLikes.map((anuncio, key) => {
+                            {jobLikes.length !== 0 ? (
+                                jobLikes.map((anuncio, key) => {
                                     return (
                                         <div
                                             className="card me-4 mb-4 pt-3 px-4"
                                             key={key}
                                             id="applications"
                                             onClick={(e) =>
-                                                getJob(e, anuncio.id)
+                                                getJob(e, anuncio._id)
                                             }
                                         >
                                             <div className="row g-0">
@@ -57,7 +71,8 @@ function Likes({ user }) {
                                                                 color: "yellow",
                                                             }}
                                                         ></i>{" "}
-                                                        {anuncio.rating}
+                                                        {anuncio.rating}{" "}
+                                                        <span> </span>
                                                         {anuncio.location}
                                                     </p>
                                                 </div>
