@@ -10,10 +10,10 @@ export const AuthProvider = ({ children }) => {
         if (typeof userString !== "undefined" && userString !== null) {
             try {
                 const user = JSON.parse(userString);
-                setIsAuthenticated(user);
+                return setIsAuthenticated(user);
             } catch (error) {
                 console.error("Error parsing user from localStorage:", error);
-                setIsAuthenticated(false);
+                return setIsAuthenticated(false);
             }
         }
         return setIsAuthenticated(false);

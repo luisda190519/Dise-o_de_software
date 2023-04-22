@@ -14,7 +14,7 @@ function JobForm() {
     const [requirements, setRequirements] = useState([]);
     const [tags, setTags] = useState([]);
     const navigate = useNavigate();
-    const { userAuthenticated, logout } = useContext(AuthContext);
+    const [user, setUser] = useState(false);
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handleTitleChange = function (e) {
@@ -84,28 +84,34 @@ function JobForm() {
             );
         });
     };
-    
-    const finishFill = async function (e) {        
+
+    const finishFill = async function (e) {
         const job = await postRequest("/jobs/postJob", {
             title: title,
             location: ubicacion,
             description: description,
-            tags:tags,
-            requirements:requirements,
+            tags: tags,
+            requirements: requirements,
             rating,
             image,
             publishTime,
             company,
-            owner:userAuthenticated._id
+            owner: user._id,
         });
         return navigate("/");
     };
 
-    useEffect(()=>{
-        if(!userAuthenticated.isRecruiter){
-            navigate("/jobs")
+    const findUser = function () {
+        const usuario = JSON.parse(localStorage.getItem("user"));
+        if (usuario !== null && usuario.isRecruiter) {
+            return setUser(usuario);
         }
-    },[])
+        return navigate("/home");
+    };
+
+    useEffect(() => {
+        findUser();
+    }, []);
 
     useEffect(() => {}, [
         title,
@@ -116,7 +122,7 @@ function JobForm() {
         publishTime,
         image,
         company,
-        description
+        description,
     ]);
 
     return (
@@ -236,7 +242,7 @@ function JobForm() {
                                 className="form-label"
                                 htmlFor="form3Example4"
                             >
-                                Estudios
+                                Requerimientos
                             </label>
                             <ul>{getRequirements()}</ul>
                             <input

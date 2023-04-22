@@ -56,7 +56,7 @@ function Jobcard({ job, user }) {
                         <div className="col-md-4 d-flex flex-row-reverse">
                             <img
                                 src={job.image}
-                                className="img-fluid rounded-start"
+                                className="img-fluid rounded-start h-50"
                             />
                         </div>
                     </div>

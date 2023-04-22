@@ -12,7 +12,7 @@ function FillProfile() {
     const [ubicacion, setUbicacion] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const navigate = useNavigate();
-    const { userAuthenticated, logout } = useContext(AuthContext);
+    const [user, setUser] = useState(false);
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handlePerfilChange = function (e) {
@@ -35,6 +35,14 @@ function FillProfile() {
             setExperiencia(updatedExperiencias);
             e.target.form3Example4.value = "";
         }
+    };
+
+    const findUser = function () {
+        const usuario = JSON.parse(localStorage.getItem("user"));
+        if (usuario !== null) {
+            return setUser(usuario);
+        }
+        return navigate("/home");
     };
 
     const getExperiencias = function () {
@@ -120,17 +128,24 @@ function FillProfile() {
     };
 
     const finishFill = async function (e) {
-        const user = await putRequest("/auth/fillProfile/" + userAuthenticated._id, {
-            role: perfil,
-            location: ubicacion,
-            description: descripcion,
-            experience: experiencias,
-            estudios,
-            skills,
-            idiomas,
-        });
+        const user2 = await putRequest(
+            "/auth/fillProfile/" + user._id,
+            {
+                role: perfil,
+                location: ubicacion,
+                description: descripcion,
+                experience: experiencias,
+                estudios,
+                skills,
+                idiomas,
+            }
+        );
         return navigate("/");
     };
+
+    useEffect(() => {
+        findUser();
+    }, []);
 
     useEffect(() => {}, [experiencias, idiomas, skills, estudios]);
 
