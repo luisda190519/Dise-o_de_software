@@ -9,7 +9,7 @@ function MiArea({ user }) {
                     <div className="card text-center mb-4">
                         <div className="d-flex justify-content-center">
                             <img
-                                src="https://img.freepik.com/fotos-premium/concepto-personas-felicidad-adolescente-sonriente-sobre-fondo-blanco_380164-63917.jpg"
+                                src={user.image}
                                 className=" rounded w-50 vh-50 mt-3"
                             />
                         </div>

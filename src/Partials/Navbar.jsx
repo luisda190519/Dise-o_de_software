@@ -257,11 +257,11 @@ function Navbar({ utils: { changeScreen, buttonActive }, user }) {
                                     backgroundColor: "#e63946",
                                     cursor: "pointer",
                                 }}
+                                onClick={(e) => searchJob(e)}
                             >
                                 <i
                                     className="bi bi-search text-white"
                                     id="navbar-buttons"
-                                    onClick={(e) => searchJob(e)}
                                 ></i>
                             </span>
                         </div>

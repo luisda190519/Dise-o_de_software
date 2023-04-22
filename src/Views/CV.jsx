@@ -1,11 +1,11 @@
 import Ads from "../components/Ads";
 
 function CV({ user }) {
-    const completaTuPerfil = function () {
+    const completaTuPerfil = function (text) {
         return (
             <div>
                 <p>
-                    Completa tu perfil{" "}
+                    {text}{" "}
                     <a
                         href="/fillProfile"
                         className="text-primary"
@@ -27,7 +27,7 @@ function CV({ user }) {
                             <div className="row">
                                 <div className="col-4">
                                     <img
-                                        src="https://img.freepik.com/fotos-premium/concepto-personas-felicidad-adolescente-sonriente-sobre-fondo-blanco_380164-63917.jpg"
+                                        src={user.image}
                                         className="img-fluid rounded w-75 h-75"
                                     />
                                 </div>
@@ -37,7 +37,7 @@ function CV({ user }) {
                                         {user.firstName} <span></span>{" "}
                                         {user.lastName}
                                     </h4>
-                                    <p>{user.location}</p>
+                                    <p>{user.location ? user.location : <div>{completaTuPerfil("Añada su ubicacion")}</div>}</p>
                                     <p>
                                         <i className="bi bi-envelope me-2"></i>
                                         {user.email}{" "}
@@ -49,9 +49,9 @@ function CV({ user }) {
                             </div>
 
                             <div className="mt-2">
-                                <h4>{user.role}</h4>
+                                <h4>{user.role ? user.role : <div>{completaTuPerfil("Añada su perfil")}</div>}</h4>
                                 <p>
-                                    {typeof user.description !== 'undefined' ? (
+                                    {user.description ? (
                                         user.description
                                     ) : (
                                         <div
@@ -89,7 +89,7 @@ function CV({ user }) {
                                             }
                                         )
                                     ) : (
-                                        <div>{completaTuPerfil()}</div>
+                                        <div>{completaTuPerfil("Añada experiencia laboral")}</div>
                                     )}
                                 </ul>
                             </div>
@@ -106,7 +106,7 @@ function CV({ user }) {
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil()}</div>
+                                        <div>{completaTuPerfil("Añada estudios")}</div>
                                     )}
                                 </ul>
                             </div>
@@ -129,7 +129,7 @@ function CV({ user }) {
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil()}</div>
+                                        <div>{completaTuPerfil("Añada idiomas")}</div>
                                     )}
                                 </div>
                             </div>
@@ -152,7 +152,7 @@ function CV({ user }) {
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil()}</div>
+                                        <div>{completaTuPerfil("Añada conocimientos y habilidades")}</div>
                                     )}
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { putRequest } from "../utils/request";
+import { putRequest, putRequestWithFormData } from "../utils/request";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../utils/AuthContext";
 
@@ -11,6 +11,7 @@ function FillProfile() {
     const [perfil, setPerfil] = useState("");
     const [ubicacion, setUbicacion] = useState("");
     const [descripcion, setDescripcion] = useState("");
+    const [imageFile, setImageFile] = useState();
     const navigate = useNavigate();
     const [user, setUser] = useState(false);
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
@@ -25,6 +26,11 @@ function FillProfile() {
 
     const handleDescripcionChange = function (e) {
         setDescripcion(e.target.value);
+    };
+
+    const handleImagenChange = function (e) {
+        const file = e.target.files[0];
+        setImageFile(file);
     };
 
     const addExperiencia = function (e) {
@@ -128,18 +134,22 @@ function FillProfile() {
     };
 
     const finishFill = async function (e) {
-        const user2 = await putRequest(
-            "/auth/fillProfile/" + user._id,
-            {
-                role: perfil,
-                location: ubicacion,
-                description: descripcion,
-                experience: experiencias,
-                estudios,
-                skills,
-                idiomas,
-            }
-        );
+        try {
+            const formData = new FormData();
+            formData.append("image", imageFile);
+            formData.append("role", perfil);
+            formData.append("location", ubicacion);
+            formData.append("description", descripcion);
+            formData.append("experience", experiencias);
+            formData.append("estudios", estudios);
+            formData.append("skills", skills);
+            formData.append("idiomas", idiomas);
+
+            const response = await putRequestWithFormData(user._id, formData);
+        } catch (err) {
+            console.error(err);
+        }
+
         return navigate("/");
     };
 
@@ -181,6 +191,19 @@ function FillProfile() {
                         placeholder="Barranquilla, Bogota"
                         className="form-control"
                         onChange={(e) => handleUbicacionChange(e)}
+                    />
+                </div>
+
+                <div className="form-outline mb-4">
+                    <label className="form-label" htmlFor="form3Example4">
+                        Imagen de perfil
+                    </label>
+                    <input
+                        type="file"
+                        id="form3Example4"
+                        placeholder="Barranquilla, Bogota"
+                        className="form-control"
+                        onChange={(e) => handleImagenChange(e)}
                     />
                 </div>
 
