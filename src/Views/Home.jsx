@@ -45,6 +45,8 @@ function Home() {
     setLugar(e.target.value);
   };
 
+  console.log(userAuthenticated)
+
   const moveOpinions = function (e) {
     e.preventDefault();
 

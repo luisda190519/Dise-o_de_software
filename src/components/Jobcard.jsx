@@ -33,9 +33,11 @@ function Jobcard({ job, user }) {
     };
 
     const updateUser = async function () {
-        user = await getRequest("/auth/" + user._id);
-        setPostulado(isJobIdInJobApplications());
-        setLike(isJobIdInJobLike());
+        if (typeof user._id !== "undefined") {
+            user = await getRequest("/auth/" + user._id);
+            setPostulado(isJobIdInJobApplications());
+            return setLike(isJobIdInJobLike());
+        }
     };
 
     useEffect(() => {

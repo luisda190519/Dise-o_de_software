@@ -8,7 +8,7 @@ function Navbar({ utils: { changeScreen, buttonActive }, user }) {
     const [option, setOption] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [lugar, setLugar] = useState("");
-    const { title, company, place } = useParams();
+    const { title, place } = useParams();
     const navigate = useNavigate();
     const colorDarkBlue = { color: "#1b4965", border: "none" };
     const colorLightBlue = { color: "#62B6CB", border: "none" };

@@ -1,85 +1,88 @@
-import Sidebar from '../Partials/Sidebar';
-import Navbar from '../Partials/Navbar';
-import Jobs from './Jobs';
-import Applications from './Applications';
-import Likes from './Likes';
-import Notifications from './Notifications';
-import MiArea from './MiArea';
-import CV from './CV';
-import Test from './Test';
-import Config from './Config';
-import Authpopup from '../components/Authpopup';
-import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../utils/AuthContext';
-import { getRequest } from '../utils/request';
+import Sidebar from "../Partials/Sidebar";
+import Navbar from "../Partials/Navbar";
+import Jobs from "./Jobs";
+import Applications from "./Applications";
+import Likes from "./Likes";
+import Notifications from "./Notifications";
+import MiArea from "./MiArea";
+import CV from "./CV";
+import Test from "./Test";
+import Config from "./Config";
+import Authpopup from "../components/Authpopup";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../utils/AuthContext";
+import { getRequest } from "../utils/request";
 
 function Dashboard() {
-  const [screen, setScreen] = useState(0);
-  const [authPopup, setAuthpopup] = useState(false);
-  const [blurScreen, setBlurScreen] = useState({});
-  const { userAuthenticated, logout } = useContext(AuthContext);
-  const [user, setUser] = useState(userAuthenticated || {});
+    const [screen, setScreen] = useState(0);
+    const [authPopup, setAuthpopup] = useState(false);
+    const [blurScreen, setBlurScreen] = useState({});
+    const { userAuthenticated, logout } = useContext(AuthContext);
+    const [user, setUser] = useState(userAuthenticated || false);
 
-  const changeScreen = function (id) {
-    if (id !== 0 && id !== 6 && typeof userAuthenticated._id === 'undefined') {
-      setBlurScreen({ filter: 'blur(1px)', position: 'absolute' });
-      return setAuthpopup(
-        <Authpopup setAuthpopup={setAuthpopup} setBlurScreen={setBlurScreen} />
-      );
-    }
-    return setScreen(id);
-  };
+    const changeScreen = function (id) {
+        if (id !== 0 && id !== 6 && !user) {
+            setBlurScreen({ filter: "blur(1px)", position: "absolute" });
+            return setAuthpopup(
+                <Authpopup
+                    setAuthpopup={setAuthpopup}
+                    setBlurScreen={setBlurScreen}
+                />
+            );
+        }
+        return setScreen(id);
+    };
 
-  const utils = {
-    changeScreen,
-    buttonActive: screen,
-  };
+    const utils = {
+        changeScreen,
+        buttonActive: screen,
+    };
 
-  const screens = [
-    (props) => <Jobs {...props} />,
-    (props) => <Applications {...props} />,
-    (props) => <Likes {...props} />,
-    (props) => <Notifications {...props} />,
-    (props) => <MiArea {...props} />,
-    (props) => <CV {...props} />,
-    (props) => <Test {...props} />,
-    (props) => <Config {...props} />,
-  ];
+    const screens = [
+        (props) => <Jobs {...props} />,
+        (props) => <Applications {...props} />,
+        (props) => <Likes {...props} />,
+        (props) => <Notifications {...props} />,
+        (props) => <MiArea {...props} />,
+        (props) => <CV {...props} />,
+        (props) => <Test {...props} />,
+        (props) => <Config {...props} />,
+    ];
 
-  const findUser = function () {
-    if (typeof userAuthenticated._id !== 'undefined') {
-      const user = localStorage.getItem("user");
-      return setUser(user ? user : false);
-    }
-  };
+    useEffect(() => {
+        changeScreen(0);
+    }, []);
 
-  useEffect(() => {
-    changeScreen(0);
-    findUser();
-  }, []);
+    useEffect(() => {}, [screen, userAuthenticated]);
 
-  useEffect(() => {}, [screen, userAuthenticated]);
+    console.log(user)
 
-  useEffect(() => {
-    findUser();
-  }, [authPopup]);
 
-  return (
-    <div id="dashboard">
-      <div className="text-left" style={blurScreen}>
-        <div className="row gx-0 justify-content-end">
-          <div className="col-1">{<Sidebar utils={utils} user={user} logout={logout} />}</div>
-          <div className="col-11 container-fluid">
-            <div className="mt-4 ">{<Navbar utils={utils} user={user} />}</div>
-            <div className="my-3" style={{ zIndex: '-1' }}>
-              {user ? screens[screen]({ user: user }) : {}}
+
+    return (
+        <div id="dashboard">
+            <div className="text-left" style={blurScreen}>
+                <div className="row gx-0 justify-content-end">
+                    <div className="col-1">
+                        {<Sidebar utils={utils} user={user} logout={logout} />}
+                    </div>
+                    <div className="col-11 container-fluid">
+                        <div className="mt-4 ">
+                            {<Navbar utils={utils} user={user} />}
+                        </div>
+                        <div className="my-3" style={{ zIndex: "-1" }}>
+                            {user || screen == 0 ? (
+                                screens[screen]({ user: user })
+                            ) : (
+                                <div></div>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            {authPopup}
         </div>
-      </div>
-      {authPopup}
-    </div>
-  );
+    );
 }
 
 export default Dashboard;
