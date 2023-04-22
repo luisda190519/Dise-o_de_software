@@ -1,12 +1,10 @@
 import SidebarButtons from "../components/SidebarButtons";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../utils/AuthContext";
 
-function Sidebar({ utils: { changeScreen, buttonActive }, user }) {
+function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
     const [button, setButton] = useState(buttonActive);
     const navigate = useNavigate();
-    const { isAuthenticated, logout } = useContext(AuthContext);
 
     const goHome = function (e) {
         return navigate("/home");

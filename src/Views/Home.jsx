@@ -1,11 +1,9 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { opiniones } from '../utils/opinions';
-import { anuncios } from '../utils/jsonJobs';
 import { AuthContext } from '../utils/AuthContext';
 
 function Home() {
-  const [searchBar, setSearchBar] = useState(0);
   const [titulo, setTitulo] = useState('');
   const [lugar, setLugar] = useState('');
   let [index, setIndex] = useState(3);
@@ -37,10 +35,6 @@ function Home() {
         (titulo.length !== 0 ? '/title/' + titulo : '') +
         (lugar.length !== 0 ? '/place/' + lugar : '')
     );
-  };
-
-  const changeSearchBar = function (e, id) {
-    setSearchBar(id);
   };
 
   const typeTitulo = function (e) {

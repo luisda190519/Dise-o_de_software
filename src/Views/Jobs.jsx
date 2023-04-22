@@ -14,6 +14,7 @@ function Jobs({user}) {
     const getAnnouncements = async function () {
         if (title.length === 0 && place.length === 0) {
             let anuncios = await getRequest("/jobs/randomJobs");
+            console.log(anuncios)
             setAnnouncements(anuncios);
             setFindedquery(false);
             return setJobfocus(anuncios[0]);

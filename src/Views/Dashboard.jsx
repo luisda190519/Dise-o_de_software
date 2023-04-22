@@ -30,8 +30,6 @@ function Dashboard() {
     return setScreen(id);
   };
 
-  console.log(userAuthenticated);
-
   const utils = {
     changeScreen,
     buttonActive: screen,
@@ -48,10 +46,10 @@ function Dashboard() {
     (props) => <Config {...props} />,
   ];
 
-  const findUser = async function () {
+  const findUser = function () {
     if (typeof userAuthenticated._id !== 'undefined') {
-      const user = await getRequest('/auth/' + userAuthenticated._id);
-      return await setUser(user);
+      const user = localStorage.getItem("user");
+      return setUser(user ? user : false);
     }
   };
 
@@ -70,7 +68,7 @@ function Dashboard() {
     <div id="dashboard">
       <div className="text-left" style={blurScreen}>
         <div className="row gx-0 justify-content-end">
-          <div className="col-1">{<Sidebar utils={utils} user={user} />}</div>
+          <div className="col-1">{<Sidebar utils={utils} user={user} logout={logout} />}</div>
           <div className="col-11 container-fluid">
             <div className="mt-4 ">{<Navbar utils={utils} user={user} />}</div>
             <div className="my-3" style={{ zIndex: '-1' }}>

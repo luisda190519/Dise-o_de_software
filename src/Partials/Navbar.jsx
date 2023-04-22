@@ -1,14 +1,13 @@
 import DropdownButtons from "../components/DropdownButtons";
 import RoundButton from "../components/RoundButton";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../utils/AuthContext";
 
-function Navbar({ utils: { changeScreen, buttonActive } }) {
+function Navbar({ utils: { changeScreen, buttonActive }, user }) {
     const [option, setOption] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [lugar, setLugar] = useState("");
-    const { userAuthenticated, logout } = useContext(AuthContext);
     const { title, company, place } = useParams();
     const navigate = useNavigate();
     const colorDarkBlue = { color: "#1b4965", border: "none" };
@@ -292,8 +291,8 @@ function Navbar({ utils: { changeScreen, buttonActive } }) {
                                 className="bi bi-lightbulb me-3 fs-5"
                                 id="clickeable"
                             ></i>
-                            {userAuthenticated ? (
-                                userAuthenticated.isRecruiter ? (
+                            {user ? (
+                                user.isRecruiter ? (
                                     <div className="me-3">
                                         <button
                                             className="btn btn-primary "
