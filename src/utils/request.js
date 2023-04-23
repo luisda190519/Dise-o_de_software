@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = import.meta.env.VITE_API_URL;
+const URL = import.meta.env.VITE_API_URL || "https://hiremenow.azurewebsites.net/api";
 const error_reponse = "Something wrong happened";
 
 export const getRequest = async (name) => {
