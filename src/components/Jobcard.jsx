@@ -1,21 +1,30 @@
 import { postRequest, getRequest } from "../utils/request";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Jobcard({ job, user }) {
     const [like, setLike] = useState(false);
     const [postulado, setPostulado] = useState(false);
+    const [auth, setAuth] = useState(false);
+    const navigate = useNavigate();
 
     const postularEmpleo = async function (e) {
-        const message = await postRequest(
-            "/jobs/postular/" + job._id + "/user/" + user._id
-        );
+        if (auth) {
+            return (message = await postRequest(
+                "/jobs/postular/" + job._id + "/user/" + user._id
+            ));
+        }
+        return navigate("/login");
     };
 
     const likeEmpleo = async function (e) {
-        const message = await postRequest(
-            "/jobs/like/" + job._id + "/user/" + user._id
-        );
-        return setLike(message);
+        if (auth) {
+            const message = await postRequest(
+                "/jobs/like/" + job._id + "/user/" + user._id
+            );
+            return setLike(message);
+        }
+        return navigate("/login");
     };
 
     const isJobIdInJobApplications = () => {
@@ -36,8 +45,10 @@ function Jobcard({ job, user }) {
         if (typeof user._id !== "undefined") {
             user = await getRequest("/auth/" + user._id);
             setPostulado(isJobIdInJobApplications());
+            setAuth(true);
             return setLike(isJobIdInJobLike());
         }
+        return setAuth(false);
     };
 
     useEffect(() => {

@@ -46,17 +46,46 @@ function FillProfile() {
     const findUser = function () {
         const usuario = JSON.parse(localStorage.getItem("user"));
         if (usuario !== null) {
+            setIdiomas(usuario.idiomas);
+            setSkills(usuario.skills);
+            setExperiencia(usuario.experience);
+            setEstudios(usuario.estudios);
+            setDescripcion(usuario.description);
+            setPerfil(usuario.role);
+            setUbicacion(usuario.location);
             return setUser(usuario);
         }
         return navigate("/home");
     };
 
+    const deleteProperty = function (e, value, array, setArray) {
+        e.preventDefault();
+        const newArray = array.filter((item) => item !== value);
+        setArray(newArray);
+    };
+
     const getExperiencias = function () {
         return experiencias.map((experiencia, key) => {
             return (
-                <li className="my-3" key={key}>
+                <div
+                    key={key}
+                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                >
                     {experiencia}
-                </li>
+                    <button className="btn">
+                        <i
+                            className="bi bi-x-lg"
+                            onClick={(e) =>
+                                deleteProperty(
+                                    e,
+                                    experiencia,
+                                    experiencias,
+                                    setExperiencia
+                                )
+                            }
+                        ></i>
+                    </button>
+                </div>
             );
         });
     };
@@ -74,9 +103,25 @@ function FillProfile() {
     const getEstudios = function () {
         return estudios.map((estudio, key) => {
             return (
-                <li className="my-3" key={key}>
+                <div
+                    key={key}
+                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                >
                     {estudio}
-                </li>
+                    <button className="btn">
+                        <i
+                            className="bi bi-x-lg"
+                            onClick={(e) =>
+                                deleteProperty(
+                                    e,
+                                    estudio,
+                                    estudios,
+                                    setEstudios
+                                )
+                            }
+                        ></i>
+                    </button>
+                </div>
             );
         });
     };
@@ -100,7 +145,12 @@ function FillProfile() {
                 >
                     {idioma}
                     <button className="btn">
-                        <i className="bi bi-x-lg"></i>
+                        <i
+                            className="bi bi-x-lg"
+                            onClick={(e) =>
+                                deleteProperty(e, idioma, idiomas, setIdiomas)
+                            }
+                        ></i>
                     </button>
                 </div>
             );
@@ -126,7 +176,12 @@ function FillProfile() {
                 >
                     {skill}
                     <button className="btn">
-                        <i className="bi bi-x-lg"></i>
+                        <i
+                            className="bi bi-x-lg"
+                            onClick={(e) =>
+                                deleteProperty(e, skill, skills, setSkills)
+                            }
+                        ></i>
                     </button>
                 </div>
             );
@@ -177,6 +232,7 @@ function FillProfile() {
                         id="form3Example4"
                         placeholder="Estudiante, empleado, desempleado"
                         className="form-control"
+                        value={perfil}
                         onChange={(e) => handlePerfilChange(e)}
                     />
                 </div>
@@ -190,6 +246,7 @@ function FillProfile() {
                         id="form3Example4"
                         placeholder="Barranquilla, Bogota"
                         className="form-control"
+                        value={ubicacion}
                         onChange={(e) => handleUbicacionChange(e)}
                     />
                 </div>
@@ -214,6 +271,7 @@ function FillProfile() {
                     <textarea
                         id="form3Example4"
                         className="form-control"
+                        value={descripcion}
                         onChange={(e) => handleDescripcionChange(e)}
                     />
                 </div>
@@ -227,7 +285,7 @@ function FillProfile() {
                             >
                                 Experiencias profesionales
                             </label>
-                            <ul>{getExperiencias()}</ul>
+                            <div className="row mb-3">{getExperiencias()}</div>
                             <input
                                 type="text"
                                 id="form3Example4"
@@ -252,7 +310,8 @@ function FillProfile() {
                             >
                                 Estudios
                             </label>
-                            <ul>{getEstudios()}</ul>
+                            <div className="row mb-3">{getEstudios()}</div>
+
                             <input
                                 type="text"
                                 id="form3Example4"

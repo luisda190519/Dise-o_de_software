@@ -1,6 +1,9 @@
 import Ads from "../components/Ads";
+import { useNavigate } from "react-router-dom";
 
 function CV({ user }) {
+    const navigate = useNavigate();
+
     const completaTuPerfil = function (text) {
         return (
             <div>
@@ -37,7 +40,17 @@ function CV({ user }) {
                                         {user.firstName} <span></span>{" "}
                                         {user.lastName}
                                     </h4>
-                                    <p>{user.location ? user.location : <div>{completaTuPerfil("Añada su ubicacion")}</div>}</p>
+                                    <p>
+                                        {user.location ? (
+                                            user.location
+                                        ) : (
+                                            <div>
+                                                {completaTuPerfil(
+                                                    "Añada su ubicacion"
+                                                )}
+                                            </div>
+                                        )}
+                                    </p>
                                     <p>
                                         <i className="bi bi-envelope me-2"></i>
                                         {user.email}{" "}
@@ -49,7 +62,17 @@ function CV({ user }) {
                             </div>
 
                             <div className="mt-2">
-                                <h4>{user.role ? user.role : <div>{completaTuPerfil("Añada su perfil")}</div>}</h4>
+                                <h4>
+                                    {user.role ? (
+                                        user.role
+                                    ) : (
+                                        <div>
+                                            {completaTuPerfil(
+                                                "Añada su perfil"
+                                            )}
+                                        </div>
+                                    )}
+                                </h4>
                                 <p>
                                     {user.description ? (
                                         user.description
@@ -75,7 +98,7 @@ function CV({ user }) {
                             >
                                 <h4>Mis experiencias profesionales</h4>
                                 <ul>
-                                    {user.experience .length !== 0 ? (
+                                    {user.experience.length !== 0 ? (
                                         user.experience.map(
                                             (experiencia, key) => {
                                                 return (
@@ -89,7 +112,11 @@ function CV({ user }) {
                                             }
                                         )
                                     ) : (
-                                        <div>{completaTuPerfil("Añada experiencia laboral")}</div>
+                                        <div>
+                                            {completaTuPerfil(
+                                                "Añada experiencia laboral"
+                                            )}
+                                        </div>
                                     )}
                                 </ul>
                             </div>
@@ -97,7 +124,7 @@ function CV({ user }) {
                             <div className="mt-4">
                                 <h4>Mis estudios</h4>
                                 <ul>
-                                    {user.estudios .length !== 0 ? (
+                                    {user.estudios.length !== 0 ? (
                                         user.estudios.map((estudio, key) => {
                                             return (
                                                 <li className="my-3" key={key}>
@@ -106,7 +133,9 @@ function CV({ user }) {
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil("Añada estudios")}</div>
+                                        <div>
+                                            {completaTuPerfil("Añada estudios")}
+                                        </div>
                                     )}
                                 </ul>
                             </div>
@@ -114,22 +143,21 @@ function CV({ user }) {
                             <div className="mt-4">
                                 <h4>Idiomas</h4>
                                 <div className="row">
-                                    {user.idiomas .length !== 0 ? (
+                                    {user.idiomas.length !== 0 ? (
                                         user.idiomas.map((idioma, key) => {
                                             return (
                                                 <div
                                                     key={key}
-                                                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                                                    className="col-auto border rounded-pill py-2 px-3 me-2"
                                                 >
                                                     {idioma}
-                                                    <button className="btn">
-                                                        <i className="bi bi-x-lg"></i>
-                                                    </button>
                                                 </div>
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil("Añada idiomas")}</div>
+                                        <div>
+                                            {completaTuPerfil("Añada idiomas")}
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -137,25 +165,31 @@ function CV({ user }) {
                             <div className="mt-4">
                                 <h4>Conocimientos y habilidades</h4>
                                 <div className="row">
-                                    {user.skills .length !== 0 ? (
+                                    {user.skills.length !== 0 ? (
                                         user.skills.map((habilidad, key) => {
                                             return (
                                                 <div
                                                     key={key}
-                                                    className="col-auto border me-4 mt-2 rounded-pill ps-4 pt-1"
+                                                    className="col-auto border  rounded-pill px-3 py-3 me-2"
                                                 >
                                                     {habilidad}
-                                                    <button className="btn">
-                                                        <i className="bi bi-x-lg"></i>
-                                                    </button>
                                                 </div>
                                             );
                                         })
                                     ) : (
-                                        <div>{completaTuPerfil("Añada conocimientos y habilidades")}</div>
+                                        <div>
+                                            {completaTuPerfil(
+                                                "Añada conocimientos y habilidades"
+                                            )}
+                                        </div>
                                     )}
                                 </div>
                             </div>
+
+                            <div className="row mt-5">
+                                <button className="btn btn-primary" onClick={e => navigate("/fillProfile")}>Edita tu perfil</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
