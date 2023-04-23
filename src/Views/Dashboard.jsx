@@ -6,6 +6,7 @@ import Likes from "./Likes";
 import Notifications from "./Notifications";
 import MiArea from "./MiArea";
 import CV from "./CV";
+import Posted from "./Posted";
 import Test from "./Test";
 import Config from "./Config";
 import Authpopup from "../components/Authpopup";
@@ -56,6 +57,7 @@ function Dashboard() {
         (props) => <CV {...props} />,
         (props) => <Test {...props} />,
         (props) => <Config {...props} />,
+        (props) => <Posted {...props} />,
     ];
 
     useEffect(() => {

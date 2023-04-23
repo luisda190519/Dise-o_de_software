@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 function CV({ user }) {
     const navigate = useNavigate();
 
+    console.log(user.image);
+
     const completaTuPerfil = function (text) {
         return (
             <div>
@@ -30,7 +32,11 @@ function CV({ user }) {
                             <div className="row">
                                 <div className="col-4">
                                     <img
-                                        src={user.image}
+                                        src={
+                                            typeof user.image !== "undefined"
+                                                ? user.image
+                                                : "https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png"
+                                        }
                                         className="img-fluid rounded w-75 h-75"
                                     />
                                 </div>
@@ -187,9 +193,17 @@ function CV({ user }) {
                             </div>
 
                             <div className="row mt-5">
-                                <button className="btn btn-primary" onClick={e => navigate("/fillProfile")}>Edita tu perfil</button>
+                                <button
+                                    className="btn btn-primary"
+                                    style={{
+                                        backgroundColor: "#1b4965",
+                                        border: "none",
+                                    }}
+                                    onClick={(e) => navigate("/fillProfile")}
+                                >
+                                    Edita tu perfil
+                                </button>
                             </div>
-
                         </div>
                     </div>
                 </div>

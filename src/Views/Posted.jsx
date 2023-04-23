@@ -2,29 +2,28 @@ import { useState, useEffect } from "react";
 import JobExpanded from "./JobExpanded";
 import { getRequest } from "../utils/request";
 
-function Likes({ user }) {
+function Posted({ user }) {
     const [jobView, setJobView] = useState(false);
-    const [jobLikes, setLikes] = useState([]);
+    const [jobsPosted, setJobsposted] = useState([]);
 
     const goBack = function (e) {
         setJobView(false);
     };
 
     const getJob = function (e, jobId) {
-        e.preventDefault()
-        console.log(jobId)
-        setJobView(jobLikes.find((job) => job._id === jobId));
+        e.preventDefault();
+        console.log(jobId);
+        setJobView(jobsPosted.find((job) => job._id === jobId));
     };
 
-    const getJobsLikes = async function () {
-        const jobs = await getRequest("/auth/jobLikes/" + user._id);
-        setLikes(jobs);
+    const getJobsPosted = async function () {
+        const jobs = await getRequest("/auth/jobsPosted/" + user._id);
+        setJobsposted(jobs);
     };
 
     useEffect(() => {
-        getJobsLikes();
-    }, [jobLikes]);
-
+        getJobsPosted();
+    }, [jobsPosted]);
 
     return (
         <div className="my-3">
@@ -46,11 +45,11 @@ function Likes({ user }) {
                 </div>
             ) : (
                 <div>
-                    <h2>Mis favoritos</h2>
+                    <h2>Mis empleos publicados</h2>
                     <div className="row gx-0 justify-content-start mt-4">
                         <div className="col-8">
-                            {jobLikes.length !== 0 ? (
-                                jobLikes.map((anuncio, key) => {
+                            {jobsPosted.length !== 0 ? (
+                                jobsPosted.map((anuncio, key) => {
                                     return (
                                         <div
                                             className="card me-4 mb-4 pt-3 px-4"
@@ -76,24 +75,6 @@ function Likes({ user }) {
                                                         {anuncio.location}
                                                     </p>
                                                 </div>
-
-                                                <div className="col-md-4 d-flex justify-content-end">
-                                                    <div className="my-3">
-                                                        <button
-                                                            className="btn btn-primary btn-lg rounded-pill me-4"
-                                                            style={{
-                                                                backgroundColor:
-                                                                    "#1B4965",
-                                                                border: "none",
-                                                            }}
-                                                        >
-                                                            Aplicar
-                                                        </button>
-                                                        <button className="btn btn-danger btn-lg rounded-circle">
-                                                            <i className="bi bi-heart"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     );
@@ -105,7 +86,7 @@ function Likes({ user }) {
                                         backgroundColor: "#e9ebf6",
                                     }}
                                 >
-                                    No tienes empleos que hayas guardado
+                                    No tienes empleos que hayas publicado
                                 </div>
                             )}
                         </div>
@@ -117,9 +98,9 @@ function Likes({ user }) {
                                     alt=""
                                 />
                                 <div className="card-body">
-                                    Guarda con un ❤ las ofertas de empleo que
-                                    más te interesan y postúlate cuando lo
-                                    desees
+                                    Revisa los candidatos, cada uno es un
+                                    potencial empleador, la desicion esta en tus
+                                    manos
                                 </div>
                                 <div className="d-flex justify-content-center mb-4">
                                     <button
@@ -129,7 +110,7 @@ function Likes({ user }) {
                                             border: "none",
                                         }}
                                     >
-                                        Buscar empleos
+                                        Revisar Empleos
                                     </button>
                                 </div>
                             </div>
@@ -141,4 +122,4 @@ function Likes({ user }) {
     );
 }
 
-export default Likes;
+export default Posted;

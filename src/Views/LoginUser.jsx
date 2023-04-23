@@ -24,10 +24,14 @@ function LoginUser() {
             password,
         });
 
-        if (typeof user === "object" && user !== null) {
+        console.log(Object.keys(user))
+
+        if (typeof user === "object" && user !== null && Object.keys(user).length > 1) {
             await login(user);
             return navigate("/jobs");
         }
+
+        console.log("Usuario o email incorrecto")
     };
 
     return (

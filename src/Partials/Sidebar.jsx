@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
     const [button, setButton] = useState(buttonActive);
+    const [jobsCreated, setJobscreated] = useState(false)
     const navigate = useNavigate();
 
     const goHome = function (e) {
@@ -14,6 +15,20 @@ function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
         logout();
         return navigate("/home");
     };
+
+    const verifyRecruiter = function(){
+        if(user.isRecruiter){
+            return (
+                <SidebarButtons
+                    id={8}
+                    type={"file-post"}
+                    changeScreen={changeScreen}
+                    buttonActive={button}
+                />
+            )
+        }
+        return null;
+    }
 
     useEffect(() => {
         setButton(buttonActive);
@@ -57,6 +72,7 @@ function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
                     changeScreen={changeScreen}
                     buttonActive={button}
                 />
+                {verifyRecruiter()}
                 <SidebarButtons
                     id={3}
                     type={"bell"}

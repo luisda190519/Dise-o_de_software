@@ -9,7 +9,9 @@ function MiArea({ user }) {
                     <div className="card text-center mb-4">
                         <div className="d-flex justify-content-center">
                             <img
-                                src={user.image}
+                                src={typeof user.image !== "undefined"
+                                ? user.image
+                                : "https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png"}
                                 className=" rounded w-50 vh-50 mt-3"
                             />
                         </div>

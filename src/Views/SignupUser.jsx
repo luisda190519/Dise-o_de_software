@@ -44,13 +44,15 @@ function SignupUser() {
             role: role,
         });
 
-        if (typeof user === "object" && user !== null) {
+        if (typeof user === "object" && user !== null && Object.keys(user).length > 1) {
             login(user);
             if (role === "user") {
                 return navigate("/fillProfile");
             }
             return navigate("/jobs");
         }
+
+        console.log("Usuario o email incorrecto")
     };
 
     return (
