@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
-import JobExpanded from "./JobExpanded";
 import { getRequest } from "../utils/request";
+import CVRecruiter from "./CVRecruiter";
 
 function Posted({ user }) {
     const [jobView, setJobView] = useState(false);
     const [jobsPosted, setJobsposted] = useState([]);
+    const [postulados, setPostulados] = useState([]);
 
     const goBack = function (e) {
         setJobView(false);
     };
 
-    const getJob = function (e, jobId) {
+    const getJob = async function (e, jobId) {
         e.preventDefault();
-        console.log(jobId);
+        const usuariosPostulados = await getRequest("/jobs/postulados/job/" + jobId)
+        setPostulados(usuariosPostulados)
         setJobView(jobsPosted.find((job) => job._id === jobId));
     };
 
@@ -39,7 +41,7 @@ function Posted({ user }) {
 
                     <div className="row mt-4">
                         <div className="col-11">
-                            <JobExpanded job={jobView} />
+                            <CVRecruiter postulados={postulados} jobID={jobView._id}/>
                         </div>
                     </div>
                 </div>

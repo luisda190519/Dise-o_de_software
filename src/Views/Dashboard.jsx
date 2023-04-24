@@ -19,7 +19,8 @@ function Dashboard() {
     const [authPopup, setAuthpopup] = useState(false);
     const [blurScreen, setBlurScreen] = useState({});
     const { logout } = useContext(AuthContext);
-    const [user, setUser] = useState(false);
+    const { userAuthenticated } = useContext(AuthContext);
+    const [user, setUser] = useState(userAuthenticated || false);
 
     const changeScreen = function (id) {
         if (id !== 0 && id !== 6 && !user) {
@@ -32,15 +33,6 @@ function Dashboard() {
             );
         }
         return setScreen(id);
-    };
-
-    const findUser = async function () {
-        const usuario = JSON.parse(localStorage.getItem("user"));
-        if (usuario !== null) {
-            const usuarioQuery = await getRequest("/auth/" + usuario._id);
-            return setUser(usuarioQuery);
-        }
-        return setUser(false);
     };
 
     const utils = {
@@ -62,12 +54,10 @@ function Dashboard() {
 
     useEffect(() => {
         changeScreen(0);
-        findUser();
+        setUser(userAuthenticated)
     }, []);
 
     useEffect(() => {}, [screen, user]);
-
-    console.log(user);
 
     return (
         <div id="dashboard">

@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { opiniones } from "../utils/opinions";
+import { AuthContext } from "../utils/AuthContext";
 
 function Home() {
     const [titulo, setTitulo] = useState("");
@@ -9,6 +10,7 @@ function Home() {
     const [move, setMove] = useState(opiniones.slice(0, index));
     const navigate = useNavigate();
     const [user, setUser] = useState(false);
+    const { userAuthenticated } = useContext(AuthContext);
     const colorDarkBlue = { color: "#1b4965", border: "none" };
     const colorLightBlue = { color: "#62B6CB", border: "none" };
     const red = { color: "#e63946", border: "none" };
@@ -36,14 +38,6 @@ function Home() {
         );
     };
 
-    const findUser = function () {
-        const usuario = JSON.parse(localStorage.getItem("user"));
-        if (usuario !== null) {
-            return setUser(usuario);
-        }
-        return setUser(false);
-    };
-
     const typeTitulo = function (e) {
         setTitulo(e.target.value);
     };
@@ -65,7 +59,7 @@ function Home() {
     };
 
     useEffect(() => {
-        findUser();
+        setUser(userAuthenticated)
     }, []);
 
     return (

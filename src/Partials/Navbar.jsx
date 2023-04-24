@@ -2,7 +2,6 @@ import DropdownButtons from "../components/DropdownButtons";
 import RoundButton from "../components/RoundButton";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../utils/AuthContext";
 
 function Navbar({ utils: { changeScreen, buttonActive }, user }) {
     const [option, setOption] = useState(false);

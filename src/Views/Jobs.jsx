@@ -1,6 +1,6 @@
 import Jobcard from "../components/Jobcard";
 import Jobannouncement from "../components/Jobannouncement";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getRequest } from "../utils/request";
 import { useParams } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function Jobs({ user }) {
     const { title = "", company = "", place = "" } = useParams();
     const [findedQuery, setFindedquery] = useState(false);
     const [usuario, setUsuario] = useState(user || {});
-
+    
     const getAnnouncements = async function () {
         let anuncios = await getRequest(
             "/jobs" +

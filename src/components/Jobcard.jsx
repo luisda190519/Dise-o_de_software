@@ -1,5 +1,5 @@
 import { postRequest, getRequest } from "../utils/request";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Jobcard({ job, user }) {
@@ -10,9 +10,10 @@ function Jobcard({ job, user }) {
 
     const postularEmpleo = async function (e) {
         if (auth) {
-            return (message = await postRequest(
+            const message = await postRequest(
                 "/jobs/postular/" + job._id + "/user/" + user._id
-            ));
+            );
+            return setPostulado(message);
         }
         return navigate("/login");
     };
@@ -31,7 +32,9 @@ function Jobcard({ job, user }) {
         if (!user || !user.jobApplications) {
             return false;
         }
-        return user.jobApplications.includes(job._id);
+        return user.jobApplications.some(
+            (application) => application.job.toString() === job._id
+        );
     };
 
     const isJobIdInJobLike = () => {
@@ -83,13 +86,20 @@ function Jobcard({ job, user }) {
                     <p>
                         <button
                             className="btn btn-light btn-lg rounded-pill me-2 text-white"
-                            style={{
-                                backgroundColor: "#1B4965",
-                                border: "none",
-                            }}
+                            style={
+                                postulado
+                                    ? {
+                                          backgroundColor: "#62B6CB",
+                                          border: "none",
+                                      }
+                                    : {
+                                          backgroundColor: "#1B4965",
+                                          border: "none",
+                                      }
+                            }
                             onClick={(e) => postularEmpleo(e)}
                         >
-                            Postularme
+                            {postulado ? "Empleo postulado" : "Postularme"}
                         </button>
                         <button
                             className="btn btn-light btn-lg rounded-circle mx-2"

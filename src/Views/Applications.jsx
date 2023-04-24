@@ -12,6 +12,13 @@ function Applications({ user }) {
         border: "none",
         color: "gray",
     };
+    const estados = ["Postulado", "CV visto", "Seleccionado", "Descartado"];
+    const mensaje = [
+        "Vas por buen camino",
+        "El reclutador vio algo interesante en tu CV",
+        "Has sido seleccionado para el empleo la empresa se pondra pronto en contacto contigo",
+        "Lo sentimos, no has sido seleccionado para el empleo",
+    ];
 
     const handleClick = function (e, op) {
         setOpcion(op);
@@ -22,12 +29,16 @@ function Applications({ user }) {
     };
 
     const getJob = function (e, jobId) {
-        setJobView(applications.find((job) => job.id === jobId));
+        setJobView(applications.find((job) => job._id === jobId));
     };
 
     const getApplications = async function () {
         try {
-            setApplications(user.jobApplications);
+            const apps = await getRequest(
+                "/jobs/postulaciones/job/" + user._id
+            );
+            console.log(apps);
+            setApplications(apps);
         } catch (error) {}
     };
 
@@ -38,7 +49,7 @@ function Applications({ user }) {
                     className="card me-4 mb-4 pt-3 px-4"
                     key={key}
                     id="applications"
-                    onClick={(e) => getJob(e, anuncio.id)}
+                    onClick={(e) => getJob(e, anuncio._id)}
                 >
                     <div className="row g-0">
                         <div className="col-md-8">
@@ -57,13 +68,20 @@ function Applications({ user }) {
 
                         <div className="col-md-4 d-flex flex-row">
                             <i
-                                className="bi bi-1-circle-fill me-2 fs-1"
+                                className={
+                                    "bi bi-" +
+                                    anuncio.state +
+                                    "-circle-fill me-2 fs-1"
+                                }
                                 style={{ color: "#1B4965" }}
                             ></i>
                             <div className="">
                                 <p className="my-0">Aplicado</p>
                                 <p className="my-0">Más de 30 días</p>
-                                <p className="mt-0">66 candidatos postulados</p>
+                                <p className="mt-0">
+                                    {anuncio.usuariosAplicados.length}{" "}
+                                    candidatos postulados
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -108,17 +126,23 @@ function Applications({ user }) {
                                     <div className="row">
                                         <div className="col-4 ">
                                             <div className="d-flex justify-content-center align-items-center h-100">
-                                                <i className="bi bi-1-circle-fill me-2 text-white fs-1"></i>
+                                                <i
+                                                    className={
+                                                        "bi bi-" +
+                                                        jobView.state +
+                                                        "-circle-fill me-2 text-white fs-1"
+                                                    }
+                                                ></i>
                                             </div>
                                         </div>
                                         <div className="col-8">
                                             <div className="my-3">
-                                                <h5>Postulado</h5>
+                                                <h5>
+                                                    {estados[jobView.state - 1]}
+                                                </h5>
                                                 <p>
-                                                    El reclutador vio algo
-                                                    interesante en tu CV
+                                                    {mensaje[jobView.state - 1]}
                                                 </p>
-                                                <p>vas por buen camino</p>
                                             </div>
                                         </div>
                                     </div>
@@ -130,13 +154,9 @@ function Applications({ user }) {
                                             Aplicado -{" "}
                                             <span>Más de 30 días</span>
                                         </li>
-                                        <li className="text-secondary mt-3">
-                                            CV Visto
-                                        </li>
-                                        <li className="text-secondary mt-3">
-                                            Finalista
-                                        </li>
-                                        <li className="text-secondary mt-3">
+                                        <li className="mt-3">CV Visto</li>
+                                        <li className="mt-3">Finalista</li>
+                                        <li className="mt-3">
                                             Proceso finalizado
                                         </li>
                                     </ul>
@@ -236,14 +256,14 @@ function Applications({ user }) {
                                                 className="bi bi-3-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>
-                                            Finalista
+                                            Elegido
                                         </p>
                                         <p>
                                             <i
                                                 className="bi bi-4-circle-fill me-2"
                                                 style={{ color: "#1B4965" }}
                                             ></i>
-                                            Proceso finalizado
+                                            Proceso finalizado / Descartado
                                         </p>
                                     </div>
                                 </div>

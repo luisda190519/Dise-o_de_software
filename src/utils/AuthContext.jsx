@@ -6,15 +6,9 @@ export const AuthProvider = ({ children }) => {
     const [userAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        const userString = localStorage.getItem("user");
-        if (typeof userString !== "undefined" && userString !== null) {
-            try {
-                const user = JSON.parse(userString);
-                return setIsAuthenticated(user);
-            } catch (error) {
-                console.error("Error parsing user from localStorage:", error);
-                return setIsAuthenticated(false);
-            }
+        const usuario = JSON.parse(localStorage.getItem("user"));
+        if (usuario !== null && Object.keys(usuario).length === 0) {
+            return setIsAuthenticated(usuario);
         }
         return setIsAuthenticated(false);
     }, []);
