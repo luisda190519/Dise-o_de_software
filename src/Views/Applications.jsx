@@ -37,7 +37,6 @@ function Applications({ user }) {
             const apps = await getRequest(
                 "/jobs/postulaciones/job/" + user._id
             );
-            console.log(apps);
             setApplications(apps);
         } catch (error) {}
     };

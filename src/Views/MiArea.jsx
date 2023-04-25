@@ -1,7 +1,26 @@
 import Ads from "../components/Ads";
 import Jobannouncement from "../components/Jobannouncement";
+import { useState, useEffect } from "react";
+import { getRequest } from "../utils/request";
 
 function MiArea({ user }) {
+    const [applications, setApplications] = useState([]);
+
+    const getApplications = async function () {
+        try {
+            const apps = await getRequest(
+                "/jobs/postulaciones/job/" + user._id
+            );
+            console.log(apps)
+            setApplications(apps);
+        } catch (error) {}
+    };
+
+    useEffect(()=>{
+        getApplications()
+    },[])
+
+
     return (
         <div>
             <div className="row">
@@ -63,8 +82,8 @@ function MiArea({ user }) {
                 </div>
                 <div className="col-6">
                     <div className="">
-                        {user.jobApplications.length !== 0 ? (
-                            user.jobApplications.map((anuncio, key) => {
+                        {applications.length !== 0 ? (
+                            applications.map((anuncio, key) => {
                                 return (
                                     <div key={key} className="mb-4">
                                         <Jobannouncement job={anuncio} />

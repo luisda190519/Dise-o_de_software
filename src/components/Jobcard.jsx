@@ -45,7 +45,7 @@ function Jobcard({ job, user }) {
     };
 
     const updateUser = async function () {
-        if (typeof user._id !== "undefined") {
+        if (user) {
             user = await getRequest("/auth/" + user._id);
             setPostulado(isJobIdInJobApplications());
             setAuth(true);
