@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 function Postulado({ user, jobID }) {
     const [estado, setEstado] = useState("Pendiente");
+    const jobIndex = user.jobApplications.findIndex(
+        (application) => application.job.toString() === jobID
+    );
 
     const buttonStyleBlue = {
         backgroundColor: "#1b4965",
@@ -31,7 +34,6 @@ function Postulado({ user, jobID }) {
     };
 
     const respuestaAplicante = async function (e, elegido) {
-        e.preventDefault();
         if (elegido) {
             setEstado("Usuario seleccionado");
             return changeState(3);
@@ -42,6 +44,7 @@ function Postulado({ user, jobID }) {
 
     useEffect(() => {
         changeState(2);
+        respuestaAplicante(null, user.jobApplications[jobIndex].state);
     }, []);
 
     return (
