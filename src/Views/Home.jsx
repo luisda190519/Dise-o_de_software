@@ -59,6 +59,7 @@ function Home() {
     };
 
     useEffect(() => {
+        console.log(userAuthenticated)
         setUser(userAuthenticated)
     }, []);
 
