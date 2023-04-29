@@ -9,7 +9,7 @@ function Jobs({ user }) {
     const [jobFocus, setJobfocus] = useState({});
     const { title = "", company = "", place = "" } = useParams();
     const [findedQuery, setFindedquery] = useState(false);
-    const [usuario, setUsuario] = useState(user || {});
+    const [usuario, setUsuario] = useState(user || false);
     
     const getAnnouncements = async function () {
         let anuncios = await getRequest(
