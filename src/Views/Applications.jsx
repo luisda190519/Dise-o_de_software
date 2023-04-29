@@ -21,14 +21,17 @@ function Applications({ user }) {
     ];
 
     const handleClick = function (e, op) {
+        e.preventDefault();
         setOpcion(op);
     };
 
     const goBack = function (e) {
+        e.preventDefault();
         setJobView(false);
     };
 
     const getJob = function (e, jobId) {
+        e.preventDefault();
         setJobView(applications.find((job) => job._id === jobId));
     };
 

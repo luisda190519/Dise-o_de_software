@@ -5,6 +5,7 @@ function CVRecruiter({ postulados, jobID }) {
     const [userView, setUserview] = useState(false);
 
     const goBack = function (e) {
+        e.preventDefault();
         setUserview(false);
     };
 

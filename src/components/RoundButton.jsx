@@ -1,11 +1,13 @@
 function RoundButton({ option, id, type, setOption, text, changeScreen }) {
   const off = option == 3 ? 'me-2' : 'ms-2';
   const changeOptionPage = function (e, page) {
+    e.preventDefault();
     setOption(page);
     changeScreen(page + 4);
   };
 
   const handleMouseEnter = function (e, page) {
+    e.preventDefault();
     if (page !== option) {
       e.target.style.backgroundColor = '#1B4965';
       e.target.classList.add('text-white');
@@ -14,6 +16,7 @@ function RoundButton({ option, id, type, setOption, text, changeScreen }) {
   };
 
   const handleMouseLeave = function (e, page) {
+    e.preventDefault();
     if (page !== option) {
       e.target.style.backgroundColor = '#CAE9FF';
       e.target.style.borderRadius = '500px';

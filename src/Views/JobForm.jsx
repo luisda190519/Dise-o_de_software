@@ -18,30 +18,37 @@ function JobForm() {
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handleTitleChange = function (e) {
+        e.preventDefault();
         setTitle(e.target.value);
     };
 
     const handleDescriptionChange = function (e) {
+        e.preventDefault();
         setDescription(e.target.value);
     };
 
     const handleUbicacionChange = function (e) {
+        e.preventDefault();
         setUbicacion(e.target.value);
     };
 
     const handleCompanyChange = function (e) {
+        e.preventDefault();
         setCompany(e.target.value);
     };
 
     const handleRatingChange = function (e) {
+        e.preventDefault();
         setRating(e.target.value);
     };
 
     const handlePublishtimeChange = function (e) {
+        e.preventDefault();
         setPublishtime(e.target.value);
     };
 
     const handleImageChange = function (e) {
+        e.preventDefault();
         setImage(e.target.value);
     };
 
@@ -86,6 +93,7 @@ function JobForm() {
     };
 
     const finishFill = async function (e) {
+        e.preventDefault();
         const job = await postRequest("/jobs/postJob", {
             title: title,
             location: ubicacion,

@@ -11,6 +11,7 @@ function Jobcard({ job, user }) {
     const { login } = useContext(AuthContext);
 
     const postularEmpleo = async function (e) {
+        e.preventDefault();
         if (auth) {
             const message = await postRequest(
                 "/jobs/postular/" + job._id + "/user/" + user._id
@@ -21,6 +22,7 @@ function Jobcard({ job, user }) {
     };
 
     const likeEmpleo = async function (e) {
+        e.preventDefault();
         if (auth) {
             const message = await postRequest(
                 "/jobs/like/" + job._id + "/user/" + user._id

@@ -17,18 +17,22 @@ function FillProfile() {
     const buttonStyle = { backgroundColor: "#1b4965", border: "none" };
 
     const handlePerfilChange = function (e) {
+        e.preventDefault();
         setPerfil(e.target.value);
     };
 
     const handleUbicacionChange = function (e) {
+        e.preventDefault();
         setUbicacion(e.target.value);
     };
 
     const handleDescripcionChange = function (e) {
+        e.preventDefault();
         setDescripcion(e.target.value);
     };
 
     const handleImagenChange = function (e) {
+        e.preventDefault();
         const file = e.target.files[0];
         setImageFile(file);
     };
@@ -189,6 +193,7 @@ function FillProfile() {
     };
 
     const finishFill = async function (e) {
+        e.preventDefault();
         try {
             const formData = new FormData();
             formData.append("image", imageFile);

@@ -7,6 +7,7 @@ function Likes({ user }) {
     const [jobLikes, setLikes] = useState([]);
 
     const goBack = function (e) {
+        e.preventDefault();
         setJobView(false);
     };
 

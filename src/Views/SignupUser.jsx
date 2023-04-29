@@ -14,22 +14,27 @@ function SignupUser() {
     const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
+        e.preventDefault();
         setEmail(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
+        e.preventDefault();
         setPassword(e.target.value);
     };
 
     const handleNameChange = (e) => {
+        e.preventDefault();
         setName(e.target.value);
     };
 
     const handleLastnameChange = (e) => {
+        e.preventDefault();
         setLastname(e.target.value);
     };
 
     const handleNumberChange = (e) => {
+        e.preventDefault();
         setNumber(e.target.value);
     };
 

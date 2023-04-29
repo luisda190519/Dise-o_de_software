@@ -8,6 +8,7 @@ function Posted({ user }) {
     const [postulados, setPostulados] = useState([]);
 
     const goBack = function (e) {
+        e.preventDefault();
         setJobView(false);
     };
 

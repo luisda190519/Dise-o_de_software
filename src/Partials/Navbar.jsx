@@ -30,18 +30,22 @@ function Navbar({ utils: { changeScreen, buttonActive }, user }) {
     };
 
     const goHome = function (e) {
+        e.preventDefault();
         return navigate("/home");
     };
 
     const typeTitulo = function (e) {
+        e.preventDefault();
         setTitulo(e.target.value);
     };
 
     const typeLugar = function (e) {
+        e.preventDefault();
         setLugar(e.target.value);
     };
 
     const searchJob = function (e) {
+        e.preventDefault();
         return navigate(
             "/jobs" +
                 (titulo.length !== 0 ? "/title/" + titulo : "") +

@@ -8,6 +8,7 @@ function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
     const navigate = useNavigate();
 
     const goHome = function (e) {
+        e.preventDefault();
         return navigate("/home");
     };
 

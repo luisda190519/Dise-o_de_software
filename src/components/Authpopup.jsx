@@ -4,6 +4,7 @@ function Authpopup({ setAuthpopup, setBlurScreen }) {
     const navigate = useNavigate();
 
     const deleteMe = function (e) {
+        e.preventDefault();
         setAuthpopup(false);
         setBlurScreen({})
     };

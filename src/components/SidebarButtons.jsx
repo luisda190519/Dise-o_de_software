@@ -4,14 +4,17 @@ function SidebarButtons({ id, type, changeScreen, buttonActive }) {
     const [active, setActive] = useState(false);
 
     const handleHover = function (e) {
+        e.preventDefault();
         e.target.classList.add("border");
     };
 
     const handleMouseLeave = function (e) {
+        e.preventDefault();
         e.target.classList.remove("border");
     };
 
     const handleClick = function (e) {
+        e.preventDefault();
         changeScreen(id);
     };
 
