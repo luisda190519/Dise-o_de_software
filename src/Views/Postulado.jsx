@@ -34,7 +34,7 @@ function Postulado({ user, jobID }) {
     };
 
     const respuestaAplicante = async function (e, elegido) {
-        if (elegido) {
+        if (elegido === 3) {
             setEstado("Usuario seleccionado");
             return changeState(3);
         }

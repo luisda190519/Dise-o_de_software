@@ -1,12 +1,14 @@
 import { postRequest, getRequest } from "../utils/request";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../utils/AuthContext";
 
 function Jobcard({ job, user }) {
     const [like, setLike] = useState(false);
     const [postulado, setPostulado] = useState(false);
     const [auth, setAuth] = useState(false);
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const postularEmpleo = async function (e) {
         if (auth) {
@@ -49,6 +51,7 @@ function Jobcard({ job, user }) {
             user = await getRequest("/auth/" + user._id);
             setPostulado(isJobIdInJobApplications());
             setAuth(true);
+            login(user)
             return setLike(isJobIdInJobLike());
         }
         return setAuth(false);
