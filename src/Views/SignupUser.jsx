@@ -33,6 +33,11 @@ function SignupUser() {
         setNumber(e.target.value);
     };
 
+    const nav = function(e, place){
+        e.preventDefault();
+        return navigate(place)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = await postRequest("/auth/signup", {
@@ -230,7 +235,8 @@ function SignupUser() {
                                         <a
                                             className="text-primary"
                                             style={{ cursor: "pointer" }}
-                                            href="/login"
+                                            onClick={e => nav(e, "/login")}
+
                                         >
                                             inicie sesion aqui
                                         </a>

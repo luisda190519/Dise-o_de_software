@@ -10,12 +10,19 @@ function LoginUser() {
     const { login } = useContext(AuthContext);
 
     const handleEmailChange = (e) => {
+        e.preventDefault();
         setEmail(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
+        e.preventDefault();
         setPassword(e.target.value);
     };
+
+    const nav = function(e, place){
+        e.preventDefault();
+        return navigate(place)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -101,7 +108,7 @@ function LoginUser() {
                                         <a
                                             className="text-primary"
                                             style={{ cursor: "pointer" }}
-                                            href="/signup"
+                                            onClick={e => nav(e, "/signup")}
                                         >
                                             registrese gratis aqui
                                         </a>
