@@ -12,6 +12,7 @@ function Sidebar({ utils: { changeScreen, buttonActive }, user, logout }) {
     };
 
     const handleLogout = function (e) {
+        e.preventDefault()
         logout();
         return navigate("/home");
     };
