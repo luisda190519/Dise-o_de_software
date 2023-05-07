@@ -341,7 +341,7 @@ function Navbar({ utils: { changeScreen, buttonActive }, user }) {
                     <div className="col-11">{getFilterDropdownButtons()}</div>
                 ) : (
                     <div
-                        className="col-11 d-flex justify-content-between"
+                        className="col-11 d-flex align-items-between"
                         id="navbar-part"
                     >
                         {getButtonGroup()}

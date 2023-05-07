@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const usuario = JSON.parse(localStorage.getItem("user"));
-        if (usuario !== null && Object.keys(usuario).length === 0) {
+        if (usuario !== null && Object.keys(usuario).length !== 0) {
             return setIsAuthenticated(usuario);
         }
         return setIsAuthenticated(false);

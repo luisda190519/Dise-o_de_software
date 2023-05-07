@@ -54,8 +54,12 @@ function Dashboard() {
 
     useEffect(() => {
         changeScreen(0);
-        setUser(userAuthenticated)
+        setUser(userAuthenticated);
     }, []);
+
+    useEffect(() => {
+        setUser(userAuthenticated);
+    });
 
     useEffect(() => {}, [screen, user]);
 

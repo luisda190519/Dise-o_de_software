@@ -9,6 +9,7 @@ body {
 
 #dashboard {
   background-color: #f6fbff;
+  height: 100%;
 }
 
 #announcements {
@@ -75,6 +76,8 @@ a:hover {
   background-color: #cae9ff;
   border-radius: 500px;
   height: 3.5rem;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 #applications {
