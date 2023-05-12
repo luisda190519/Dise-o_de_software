@@ -80,7 +80,7 @@ function Jobs({ user }) {
                             })}
                         </div>
                     </div>
-                    <div className="col-7">
+                    <div className="col-7" id="scrolleable">
                         <Jobcard job={jobFocus} user={usuario} />
                     </div>
                 </div>

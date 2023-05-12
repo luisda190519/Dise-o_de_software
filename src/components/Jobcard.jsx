@@ -64,7 +64,7 @@ function Jobcard({ job, user }) {
     }, [job, like]);
 
     return (
-        <div className="mx-3" id="scrolleable">
+        <div className="mx-3">
             <div className="card text-start">
                 <div className="card-body ms-3 mt-1">
                     <div className="row g-0">

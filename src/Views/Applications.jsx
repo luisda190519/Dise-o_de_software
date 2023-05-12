@@ -7,6 +7,7 @@ function Applications({ user }) {
     const [opcion, setOpcion] = useState(0);
     const [jobView, setJobView] = useState(false);
     const [applications, setApplications] = useState([]);
+    const [filterApplications, setFilterApplications] = useState([]);
     const buttonStyle1 = {
         backgroundColor: "#BEE9E8",
         border: "none",
@@ -20,8 +21,24 @@ function Applications({ user }) {
         "Lo sentimos, no has sido seleccionado para el empleo",
     ];
 
+    const filterAplicattions = function (state) {
+        let filteredArr = [];
+        for (let i = 0; i < applications.length; i++) {
+            if (applications[i].state === state) {
+                filteredArr.push(applications[i]);
+            }
+        }
+
+        if(state === 0){
+            return setFilterApplications(applications)
+        }
+
+        return setFilterApplications(filteredArr);
+    };
+
     const handleClick = function (e, op) {
         e.preventDefault();
+        filterAplicattions(op)
         setOpcion(op);
     };
 
@@ -41,11 +58,12 @@ function Applications({ user }) {
                 "/jobs/postulaciones/job/" + user._id
             );
             setApplications(apps);
+            filterApplications(apps);
         } catch (error) {}
     };
 
     const getApplicationsComponent = function () {
-        return applications.map((anuncio, key) => {
+        return filterApplications.map((anuncio, key) => {
             return (
                 <div
                     className="card me-4 mb-4 pt-3 px-4"
@@ -183,13 +201,6 @@ function Applications({ user }) {
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
-                            style={opcion == 1 ? buttonStyle1 : {}}
-                            onClick={(e) => handleClick(e, 1)}
-                        >
-                            Aplicadas
-                        </button>
-                        <button
-                            className="btn btn-outline-secondary rounded-pill me-3"
                             style={opcion == 2 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 2)}
                         >
@@ -200,7 +211,7 @@ function Applications({ user }) {
                             style={opcion == 3 ? buttonStyle1 : {}}
                             onClick={(e) => handleClick(e, 3)}
                         >
-                            En proceso
+                            Elegido
                         </button>
                         <button
                             className="btn btn-outline-secondary rounded-pill me-3"
@@ -212,7 +223,7 @@ function Applications({ user }) {
                     </div>
                     <div className="row gx-0 justify-content-start">
                         <div className="col-8">
-                            {applications.length !== 0 ? (
+                            {filterApplications.length !== 0 ? (
                                 getApplicationsComponent()
                             ) : (
                                 <div
