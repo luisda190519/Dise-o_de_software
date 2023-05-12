@@ -58,7 +58,7 @@ function Applications({ user }) {
                 "/jobs/postulaciones/job/" + user._id
             );
             setApplications(apps);
-            filterApplications(apps);
+            setFilterApplications(apps);
         } catch (error) {}
     };
 
