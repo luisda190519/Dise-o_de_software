@@ -236,7 +236,7 @@ function Home() {
                     </div>
                     <div className="col-6 d-flex justify-content-center align-items-center">
                         <img
-                            src="https://cp.ct-stc.com/web/20230328.12/c/img/encontrar_empleo.png"
+                            src="https://cp.ct-stc.com/web/v01.00.02.07/c/img/encontrar_empleo.webp"
                             className="img-fluid h-25vh"
                         />
                     </div>
